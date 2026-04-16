@@ -1,221 +1,171 @@
-/**
-* Template Name: Bootslander
-* Updated: Sep 18 2023 with Bootstrap v5.3.2
-* Template URL: https://bootstrapmade.com/bootslander-free-bootstrap-landing-page-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
-(function() {
-  "use strict";
+/* =====================================================================
+   MamoPedia AI - main.js
+   Vanilla JS for navigation, scroll effects, reveal, and form handling.
+   ===================================================================== */
 
-  /**
-   * Easy selector helper function
-   */
-  const select = (el, all = false) => {
-    el = el.trim()
-    if (all) {
-      return [...document.querySelectorAll(el)]
-    } else {
-      return document.querySelector(el)
-    }
-  }
+(() => {
+  'use strict';
 
-  /**
-   * Easy event listener function
-   */
-  const on = (type, el, listener, all = false) => {
-    let selectEl = select(el, all)
-    if (selectEl) {
-      if (all) {
-        selectEl.forEach(e => e.addEventListener(type, listener))
-      } else {
-        selectEl.addEventListener(type, listener)
-      }
-    }
-  }
+  const on = (el, ev, fn, opts) => el && el.addEventListener(ev, fn, opts);
+  const $ = (sel, root = document) => root.querySelector(sel);
+  const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
 
-  /**
-   * Easy on scroll event listener 
-   */
-  const onscroll = (el, listener) => {
-    el.addEventListener('scroll', listener)
-  }
+  /* --------- Current year in footer --------- */
+  const yearEl = $('#year');
+  if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
-  /**
-   * Navbar links active state on scroll
-   */
-  let navbarlinks = select('#navbar .scrollto', true)
-  const navbarlinksActive = () => {
-    let position = window.scrollY + 200
-    navbarlinks.forEach(navbarlink => {
-      if (!navbarlink.hash) return
-      let section = select(navbarlink.hash)
-      if (!section) return
-      if (position >= section.offsetTop && position <= (section.offsetTop + section.offsetHeight)) {
-        navbarlink.classList.add('active')
-      } else {
-        navbarlink.classList.remove('active')
-      }
-    })
-  }
-  window.addEventListener('load', navbarlinksActive)
-  onscroll(document, navbarlinksActive)
+  /* --------- Header scroll state --------- */
+  const header = $('#header');
+  const updateHeader = () => {
+    if (!header) return;
+    header.classList.toggle('is-scrolled', window.scrollY > 8);
+  };
+  updateHeader();
+  on(window, 'scroll', updateHeader, { passive: true });
 
-  /**
-   * Scrolls to an element with header offset
-   */
-  const scrollto = (el) => {
-    let header = select('#header')
-    let offset = header.offsetHeight
+  /* --------- Mobile menu --------- */
+  const menuBtn = $('#mobile-menu-btn');
+  const menu = $('#mobile-menu');
+  const closeMenu = () => {
+    if (!menu || !menuBtn) return;
+    menu.classList.add('hidden');
+    menuBtn.setAttribute('aria-expanded', 'false');
+    menuBtn.setAttribute('aria-label', 'Open menu');
+    const icon = menuBtn.querySelector('.material-symbols-rounded');
+    if (icon) icon.textContent = 'menu';
+  };
+  const openMenu = () => {
+    if (!menu || !menuBtn) return;
+    menu.classList.remove('hidden');
+    menuBtn.setAttribute('aria-expanded', 'true');
+    menuBtn.setAttribute('aria-label', 'Close menu');
+    const icon = menuBtn.querySelector('.material-symbols-rounded');
+    if (icon) icon.textContent = 'close';
+  };
 
-    if (!header.classList.contains('header-scrolled')) {
-      offset -= 20
-    }
-
-    let elementPos = select(el).offsetTop
-    window.scrollTo({
-      top: elementPos - offset,
-      behavior: 'smooth'
-    })
-  }
-
-  /**
-   * Toggle .header-scrolled class to #header when page is scrolled
-   */
-  let selectHeader = select('#header')
-  if (selectHeader) {
-    const headerScrolled = () => {
-      if (window.scrollY > 100) {
-        selectHeader.classList.add('header-scrolled')
-      } else {
-        selectHeader.classList.remove('header-scrolled')
-      }
-    }
-    window.addEventListener('load', headerScrolled)
-    onscroll(document, headerScrolled)
-  }
-
-  /**
-   * Back to top button
-   */
-  let backtotop = select('.back-to-top')
-  if (backtotop) {
-    const toggleBacktotop = () => {
-      if (window.scrollY > 100) {
-        backtotop.classList.add('active')
-      } else {
-        backtotop.classList.remove('active')
-      }
-    }
-    window.addEventListener('load', toggleBacktotop)
-    onscroll(document, toggleBacktotop)
-  }
-
-  /**
-   * Mobile nav toggle
-   */
-  on('click', '.mobile-nav-toggle', function(e) {
-    select('#navbar').classList.toggle('navbar-mobile')
-    this.classList.toggle('bi-list')
-    this.classList.toggle('bi-x')
-  })
-
-  /**
-   * Mobile nav dropdowns activate
-   */
-  on('click', '.navbar .dropdown > a', function(e) {
-    if (select('#navbar').classList.contains('navbar-mobile')) {
-      e.preventDefault()
-      this.nextElementSibling.classList.toggle('dropdown-active')
-    }
-  }, true)
-
-  /**
-   * Scrool with ofset on links with a class name .scrollto
-   */
-  on('click', '.scrollto', function(e) {
-    if (select(this.hash)) {
-      e.preventDefault()
-
-      let navbar = select('#navbar')
-      if (navbar.classList.contains('navbar-mobile')) {
-        navbar.classList.remove('navbar-mobile')
-        let navbarToggle = select('.mobile-nav-toggle')
-        navbarToggle.classList.toggle('bi-list')
-        navbarToggle.classList.toggle('bi-x')
-      }
-      scrollto(this.hash)
-    }
-  }, true)
-
-  /**
-   * Scroll with ofset on page load with hash links in the url
-   */
-  window.addEventListener('load', () => {
-    if (window.location.hash) {
-      if (select(window.location.hash)) {
-        scrollto(window.location.hash)
-      }
-    }
+  on(menuBtn, 'click', () => {
+    const expanded = menuBtn.getAttribute('aria-expanded') === 'true';
+    expanded ? closeMenu() : openMenu();
   });
 
-  /**
-   * Preloader
-   */
-  let preloader = select('#preloader');
-  if (preloader) {
-    window.addEventListener('load', () => {
-      preloader.remove()
+  // Close mobile menu when a link is clicked or viewport is resized
+  $$('#mobile-menu a').forEach((a) => on(a, 'click', closeMenu));
+  on(window, 'resize', () => {
+    if (window.innerWidth >= 768) closeMenu();
+  });
+  on(document, 'keydown', (e) => {
+    if (e.key === 'Escape') closeMenu();
+  });
+
+  /* --------- Active nav link highlight --------- */
+  const navLinks = $$('.nav-link');
+  const sections = $$('main section[id]');
+  const setActiveLink = (id) => {
+    navLinks.forEach((link) => {
+      const isActive = link.getAttribute('href') === `#${id}`;
+      link.classList.toggle('bg-primary-container', isActive);
+      link.classList.toggle('text-primary-onContainer', isActive);
+    });
+  };
+
+  if ('IntersectionObserver' in window && sections.length) {
+    const navObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActiveLink(entry.target.id);
+        });
+      },
+      { rootMargin: '-40% 0px -55% 0px', threshold: 0 }
+    );
+    sections.forEach((s) => navObserver.observe(s));
+  }
+
+  /* --------- Scroll reveal --------- */
+  const revealEls = $$('.reveal');
+  if ('IntersectionObserver' in window && revealEls.length) {
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -10% 0px' }
+    );
+    revealEls.forEach((el) => revealObserver.observe(el));
+  } else {
+    revealEls.forEach((el) => el.classList.add('is-visible'));
+  }
+
+  /* --------- Back to top --------- */
+  const backToTop = $('#back-to-top');
+  if (backToTop) {
+    const toggleBackToTop = () => {
+      backToTop.classList.toggle('is-visible', window.scrollY > 400);
+    };
+    toggleBackToTop();
+    on(window, 'scroll', toggleBackToTop, { passive: true });
+    on(backToTop, 'click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   }
 
-  /**
-   * Initiate glightbox
-   */
-  const glightbox = GLightbox({
-    selector: '.glightbox'
-  });
-
-  /**
-   * Initiate gallery lightbox 
-   */
-  const galleryLightbox = GLightbox({
-    selector: '.gallery-lightbox'
-  });
-
-  /**
-   * Testimonials slider
-   */
-  new Swiper('.testimonials-slider', {
-    speed: 600,
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false
-    },
-    slidesPerView: 'auto',
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
-      clickable: true
+  /* --------- Contact form (progressive enhancement, AJAX) --------- */
+  const form = $('#contact-form');
+  const status = $('#form-status');
+  on(form, 'submit', async (e) => {
+    if (!form) return;
+    // Native validation first
+    if (!form.checkValidity()) {
+      e.preventDefault();
+      form.reportValidity();
+      return;
+    }
+    e.preventDefault();
+    if (status) {
+      status.textContent = 'Sending your message...';
+      status.className = 'text-sm text-surface-onVariant';
+    }
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+      });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const text = await res.text();
+      const ok = text.trim().toUpperCase() === 'OK' || res.ok;
+      if (ok) {
+        form.reset();
+        if (status) {
+          status.textContent = 'Thanks! Your message has been sent.';
+          status.className = 'text-sm text-tertiary';
+          status.style.color = '#51643F';
+        }
+      } else {
+        throw new Error(text || 'Unknown error');
+      }
+    } catch (err) {
+      if (status) {
+        status.textContent = 'Sorry, something went wrong. Please email info@keyu.tech.';
+        status.style.color = '#B3261E';
+      }
     }
   });
 
-  /**
-   * Animation on scroll
-   */
-  window.addEventListener('load', () => {
-    AOS.init({
-      duration: 1000,
-      easing: 'ease-in-out',
-      once: true,
-      mirror: false
-    })
+  /* --------- Newsletter (local only, no backend wired) --------- */
+  const newsletter = $('#newsletter-form');
+  const newsletterStatus = $('#newsletter-status');
+  on(newsletter, 'submit', (e) => {
+    e.preventDefault();
+    if (!newsletter.checkValidity()) {
+      newsletter.reportValidity();
+      return;
+    }
+    newsletter.reset();
+    if (newsletterStatus) {
+      newsletterStatus.textContent = 'Thanks for subscribing!';
+    }
   });
-
-  /**
-   * Initiate Pure Counter 
-   */
-  new PureCounter();
-
-})()
+})();
