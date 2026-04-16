@@ -5,17 +5,17 @@
    ===================================================================== */
 
 :root {
-  --md-sys-color-primary: #386A20;
+  --md-sys-color-primary: #173d1c;
   --md-sys-color-on-primary: #FFFFFF;
-  --md-sys-color-primary-container: #B7F397;
-  --md-sys-color-on-primary-container: #0B2000;
+  --md-sys-color-primary-container: #d8ba8c;
+  --md-sys-color-on-primary-container: #5e4a2b;
   --md-sys-color-secondary: #6F5B40;
-  --md-sys-color-surface: #FFF8F3;
+  --md-sys-color-surface: #f6f6f6;
   --md-sys-color-surface-container: #F4EBDC;
   --md-sys-color-surface-container-lowest: #FFFFFF;
   --md-sys-color-on-surface: #1F1B16;
   --md-sys-color-on-surface-variant: #4F4539;
-  --md-sys-color-outline: #817567;
+  --md-sys-color-outline: #78725b;
   --md-sys-color-outline-variant: #D4C3B1;
 }
 
@@ -43,7 +43,7 @@ body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; 
   right: 0;
   height: 3px;
   z-index: 60;
-  background: linear-gradient(90deg, #B7F397 0%, #E8A33D 55%, #E07A3C 100%);
+  background: linear-gradient(90deg, #d8ba8c 0%, #78725b 55%, #5e4a2b 100%);
   transform: scaleX(var(--p, 0));
   transform-origin: left center;
   transition: transform 0.1s linear;
@@ -67,7 +67,7 @@ body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; 
   width: 22px;
   height: 2px;
   border-radius: 2px;
-  background: linear-gradient(90deg, #E8A33D, #E07A3C);
+  background: linear-gradient(90deg, #78725b, #5e4a2b);
 }
 
 /* Material Symbols base size */
@@ -103,7 +103,7 @@ body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; 
   color: var(--md-sys-color-on-surface);
   transition: background-color 0.2s ease, color 0.2s ease;
 }
-.nav-link:hover { background-color: rgba(56, 106, 32, 0.08); }
+.nav-link:hover { background-color: rgba(23, 61, 28, 0.08); }
 .nav-link:focus-visible {
   outline: 2px solid var(--md-sys-color-primary);
   outline-offset: 2px;
@@ -116,7 +116,7 @@ body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; 
   font-weight: 500;
   color: var(--md-sys-color-on-surface);
 }
-.nav-link-mobile:hover { background-color: rgba(56, 106, 32, 0.08); }
+.nav-link-mobile:hover { background-color: rgba(23, 61, 28, 0.08); }
 
 /* ---------------- M3 Buttons ---------------- */
 .btn-filled,
@@ -146,7 +146,7 @@ body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; 
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
 }
 .btn-filled:hover {
-  background-color: #2A5015;
+  background-color: #0e2612;
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.06), 0 2px 6px 2px rgb(0 0 0 / 0.10);
 }
 .btn-filled:active { transform: translateY(1px); }
@@ -162,7 +162,7 @@ body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; 
   background-color: transparent;
   border: 1px solid var(--md-sys-color-outline);
 }
-.btn-outlined:hover { background-color: rgba(56, 106, 32, 0.08); }
+.btn-outlined:hover { background-color: rgba(23, 61, 28, 0.08); }
 .btn-outlined:focus-visible {
   outline: 2px solid var(--md-sys-color-primary);
   outline-offset: 2px;
@@ -173,9 +173,9 @@ body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; 
   border-radius: 999px;
   color: var(--md-sys-color-on-primary-container);
   background-color: transparent;
-  border: 1px solid rgba(11, 32, 0, 0.3);
+  border: 1px solid rgba(94, 74, 43, 0.3);
 }
-.btn-outlined-on-container:hover { background-color: rgba(11, 32, 0, 0.08); }
+.btn-outlined-on-container:hover { background-color: rgba(94, 74, 43, 0.08); }
 
 .icon-btn {
   width: 2.75rem;
@@ -187,7 +187,7 @@ body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; 
   justify-content: center;
   padding: 0;
 }
-.icon-btn:hover { background-color: rgba(56, 106, 32, 0.08); }
+.icon-btn:hover { background-color: rgba(23, 61, 28, 0.08); }
 .icon-btn:focus-visible {
   outline: 2px solid var(--md-sys-color-primary);
   outline-offset: 2px;
@@ -227,7 +227,7 @@ body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; 
   pointer-events: none;
 }
 .feature-card:hover {
-  box-shadow: 0 8px 24px -10px rgba(56, 106, 32, 0.25), 0 2px 6px 0 rgb(0 0 0 / 0.06);
+  box-shadow: 0 8px 24px -10px rgba(23, 61, 28, 0.25), 0 2px 6px 0 rgb(0 0 0 / 0.06);
   transform: translateY(-4px);
   border-color: transparent;
 }
@@ -251,7 +251,7 @@ body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; 
   width: 3rem;
   height: 3rem;
   border-radius: 12px;
-  background: linear-gradient(135deg, #B7F397 0%, #FFD28A 100%);
+  background: linear-gradient(135deg, #d8ba8c 0%, #E8D5B0 100%);
   color: var(--md-sys-color-on-primary-container);
   margin-bottom: 1rem;
   box-shadow: 0 2px 6px -2px rgba(232,163,61,0.4);
@@ -278,7 +278,7 @@ body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; 
   background: #FFFFFF;
   border-radius: 24px;
   padding: 1.25rem;
-  box-shadow: 0 20px 60px -20px rgba(56, 106, 32, 0.25), 0 2px 8px 0 rgb(0 0 0 / 0.06);
+  box-shadow: 0 20px 60px -20px rgba(23, 61, 28, 0.25), 0 2px 8px 0 rgb(0 0 0 / 0.06);
   border: 1px solid var(--md-sys-color-outline-variant);
 }
 .chat-preview-header {
@@ -293,7 +293,7 @@ body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; 
   width: 36px;
   height: 36px;
   border-radius: 999px;
-  background: linear-gradient(135deg, #B7F397 0%, #E8A33D 100%);
+  background: linear-gradient(135deg, #d8ba8c 0%, #78725b 100%);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -341,7 +341,7 @@ body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; 
 }
 .chat-bubble.user {
   align-self: flex-end;
-  background: linear-gradient(135deg, #386A20 0%, #2A5015 100%);
+  background: linear-gradient(135deg, #173d1c 0%, #0e2612 100%);
   color: #FFFFFF;
   border-bottom-right-radius: 6px;
 }
@@ -427,7 +427,7 @@ body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; 
 }
 .stepper-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 24px -10px rgba(56, 106, 32, 0.2);
+  box-shadow: 0 8px 24px -10px rgba(23, 61, 28, 0.2);
   border-color: transparent;
 }
 .stepper-node {
@@ -437,7 +437,7 @@ body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; 
   width: 44px;
   height: 44px;
   border-radius: 999px;
-  background: linear-gradient(135deg, #386A20 0%, #E07A3C 100%);
+  background: linear-gradient(135deg, #173d1c 0%, #5e4a2b 100%);
   color: #FFFFFF;
   font-family: 'Roboto Serif', Georgia, serif;
   font-weight: 700;
@@ -494,7 +494,7 @@ body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; 
   line-height: 1.1;
   color: var(--md-sys-color-on-surface);
   font-variant-numeric: tabular-nums;
-  background: linear-gradient(135deg, #386A20 0%, #E07A3C 100%);
+  background: linear-gradient(135deg, #173d1c 0%, #5e4a2b 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -518,7 +518,7 @@ body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; 
 }
 .testimonial-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 28px -12px rgba(56, 106, 32, 0.2);
+  box-shadow: 0 10px 28px -12px rgba(23, 61, 28, 0.2);
 }
 .testimonial-card::before {
   content: "\201C";
@@ -528,7 +528,7 @@ body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; 
   font-family: 'Roboto Serif', Georgia, serif;
   font-size: 3.5rem;
   line-height: 1;
-  background: linear-gradient(135deg, #E8A33D 0%, #E07A3C 100%);
+  background: linear-gradient(135deg, #78725b 0%, #5e4a2b 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -594,7 +594,7 @@ body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; 
 .faq-item + .faq-item { margin-top: 0.75rem; }
 .faq-item[open] {
   border-color: var(--md-sys-color-primary-container);
-  box-shadow: 0 6px 18px -10px rgba(56, 106, 32, 0.2);
+  box-shadow: 0 6px 18px -10px rgba(23, 61, 28, 0.2);
 }
 .faq-item > summary {
   list-style: none;
@@ -655,7 +655,7 @@ body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; 
   height: 100%;
   border-radius: 22px;
   overflow: hidden;
-  background: #FFF8F3;
+  background: #f6f6f6;
 }
 .phone-screen img {
   width: 100%;
@@ -807,7 +807,7 @@ textarea.field-input { min-height: 7rem; line-height: 1.5; }
 /* ---------------- Section backdrop utilities ---------------- */
 .section-with-dots {
   background-color: var(--md-sys-color-surface);
-  background-image: radial-gradient(circle, rgba(56,106,32,0.06) 1px, transparent 1px);
+  background-image: radial-gradient(circle, rgba(23,61,28,0.06) 1px, transparent 1px);
   background-size: 24px 24px;
   background-position: 0 0;
 }
