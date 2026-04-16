@@ -82,6 +82,14 @@
 
   /* --------- Scroll reveal --------- */
   const revealEls = $$('.reveal');
+  // Pre-assign stagger index to children of .reveal-stagger (if not already inlined)
+  $$('.reveal-stagger').forEach((parent) => {
+    Array.from(parent.children).forEach((child, idx) => {
+      if (!child.style.getPropertyValue('--i')) {
+        child.style.setProperty('--i', idx);
+      }
+    });
+  });
   if ('IntersectionObserver' in window && revealEls.length) {
     const revealObserver = new IntersectionObserver(
       (entries) => {
@@ -97,6 +105,131 @@
     revealEls.forEach((el) => revealObserver.observe(el));
   } else {
     revealEls.forEach((el) => el.classList.add('is-visible'));
+  }
+
+  /* --------- Scroll progress bar --------- */
+  const progressEl = $('.scroll-progress');
+  if (progressEl) {
+    let ticking = false;
+    const updateProgress = () => {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      const p = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
+      progressEl.style.setProperty('--p', p);
+      ticking = false;
+    };
+    on(window, 'scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(updateProgress);
+        ticking = true;
+      }
+    }, { passive: true });
+    updateProgress();
+  }
+
+  /* --------- Stat counter animation --------- */
+  const statEls = $$('.stat-counter');
+  const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const animateStat = (el) => {
+    const target = parseInt(el.getAttribute('data-target') || '0', 10);
+    const suffix = el.getAttribute('data-suffix') || '';
+    if (reduceMotion) {
+      el.textContent = target.toLocaleString() + suffix;
+      return;
+    }
+    const duration = 1200;
+    const start = performance.now();
+    const tick = (now) => {
+      const t = Math.min(1, (now - start) / duration);
+      const eased = 1 - Math.pow(1 - t, 3);
+      const value = Math.round(target * eased);
+      el.textContent = value.toLocaleString() + suffix;
+      if (t < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  };
+  if ('IntersectionObserver' in window && statEls.length) {
+    const statObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          animateStat(entry.target);
+          statObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    statEls.forEach((el) => statObserver.observe(el));
+  } else {
+    statEls.forEach(animateStat);
+  }
+
+  /* --------- FAQ accordion smooth height (progressive enhancement) --------- */
+  $$('.faq-item').forEach((item) => {
+    on(item, 'toggle', () => {
+      if (reduceMotion) return;
+      const answer = item.querySelector('.faq-answer');
+      if (!answer) return;
+      if (item.open) {
+        answer.style.maxHeight = '0px';
+        answer.style.overflow = 'hidden';
+        requestAnimationFrame(() => {
+          answer.style.transition = 'max-height 0.3s ease';
+          answer.style.maxHeight = answer.scrollHeight + 'px';
+        });
+        answer.addEventListener('transitionend', function clear() {
+          answer.style.maxHeight = '';
+          answer.style.overflow = '';
+          answer.style.transition = '';
+          answer.removeEventListener('transitionend', clear);
+        });
+      }
+    });
+  });
+
+  /* --------- Chat preview auto-cycle --------- */
+  const chatStream = $('#chat-stream');
+  if (chatStream && !reduceMotion) {
+    const scripts = [
+      [
+        { role: 'user', text: 'ما هو قانون نيوتن الثاني؟', dir: 'rtl', lang: 'ar' },
+        { role: 'ai', html: "Newton's second law: <strong>F = m &middot; a</strong>. The force on an object equals its mass times its acceleration. Want a quick quiz?" },
+        { role: 'user', text: 'Yes, one question please.' },
+        { role: 'ai', html: '<span class="typing-dots" aria-hidden="true"><span></span><span></span><span></span></span>' },
+      ],
+      [
+        { role: 'user', text: 'چۆن فۆتۆسینتیسیس کار دەکات؟', dir: 'rtl', lang: 'ckb' },
+        { role: 'ai', html: "Plants turn <strong>sunlight + CO₂ + water</strong> into glucose and oxygen. Let's walk through the chemical equation together." },
+        { role: 'user', text: 'Show me the equation.' },
+        { role: 'ai', html: '<span class="typing-dots" aria-hidden="true"><span></span><span></span><span></span></span>' },
+      ],
+      [
+        { role: 'user', text: 'Help me solve: 2x + 5 = 17' },
+        { role: 'ai', html: "Subtract 5: <strong>2x = 12</strong>. Divide by 2: <strong>x = 6</strong>. Want to try one on your own?" },
+        { role: 'user', text: 'Yes, please!' },
+        { role: 'ai', html: '<span class="typing-dots" aria-hidden="true"><span></span><span></span><span></span></span>' },
+      ],
+    ];
+    let idx = 0;
+    let paused = false;
+    const render = () => {
+      chatStream.innerHTML = '';
+      scripts[idx].forEach((msg) => {
+        const b = document.createElement('div');
+        b.className = `chat-bubble ${msg.role}`;
+        if (msg.dir) b.setAttribute('dir', msg.dir);
+        if (msg.lang) b.setAttribute('lang', msg.lang);
+        if (msg.html) b.innerHTML = msg.html;
+        else b.textContent = msg.text;
+        chatStream.appendChild(b);
+      });
+    };
+    on(chatStream.parentElement, 'mouseenter', () => { paused = true; });
+    on(chatStream.parentElement, 'mouseleave', () => { paused = false; });
+    on(chatStream.parentElement, 'focusin', () => { paused = true; });
+    on(chatStream.parentElement, 'focusout', () => { paused = false; });
+    setInterval(() => {
+      if (paused) return;
+      idx = (idx + 1) % scripts.length;
+      render();
+    }, 5200);
   }
 
   /* --------- Back to top --------- */
@@ -115,46 +248,80 @@
   /* --------- Contact form (progressive enhancement, AJAX) --------- */
   const form = $('#contact-form');
   const status = $('#form-status');
-  on(form, 'submit', async (e) => {
-    if (!form) return;
-    // Native validation first
-    if (!form.checkValidity()) {
-      e.preventDefault();
-      form.reportValidity();
-      return;
-    }
-    e.preventDefault();
-    if (status) {
-      status.textContent = 'Sending your message...';
-      status.className = 'text-sm text-surface-onVariant';
-    }
-    try {
-      const res = await fetch(form.action, {
-        method: 'POST',
-        body: new FormData(form),
-      });
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      const text = await res.text();
-      const ok = text.trim().toUpperCase() === 'OK' || res.ok;
-      if (ok) {
-        form.reset();
-        if (status) {
-          status.textContent = 'Thanks! Your message has been sent.';
-          status.className = 'text-sm text-tertiary';
-          status.style.color = '#51643F';
+  const setStatus = (text, kind) => {
+    if (!status) return;
+    const icon = kind === 'ok' ? 'check_circle' : kind === 'err' ? 'error' : 'progress_activity';
+    status.className = 'form-status ' + (kind === 'ok' ? 'status-ok' : kind === 'err' ? 'status-err' : '');
+    status.innerHTML = text
+      ? `<span class="material-symbols-rounded" aria-hidden="true">${icon}</span><span>${text}</span>`
+      : '';
+  };
+  if (form) {
+    // Live validation affordance
+    $$('#contact-form .field-input').forEach((input) => {
+      on(input, 'blur', () => {
+        const parent = input.closest('.field');
+        if (!parent) return;
+        if (input.value && input.checkValidity()) {
+          parent.classList.add('field-state-ok');
+          parent.classList.remove('field-state-err');
+        } else if (!input.checkValidity() && input.value) {
+          parent.classList.add('field-state-err');
+          parent.classList.remove('field-state-ok');
+        } else {
+          parent.classList.remove('field-state-ok', 'field-state-err');
         }
-      } else {
-        throw new Error(text || 'Unknown error');
+      });
+    });
+    on(form, 'submit', async (e) => {
+      if (!form.checkValidity()) {
+        e.preventDefault();
+        const invalid = form.querySelector(':invalid');
+        if (invalid) {
+          invalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          invalid.focus({ preventScroll: true });
+        }
+        form.reportValidity();
+        return;
       }
-    } catch (err) {
-      if (status) {
-        status.textContent = 'Sorry, something went wrong. Please email info@keyu.tech.';
-        status.style.color = '#B3261E';
+      e.preventDefault();
+      setStatus('Sending your message...', 'pending');
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+        });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const text = await res.text();
+        const ok = text.trim().toUpperCase() === 'OK' || res.ok;
+        if (ok) {
+          form.reset();
+          $$('#contact-form .field').forEach((f) => f.classList.remove('field-state-ok', 'field-state-err'));
+          setStatus('Thanks! Your message has been sent.', 'ok');
+        } else {
+          throw new Error(text || 'Unknown error');
+        }
+      } catch (err) {
+        setStatus('Sorry, something went wrong. Please email info@keyu.tech.', 'err');
       }
-    }
-  });
+    });
+  }
 
-  /* --------- Newsletter (local only, no backend wired) --------- */
+  /* --------- Message character counter --------- */
+  const msgField = $('#message');
+  const msgCounter = $('#message-counter');
+  if (msgField && msgCounter) {
+    const max = parseInt(msgField.getAttribute('maxlength') || '1000', 10);
+    const update = () => {
+      const len = msgField.value.length;
+      msgCounter.textContent = `${len} / ${max}`;
+      msgCounter.classList.toggle('near', len > max * 0.9);
+    };
+    on(msgField, 'input', update);
+    update();
+  }
+
+  /* --------- Newsletter (honest disclaimer, no backend wired) --------- */
   const newsletter = $('#newsletter-form');
   const newsletterStatus = $('#newsletter-status');
   on(newsletter, 'submit', (e) => {
@@ -165,7 +332,7 @@
     }
     newsletter.reset();
     if (newsletterStatus) {
-      newsletterStatus.textContent = 'Thanks for subscribing!';
+      newsletterStatus.textContent = "Thanks - we've noted your interest and will email you when subscriptions open.";
     }
   });
 })();
