@@ -5,13 +5,13 @@
    ===================================================================== */
 
 :root {
-  /* Mamopedia student-facing surface: blue primary + coral accent.
+  /* Mamopedia student-facing surface: green primary + coral accent.
      One primary per surface — never combine with the teacher green. */
-  --md-sys-color-primary: #2C5FE6;
-  --md-sys-color-primary-hover: #1B47BD;
+  --md-sys-color-primary: #173d1c;
+  --md-sys-color-primary-hover: #0E2612;
   --md-sys-color-on-primary: #FFFFFF;
-  --md-sys-color-primary-container: #DDE6FF;
-  --md-sys-color-on-primary-container: #0E2A7E;
+  --md-sys-color-primary-container: #C9E5CC;
+  --md-sys-color-on-primary-container: #073018;
   --md-sys-color-accent-coral: #F76F5C;
   --md-sys-color-accent-coral-hover: #E2563F;
   --md-sys-color-on-accent-coral: #FFFFFF;
@@ -53,7 +53,7 @@ body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; 
   right: 0;
   height: 3px;
   z-index: 60;
-  background: linear-gradient(90deg, #2C5FE6 0%, #6A6AE6 55%, #F76F5C 100%);
+  background: linear-gradient(90deg, #173d1c 0%, #7A8F5A 55%, #F76F5C 100%);
   transform: scaleX(var(--p, 0));
   transform-origin: left center;
   transition: transform 0.1s linear;
@@ -113,7 +113,7 @@ body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; 
   color: var(--md-sys-color-on-surface);
   transition: background-color 0.2s ease, color 0.2s ease;
 }
-.nav-link:hover { background-color: rgba(44, 95, 230, 0.08); }
+.nav-link:hover { background-color: rgba(23, 61, 28, 0.08); }
 .nav-link:focus-visible {
   outline: 2px solid var(--md-sys-color-primary);
   outline-offset: 2px;
@@ -126,7 +126,7 @@ body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; 
   font-weight: 500;
   color: var(--md-sys-color-on-surface);
 }
-.nav-link-mobile:hover { background-color: rgba(44, 95, 230, 0.08); }
+.nav-link-mobile:hover { background-color: rgba(23, 61, 28, 0.08); }
 
 /* ---------------- M3 Buttons ---------------- */
 .btn-filled,
@@ -157,7 +157,7 @@ body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; 
 }
 .btn-filled:hover {
   background-color: var(--md-sys-color-primary-hover);
-  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.06), 0 6px 14px -4px rgba(44, 95, 230, 0.35);
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.06), 0 6px 14px -4px rgba(23, 61, 28, 0.35);
 }
 .btn-filled:active { transform: translateY(1px); }
 .btn-filled:focus-visible {
@@ -172,7 +172,7 @@ body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; 
   background-color: transparent;
   border: 1px solid var(--md-sys-color-outline);
 }
-.btn-outlined:hover { background-color: rgba(44, 95, 230, 0.08); }
+.btn-outlined:hover { background-color: rgba(23, 61, 28, 0.08); }
 .btn-outlined:focus-visible {
   outline: 2px solid var(--md-sys-color-primary);
   outline-offset: 2px;
@@ -188,7 +188,7 @@ body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; 
 .btn-outlined-on-container:hover { background-color: rgba(255, 255, 255, 0.22); }
 
 /* Filled button on the coloured CTA gradient — inverts to white-on-brand
-   for legibility against the blue→coral background. */
+   for legibility against the green→coral background. */
 .btn-filled-on-gradient {
   display: inline-flex;
   align-items: center;
@@ -207,7 +207,7 @@ body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; 
   transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease;
 }
 .btn-filled-on-gradient:hover {
-  background-color: #F6F1FF;
+  background-color: #EFF5EE;
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.06), 0 10px 22px -6px rgba(0, 0, 0, 0.2);
 }
 .btn-filled-on-gradient:active { transform: translateY(1px); }
@@ -226,7 +226,7 @@ body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; 
   justify-content: center;
   padding: 0;
 }
-.icon-btn:hover { background-color: rgba(44, 95, 230, 0.08); }
+.icon-btn:hover { background-color: rgba(23, 61, 28, 0.08); }
 .icon-btn:focus-visible {
   outline: 2px solid var(--md-sys-color-primary);
   outline-offset: 2px;
@@ -260,13 +260,13 @@ body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; 
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  background: linear-gradient(135deg, rgba(44, 95, 230, 0) 0%, rgba(247, 111, 92, 0.10) 100%);
+  background: linear-gradient(135deg, rgba(23, 61, 28, 0) 0%, rgba(247, 111, 92, 0.10) 100%);
   opacity: 0;
   transition: opacity 0.25s ease;
   pointer-events: none;
 }
 .feature-card:hover {
-  box-shadow: 0 8px 24px -10px rgba(44, 95, 230, 0.25), 0 2px 6px 0 rgb(0 0 0 / 0.06);
+  box-shadow: 0 8px 24px -10px rgba(23, 61, 28, 0.25), 0 2px 6px 0 rgb(0 0 0 / 0.06);
   transform: translateY(-4px);
   border-color: transparent;
 }
@@ -290,10 +290,10 @@ body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; 
   width: 3rem;
   height: 3rem;
   border-radius: 12px;
-  background: linear-gradient(135deg, var(--md-sys-color-primary-container) 0%, #EAF0FF 100%);
+  background: linear-gradient(135deg, var(--md-sys-color-primary-container) 0%, #E4F2E6 100%);
   color: var(--md-sys-color-on-primary-container);
   margin-bottom: 1rem;
-  box-shadow: 0 2px 6px -2px rgba(44, 95, 230, 0.3);
+  box-shadow: 0 2px 6px -2px rgba(23, 61, 28, 0.3);
 }
 .feature-icon .material-symbols-rounded { font-size: 26px; }
 
@@ -317,7 +317,7 @@ body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; 
   background: #FFFFFF;
   border-radius: 24px;
   padding: 1.25rem;
-  box-shadow: 0 20px 60px -20px rgba(44, 95, 230, 0.25), 0 2px 8px 0 rgb(0 0 0 / 0.06);
+  box-shadow: 0 20px 60px -20px rgba(23, 61, 28, 0.25), 0 2px 8px 0 rgb(0 0 0 / 0.06);
   border: 1px solid var(--md-sys-color-outline-variant);
 }
 .chat-preview-header {
@@ -441,7 +441,7 @@ body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; 
 .decor-blob {
   position: absolute;
   inset: -20% -10% -10% -10%;
-  background: radial-gradient(600px 400px at 20% 30%, rgba(44, 95, 230, 0.18) 0%, transparent 60%),
+  background: radial-gradient(600px 400px at 20% 30%, rgba(23, 61, 28, 0.18) 0%, transparent 60%),
               radial-gradient(500px 400px at 80% 70%, rgba(247, 111, 92, 0.20) 0%, transparent 60%);
   filter: blur(20px);
   pointer-events: none;
@@ -489,7 +489,7 @@ body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; 
 }
 .stepper-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 24px -10px rgba(44, 95, 230, 0.2);
+  box-shadow: 0 8px 24px -10px rgba(23, 61, 28, 0.2);
   border-color: transparent;
 }
 .stepper-node {
@@ -579,7 +579,7 @@ body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; 
 }
 .testimonial-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 28px -12px rgba(44, 95, 230, 0.2);
+  box-shadow: 0 10px 28px -12px rgba(23, 61, 28, 0.2);
 }
 .testimonial-card::before {
   content: "\201C";
@@ -655,7 +655,7 @@ body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; 
 .faq-item + .faq-item { margin-top: 0.75rem; }
 .faq-item[open] {
   border-color: var(--md-sys-color-primary-container);
-  box-shadow: 0 6px 18px -10px rgba(44, 95, 230, 0.2);
+  box-shadow: 0 6px 18px -10px rgba(23, 61, 28, 0.2);
 }
 .faq-item > summary {
   list-style: none;
@@ -868,7 +868,7 @@ textarea.field-input { min-height: 7rem; line-height: 1.5; }
 /* ---------------- Section backdrop utilities ---------------- */
 .section-with-dots {
   background-color: var(--md-sys-color-surface);
-  background-image: radial-gradient(circle, rgba(44, 95, 230, 0.07) 1px, transparent 1px);
+  background-image: radial-gradient(circle, rgba(23, 61, 28, 0.07) 1px, transparent 1px);
   background-size: 24px 24px;
   background-position: 0 0;
 }
