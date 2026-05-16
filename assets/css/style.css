@@ -1,32 +1,32 @@
 /* =====================================================================
-   MamoPedia AI - Material Design 3 supporting styles
-   Works alongside TailwindCSS (see tailwind.config in index.html).
-   Keep this file minimal - prefer utility classes in markup.
+   MamoPedia AI - Marketing-site supporting styles
+   Works alongside TailwindCSS (see tailwind.config in index.html) and the
+   shared design tokens in `mamopedia-tokens.css` (load that file first).
+   The aliases below bridge legacy `--md-sys-color-*` selectors used in
+   this stylesheet to the canonical design-system tokens.
    ===================================================================== */
 
 :root {
-  /* Mamopedia student-facing surface: blue primary + coral accent.
-     One primary per surface — never combine with the teacher green. */
-  --md-sys-color-primary: #2C5FE6;
-  --md-sys-color-primary-hover: #1B47BD;
+  --md-sys-color-primary: var(--primary);
+  --md-sys-color-primary-hover: var(--primary-hover);
   --md-sys-color-on-primary: #FFFFFF;
-  --md-sys-color-primary-container: #DDE6FF;
-  --md-sys-color-on-primary-container: #0E2A7E;
-  --md-sys-color-accent-coral: #F76F5C;
-  --md-sys-color-accent-coral-hover: #E2563F;
+  --md-sys-color-primary-container: var(--primary-soft);
+  --md-sys-color-on-primary-container: var(--primary-ink);
+  --md-sys-color-accent-coral: var(--accent-warm);
+  --md-sys-color-accent-coral-hover: var(--coral-600);
   --md-sys-color-on-accent-coral: #FFFFFF;
-  --md-sys-color-accent-coral-container: #FFDDD4;
-  --md-sys-color-on-accent-coral-container: #5B1909;
-  --md-sys-color-surface: #FBF8F3;
-  --md-sys-color-surface-container-lowest: #FFFFFF;
-  --md-sys-color-surface-container-low: #FFFFFF;
-  --md-sys-color-surface-container: #F3EDE3;
-  --md-sys-color-surface-container-high: #E9E1D1;
-  --md-sys-color-on-surface: #1F1B16;
-  --md-sys-color-on-surface-variant: #5A5346;
-  --md-sys-color-outline: #8C8472;
-  --md-sys-color-outline-variant: #D9D0BD;
-  --md-sys-color-success: #2E7D3B;
+  --md-sys-color-accent-coral-container: var(--accent-warm-soft);
+  --md-sys-color-on-accent-coral-container: var(--accent-warm-ink);
+  --md-sys-color-surface: var(--bg);
+  --md-sys-color-surface-container-lowest: var(--bg-raised);
+  --md-sys-color-surface-container-low: var(--bg-raised);
+  --md-sys-color-surface-container: var(--bg-muted);
+  --md-sys-color-surface-container-high: var(--paper-3);
+  --md-sys-color-on-surface: var(--fg);
+  --md-sys-color-on-surface-variant: var(--fg-2);
+  --md-sys-color-outline: var(--line-strong);
+  --md-sys-color-outline-variant: var(--line);
+  --md-sys-color-success: var(--success);
 }
 
 /* Base tweaks */
@@ -53,7 +53,7 @@ body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; 
   right: 0;
   height: 3px;
   z-index: 60;
-  background: linear-gradient(90deg, #2C5FE6 0%, #6A6AE6 55%, #F76F5C 100%);
+  background: linear-gradient(90deg, #7EA377 0%, #B8946F 55%, #F88672 100%);
   transform: scaleX(var(--p, 0));
   transform-origin: left center;
   transition: transform 0.1s linear;
@@ -91,13 +91,13 @@ body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; 
 
 /* ---------------- Top app bar ---------------- */
 #header {
-  background-color: rgba(251, 248, 243, 0);
+  background-color: rgba(250, 250, 247, 0);
   backdrop-filter: saturate(180%) blur(0px);
   -webkit-backdrop-filter: saturate(180%) blur(0px);
   transition: background-color 0.2s ease, border-color 0.2s ease, backdrop-filter 0.2s ease;
 }
 #header.is-scrolled {
-  background-color: rgba(251, 248, 243, 0.88);
+  background-color: rgba(250, 250, 247, 0.88);
   backdrop-filter: saturate(180%) blur(12px);
   -webkit-backdrop-filter: saturate(180%) blur(12px);
   border-bottom: 1px solid var(--md-sys-color-outline-variant);
@@ -113,7 +113,7 @@ body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; 
   color: var(--md-sys-color-on-surface);
   transition: background-color 0.2s ease, color 0.2s ease;
 }
-.nav-link:hover { background-color: rgba(44, 95, 230, 0.08); }
+.nav-link:hover { background-color: rgba(126, 163, 119, 0.08); }
 .nav-link:focus-visible {
   outline: 2px solid var(--md-sys-color-primary);
   outline-offset: 2px;
@@ -126,7 +126,7 @@ body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; 
   font-weight: 500;
   color: var(--md-sys-color-on-surface);
 }
-.nav-link-mobile:hover { background-color: rgba(44, 95, 230, 0.08); }
+.nav-link-mobile:hover { background-color: rgba(126, 163, 119, 0.08); }
 
 /* ---------------- M3 Buttons ---------------- */
 .btn-filled,
@@ -157,7 +157,7 @@ body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; 
 }
 .btn-filled:hover {
   background-color: var(--md-sys-color-primary-hover);
-  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.06), 0 6px 14px -4px rgba(44, 95, 230, 0.35);
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.06), 0 6px 14px -4px rgba(126, 163, 119, 0.35);
 }
 .btn-filled:active { transform: translateY(1px); }
 .btn-filled:focus-visible {
@@ -172,7 +172,7 @@ body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; 
   background-color: transparent;
   border: 1px solid var(--md-sys-color-outline);
 }
-.btn-outlined:hover { background-color: rgba(44, 95, 230, 0.08); }
+.btn-outlined:hover { background-color: rgba(126, 163, 119, 0.08); }
 .btn-outlined:focus-visible {
   outline: 2px solid var(--md-sys-color-primary);
   outline-offset: 2px;
@@ -188,7 +188,7 @@ body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; 
 .btn-outlined-on-container:hover { background-color: rgba(255, 255, 255, 0.22); }
 
 /* Filled button on the coloured CTA gradient — inverts to white-on-brand
-   for legibility against the blue→coral background. */
+   for legibility against the green→coral background. */
 .btn-filled-on-gradient {
   display: inline-flex;
   align-items: center;
@@ -207,7 +207,7 @@ body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; 
   transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease;
 }
 .btn-filled-on-gradient:hover {
-  background-color: #F6F1FF;
+  background-color: #F1F5EF;
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.06), 0 10px 22px -6px rgba(0, 0, 0, 0.2);
 }
 .btn-filled-on-gradient:active { transform: translateY(1px); }
@@ -226,7 +226,7 @@ body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; 
   justify-content: center;
   padding: 0;
 }
-.icon-btn:hover { background-color: rgba(44, 95, 230, 0.08); }
+.icon-btn:hover { background-color: rgba(126, 163, 119, 0.08); }
 .icon-btn:focus-visible {
   outline: 2px solid var(--md-sys-color-primary);
   outline-offset: 2px;
@@ -260,13 +260,13 @@ body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; 
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  background: linear-gradient(135deg, rgba(44, 95, 230, 0) 0%, rgba(247, 111, 92, 0.10) 100%);
+  background: linear-gradient(135deg, rgba(126, 163, 119, 0) 0%, rgba(248, 134, 114, 0.10) 100%);
   opacity: 0;
   transition: opacity 0.25s ease;
   pointer-events: none;
 }
 .feature-card:hover {
-  box-shadow: 0 8px 24px -10px rgba(44, 95, 230, 0.25), 0 2px 6px 0 rgb(0 0 0 / 0.06);
+  box-shadow: 0 8px 24px -10px rgba(126, 163, 119, 0.25), 0 2px 6px 0 rgb(0 0 0 / 0.06);
   transform: translateY(-4px);
   border-color: transparent;
 }
@@ -274,7 +274,7 @@ body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; 
 
 .feature-index {
   display: block;
-  font-family: 'Roboto Serif', Georgia, serif;
+  font-family: 'Noto Kufi Arabic', 'Tajawal', system-ui, sans-serif;
   font-size: 0.875rem;
   font-weight: 600;
   letter-spacing: 0.05em;
@@ -290,15 +290,15 @@ body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; 
   width: 3rem;
   height: 3rem;
   border-radius: 12px;
-  background: linear-gradient(135deg, var(--md-sys-color-primary-container) 0%, #EAF0FF 100%);
+  background: linear-gradient(135deg, var(--md-sys-color-primary-container) 0%, #F1F5EF 100%);
   color: var(--md-sys-color-on-primary-container);
   margin-bottom: 1rem;
-  box-shadow: 0 2px 6px -2px rgba(44, 95, 230, 0.3);
+  box-shadow: 0 2px 6px -2px rgba(126, 163, 119, 0.3);
 }
 .feature-icon .material-symbols-rounded { font-size: 26px; }
 
 .feature-title {
-  font-family: 'Roboto Serif', Georgia, serif;
+  font-family: 'Noto Kufi Arabic', 'Tajawal', system-ui, sans-serif;
   font-size: 1.25rem;
   font-weight: 600;
   color: var(--md-sys-color-on-surface);
@@ -317,7 +317,7 @@ body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; 
   background: #FFFFFF;
   border-radius: 24px;
   padding: 1.25rem;
-  box-shadow: 0 20px 60px -20px rgba(44, 95, 230, 0.25), 0 2px 8px 0 rgb(0 0 0 / 0.06);
+  box-shadow: 0 20px 60px -20px rgba(126, 163, 119, 0.25), 0 2px 8px 0 rgb(0 0 0 / 0.06);
   border: 1px solid var(--md-sys-color-outline-variant);
 }
 .chat-preview-header {
@@ -441,8 +441,8 @@ body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; 
 .decor-blob {
   position: absolute;
   inset: -20% -10% -10% -10%;
-  background: radial-gradient(600px 400px at 20% 30%, rgba(44, 95, 230, 0.18) 0%, transparent 60%),
-              radial-gradient(500px 400px at 80% 70%, rgba(247, 111, 92, 0.20) 0%, transparent 60%);
+  background: radial-gradient(600px 400px at 20% 30%, rgba(126, 163, 119, 0.18) 0%, transparent 60%),
+              radial-gradient(500px 400px at 80% 70%, rgba(248, 134, 114, 0.20) 0%, transparent 60%);
   filter: blur(20px);
   pointer-events: none;
   z-index: 0;
@@ -489,7 +489,7 @@ body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; 
 }
 .stepper-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 24px -10px rgba(44, 95, 230, 0.2);
+  box-shadow: 0 8px 24px -10px rgba(126, 163, 119, 0.2);
   border-color: transparent;
 }
 .stepper-node {
@@ -501,13 +501,13 @@ body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; 
   border-radius: 999px;
   background: linear-gradient(135deg, var(--md-sys-color-primary) 0%, var(--md-sys-color-accent-coral) 100%);
   color: #FFFFFF;
-  font-family: 'Roboto Serif', Georgia, serif;
+  font-family: 'Noto Kufi Arabic', 'Tajawal', system-ui, sans-serif;
   font-weight: 700;
   font-size: 1.0625rem;
-  box-shadow: 0 6px 18px -6px rgba(247, 111, 92, 0.5);
+  box-shadow: 0 6px 18px -6px rgba(248, 134, 114, 0.5);
 }
 .stepper-card .stepper-title {
-  font-family: 'Roboto Serif', Georgia, serif;
+  font-family: 'Noto Kufi Arabic', 'Tajawal', system-ui, sans-serif;
   font-size: 1.25rem;
   font-weight: 600;
   color: var(--md-sys-color-on-surface);
@@ -550,7 +550,7 @@ body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; 
 }
 .stat-counter {
   display: block;
-  font-family: 'Roboto Serif', Georgia, serif;
+  font-family: 'Noto Kufi Arabic', 'Tajawal', system-ui, sans-serif;
   font-size: 2.25rem;
   font-weight: 700;
   line-height: 1.1;
@@ -579,14 +579,14 @@ body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; 
 }
 .testimonial-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 28px -12px rgba(44, 95, 230, 0.2);
+  box-shadow: 0 10px 28px -12px rgba(126, 163, 119, 0.2);
 }
 .testimonial-card::before {
   content: "\201C";
   position: absolute;
   top: 0.25rem;
   inset-inline-start: 1.25rem;
-  font-family: 'Roboto Serif', Georgia, serif;
+  font-family: 'Noto Kufi Arabic', 'Tajawal', system-ui, sans-serif;
   font-size: 3.5rem;
   line-height: 1;
   background: linear-gradient(135deg, var(--md-sys-color-primary) 0%, var(--md-sys-color-accent-coral) 100%);
@@ -655,7 +655,7 @@ body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; 
 .faq-item + .faq-item { margin-top: 0.75rem; }
 .faq-item[open] {
   border-color: var(--md-sys-color-primary-container);
-  box-shadow: 0 6px 18px -10px rgba(44, 95, 230, 0.2);
+  box-shadow: 0 6px 18px -10px rgba(126, 163, 119, 0.2);
 }
 .faq-item > summary {
   list-style: none;
@@ -665,7 +665,7 @@ body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; 
   align-items: center;
   gap: 1rem;
   font-weight: 600;
-  font-family: 'Roboto Serif', Georgia, serif;
+  font-family: 'Noto Kufi Arabic', 'Tajawal', system-ui, sans-serif;
   font-size: 1.0625rem;
   color: var(--md-sys-color-on-surface);
 }
@@ -702,7 +702,7 @@ body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; 
   width: 180px;
   aspect-ratio: 9 / 19;
   border-radius: 28px;
-  background: #1F1B16;
+  background: #1E1E1E;
   padding: 8px;
   scroll-snap-align: center;
   box-shadow: 0 14px 40px -14px rgba(0,0,0,0.35);
@@ -868,7 +868,7 @@ textarea.field-input { min-height: 7rem; line-height: 1.5; }
 /* ---------------- Section backdrop utilities ---------------- */
 .section-with-dots {
   background-color: var(--md-sys-color-surface);
-  background-image: radial-gradient(circle, rgba(44, 95, 230, 0.07) 1px, transparent 1px);
+  background-image: radial-gradient(circle, rgba(126, 163, 119, 0.07) 1px, transparent 1px);
   background-size: 24px 24px;
   background-position: 0 0;
 }

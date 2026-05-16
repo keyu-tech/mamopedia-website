@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" data-theme="light" class="scroll-smooth">
 
 <head>
   <meta charset="utf-8">
@@ -12,7 +12,7 @@
   <meta name="keywords" content="MamoPedia, MamoPedia AI, AI learning Iraq, Iraqi students, homework help, AI tutor, Arabic learning app, Kurdish learning app, Iraqi curriculum, AI quizzes, KeyU.Tech, EdTech Iraq, chat-based learning, educational AI">
   <meta name="author" content="KeyU.Tech">
   <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#2C5FE6">
+  <meta name="theme-color" content="#7EA377">
   <meta name="color-scheme" content="light dark">
 
   <!-- Canonical URL -->
@@ -40,10 +40,10 @@
   <link href="assets/img/mamo.png" rel="icon">
   <link href="assets/img/mamo.png" rel="apple-touch-icon">
 
-  <!-- Fonts: Roboto Flex (M3) + Roboto Serif for display -->
+  <!-- Fonts: Noto Kufi Arabic (single typeface, all languages) + JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,300..700&family=Roboto+Serif:opsz,wght@8..144,400..700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <!-- Material Symbols -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0">
@@ -59,38 +59,38 @@
             xs: '420px',
           },
           fontFamily: {
-            sans: ['"Roboto Flex"', 'system-ui', 'sans-serif'],
-            display: ['"Roboto Serif"', 'Georgia', 'serif'],
+            sans: ['"Noto Kufi Arabic"', 'Tajawal', 'system-ui', 'sans-serif'],
+            display: ['"Noto Kufi Arabic"', 'Tajawal', 'system-ui', 'sans-serif'],
           },
           colors: {
-            // Mamopedia student-facing surface: blue primary + coral accent.
+            // Mamopedia student-facing surface: green primary + coral accent.
             primary: {
-              DEFAULT: '#2C5FE6',
+              DEFAULT: '#7EA377',
               on: '#FFFFFF',
-              container: '#DDE6FF',
-              onContainer: '#0E2A7E',
+              container: '#E0E9DD',
+              onContainer: '#3F6139',
             },
             coral: {
-              DEFAULT: '#F76F5C',
+              DEFAULT: '#F88672',
               on: '#FFFFFF',
-              container: '#FFDDD4',
-              onContainer: '#5B1909',
+              container: '#FDE3DC',
+              onContainer: '#B84A37',
             },
             surface: {
-              DEFAULT: '#FBF8F3',
+              DEFAULT: '#FAFAF7',
               dim: '#EFE9DD',
               bright: '#FFFFFF',
-              container: '#F3EDE3',
+              container: '#F3F2EC',
               containerLow: '#FFFFFF',
               containerLowest: '#FFFFFF',
-              containerHigh: '#E9E1D1',
+              containerHigh: '#E8E7DF',
               containerHighest: '#DED5C2',
-              on: '#1F1B16',
-              onVariant: '#5A5346',
+              on: '#1E1E1E',
+              onVariant: '#3A3A3A',
             },
             outline: {
-              DEFAULT: '#8C8472',
-              variant: '#D9D0BD',
+              DEFAULT: '#C9C7BC',
+              variant: '#E2E1D8',
             },
             success: '#2E7D3B',
           },
@@ -109,11 +109,11 @@
             'm1': '0 1px 2px 0 rgb(0 0 0 / 0.05), 0 1px 3px 1px rgb(0 0 0 / 0.08)',
             'm2': '0 1px 2px 0 rgb(0 0 0 / 0.06), 0 2px 6px 2px rgb(0 0 0 / 0.10)',
             'm3': '0 1px 3px 0 rgb(0 0 0 / 0.08), 0 4px 8px 3px rgb(0 0 0 / 0.12)',
-            'glow-primary': '0 18px 48px -12px rgba(44, 95, 230, 0.45)',
+            'glow-primary': '0 18px 48px -12px rgba(126, 163, 119, 0.45)',
             'inner-soft': 'inset 0 1px 0 rgba(255,255,255,0.6)',
           },
           backgroundImage: {
-            'accent-gradient': 'linear-gradient(135deg, #2C5FE6 0%, #6A6AE6 55%, #F76F5C 100%)',
+            'accent-gradient': 'linear-gradient(135deg, #7EA377 0%, #B8946F 55%, #F88672 100%)',
             'hero-radial': 'radial-gradient(1000px 600px at 20% -10%, rgba(221, 230, 255, 0.9) 0%, transparent 60%), radial-gradient(800px 500px at 110% 10%, rgba(255, 221, 212, 0.85) 0%, transparent 55%)',
             'grid-dots': 'radial-gradient(circle, rgba(255, 255, 255, 0.22) 1px, transparent 1px)',
           },
@@ -153,6 +153,7 @@
   </script>
 
   <!-- Custom supporting styles -->
+  <link href="assets/css/mamopedia-tokens.css" rel="stylesheet">
   <link href="assets/css/style.css" rel="stylesheet">
 </head>
 
@@ -215,7 +216,7 @@
             </span>
             <h1 class="mt-6 font-display text-4xl sm:text-5xl lg:text-6xl leading-tight tracking-tight text-surface-on">
               Unlock Smarter Learning with
-              <span class="bg-clip-text text-transparent" style="background-image:linear-gradient(135deg,#2C5FE6 0%,#F76F5C 100%);-webkit-background-clip:text;">MamoPedia AI</span>
+              <span class="bg-clip-text text-transparent" style="background-image:linear-gradient(135deg,#7EA377 0%,#F88672 100%);-webkit-background-clip:text;">MamoPedia AI</span>
             </h1>
             <p class="mt-6 text-lg sm:text-xl text-surface-onVariant max-w-2xl leading-relaxed">
               A friendly, chat-based learning companion designed specifically for Iraqi students.
@@ -543,12 +544,12 @@
                   <!-- Decorative QR code (not scannable - stylized) -->
                   <svg width="72" height="72" viewBox="0 0 72 72" fill="currentColor" class="text-surface-on block">
                     <rect width="72" height="72" fill="#FFFFFF"/>
-                    <g fill="#1F1B16">
-                      <rect x="4" y="4" width="20" height="20" fill="none" stroke="#1F1B16" stroke-width="4"/>
+                    <g fill="#1E1E1E">
+                      <rect x="4" y="4" width="20" height="20" fill="none" stroke="#1E1E1E" stroke-width="4"/>
                       <rect x="12" y="12" width="4" height="4"/>
-                      <rect x="48" y="4" width="20" height="20" fill="none" stroke="#1F1B16" stroke-width="4"/>
+                      <rect x="48" y="4" width="20" height="20" fill="none" stroke="#1E1E1E" stroke-width="4"/>
                       <rect x="56" y="12" width="4" height="4"/>
-                      <rect x="4" y="48" width="20" height="20" fill="none" stroke="#1F1B16" stroke-width="4"/>
+                      <rect x="4" y="48" width="20" height="20" fill="none" stroke="#1E1E1E" stroke-width="4"/>
                       <rect x="12" y="56" width="4" height="4"/>
                       <rect x="30" y="8" width="4" height="4"/>
                       <rect x="36" y="14" width="4" height="4"/>
