@@ -187,21 +187,26 @@
   /* --------- Chat preview auto-cycle --------- */
   const chatStream = $('#chat-stream');
   if (chatStream && !reduceMotion) {
+    const pill = (label) =>
+      `<span class="material-symbols-rounded" aria-hidden="true">menu_book</span>${label}`;
     const scripts = [
       [
         { role: 'user', text: 'ما هو قانون نيوتن الثاني؟', dir: 'rtl', lang: 'ar' },
+        { role: 'pill', html: pill('Grade 9 · Physics · Ch 3') },
         { role: 'ai', html: "Newton's second law: <strong>F = m &middot; a</strong>. The force on an object equals its mass times its acceleration. Want a quick quiz?" },
         { role: 'user', text: 'Yes, one question please.' },
         { role: 'ai', html: '<span class="typing-dots" aria-hidden="true"><span></span><span></span><span></span></span>' },
       ],
       [
         { role: 'user', text: 'چۆن فۆتۆسینتیسیس کار دەکات؟', dir: 'rtl', lang: 'ckb' },
+        { role: 'pill', html: pill('Grade 7 · Biology · Ch 5') },
         { role: 'ai', html: "Plants turn <strong>sunlight + CO₂ + water</strong> into glucose and oxygen. Let's walk through the chemical equation together." },
         { role: 'user', text: 'Show me the equation.' },
         { role: 'ai', html: '<span class="typing-dots" aria-hidden="true"><span></span><span></span><span></span></span>' },
       ],
       [
         { role: 'user', text: 'Help me solve: 2x + 5 = 17' },
+        { role: 'pill', html: pill('Grade 8 · Math · Ch 2') },
         { role: 'ai', html: "Subtract 5: <strong>2x = 12</strong>. Divide by 2: <strong>x = 6</strong>. Want to try one on your own?" },
         { role: 'user', text: 'Yes, please!' },
         { role: 'ai', html: '<span class="typing-dots" aria-hidden="true"><span></span><span></span><span></span></span>' },
@@ -212,8 +217,10 @@
     const render = () => {
       chatStream.innerHTML = '';
       scripts[idx].forEach((msg) => {
-        const b = document.createElement('div');
-        b.className = `chat-bubble ${msg.role}`;
+        const isPill = msg.role === 'pill';
+        const tag = isPill ? 'span' : 'div';
+        const b = document.createElement(tag);
+        b.className = isPill ? 'curriculum-pill' : `chat-bubble ${msg.role}`;
         if (msg.dir) b.setAttribute('dir', msg.dir);
         if (msg.lang) b.setAttribute('lang', msg.lang);
         if (msg.html) b.innerHTML = msg.html;
