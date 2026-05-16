@@ -91,16 +91,20 @@ body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; 
 
 /* ---------------- Top app bar ---------------- */
 #header {
-  background-color: rgba(250, 250, 247, 0);
+  background-color: transparent;
   backdrop-filter: saturate(180%) blur(0px);
   -webkit-backdrop-filter: saturate(180%) blur(0px);
   transition: background-color 0.2s ease, border-color 0.2s ease, backdrop-filter 0.2s ease;
 }
 #header.is-scrolled {
-  background-color: rgba(250, 250, 247, 0.88);
+  /* Translucent paper tone — follows the active theme via the --bg token. */
+  background-color: color-mix(in srgb, var(--bg) 88%, transparent);
   backdrop-filter: saturate(180%) blur(12px);
   -webkit-backdrop-filter: saturate(180%) blur(12px);
   border-bottom: 1px solid var(--md-sys-color-outline-variant);
+}
+@supports not (background-color: color-mix(in srgb, white, transparent)) {
+  #header.is-scrolled { background-color: var(--bg); }
 }
 
 /* ---------------- Navigation links ---------------- */
@@ -232,6 +236,12 @@ body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; 
   outline-offset: 2px;
 }
 
+/* Theme toggle */
+.theme-toggle .theme-toggle-icon {
+  transition: transform var(--dur-2, 220ms) var(--ease, ease);
+}
+.theme-toggle:hover .theme-toggle-icon { transform: rotate(15deg); }
+
 /* ---------------- Chips ---------------- */
 .chip {
   display: inline-flex;
@@ -248,7 +258,7 @@ body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; 
 /* ---------------- Feature cards ---------------- */
 .feature-card {
   position: relative;
-  background-color: #FFFFFF;
+  background-color: var(--bg-raised);
   border-radius: 16px;
   padding: 1.75rem;
   border: 1px solid var(--md-sys-color-outline-variant);
@@ -314,7 +324,7 @@ body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; 
 /* ---------------- Hero chat preview mockup ---------------- */
 .chat-preview {
   position: relative;
-  background: #FFFFFF;
+  background: var(--bg-raised);
   border-radius: 24px;
   padding: 1.25rem;
   box-shadow: 0 20px 60px -20px rgba(126, 163, 119, 0.25), 0 2px 8px 0 rgb(0 0 0 / 0.06);
@@ -408,7 +418,7 @@ body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; 
 }
 .chat-bubble.ai {
   align-self: flex-start;
-  background: #FFFFFF;
+  background: var(--bg-raised);
   color: var(--md-sys-color-on-surface);
   border: 1px solid var(--md-sys-color-outline-variant);
   border-end-start-radius: 6px;
@@ -481,7 +491,7 @@ body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; 
 }
 .stepper-card {
   position: relative;
-  background: #FFFFFF;
+  background: var(--bg-raised);
   border: 1px solid var(--md-sys-color-outline-variant);
   border-radius: 20px;
   padding: 1.75rem;
@@ -542,7 +552,7 @@ body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; 
   .stats-grid { grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
 }
 .stat-cell {
-  background: #FFFFFF;
+  background: var(--bg-raised);
   border: 1px solid var(--md-sys-color-outline-variant);
   border-radius: 20px;
   padding: 1.5rem 1.25rem;
@@ -571,7 +581,7 @@ body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; 
 /* ---------------- Testimonials ---------------- */
 .testimonial-card {
   position: relative;
-  background: #FFFFFF;
+  background: var(--bg-raised);
   border: 1px solid var(--md-sys-color-outline-variant);
   border-radius: 20px;
   padding: 2rem 1.75rem 1.75rem;
@@ -646,7 +656,7 @@ body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; 
 
 /* ---------------- FAQ accordion ---------------- */
 .faq-item {
-  background: #FFFFFF;
+  background: var(--bg-raised);
   border: 1px solid var(--md-sys-color-outline-variant);
   border-radius: 16px;
   overflow: hidden;

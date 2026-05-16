@@ -1,10 +1,23 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light" class="scroll-smooth">
+<html lang="en" class="scroll-smooth">
 
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Theme boot: apply saved preference before paint to avoid a flash.
+       No saved choice → fall through to `prefers-color-scheme`. -->
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('mp-theme');
+        if (t === 'dark' || t === 'light') {
+          document.documentElement.setAttribute('data-theme', t);
+        }
+      } catch (e) { /* localStorage unavailable — fall back to system pref */ }
+    })();
+  </script>
 
   <!-- Primary SEO Meta Tags -->
   <title>MamoPedia AI - Smarter Learning for Iraqi Students | KeyU.Tech</title>
@@ -63,36 +76,37 @@
             display: ['"Noto Kufi Arabic"', 'Tajawal', 'system-ui', 'sans-serif'],
           },
           colors: {
-            // Mamopedia student-facing surface: green primary + coral accent.
+            // Route through CSS variables from mamopedia-tokens.css so every
+            // utility class flips automatically between light and dark mode.
             primary: {
-              DEFAULT: '#7EA377',
+              DEFAULT: 'var(--primary)',
               on: '#FFFFFF',
-              container: '#E0E9DD',
-              onContainer: '#3F6139',
+              container: 'var(--primary-soft)',
+              onContainer: 'var(--primary-ink)',
             },
             coral: {
-              DEFAULT: '#F88672',
+              DEFAULT: 'var(--accent-warm)',
               on: '#FFFFFF',
-              container: '#FDE3DC',
-              onContainer: '#B84A37',
+              container: 'var(--accent-warm-soft)',
+              onContainer: 'var(--accent-warm-ink)',
             },
             surface: {
-              DEFAULT: '#FAFAF7',
-              dim: '#EFE9DD',
-              bright: '#FFFFFF',
-              container: '#F3F2EC',
-              containerLow: '#FFFFFF',
-              containerLowest: '#FFFFFF',
-              containerHigh: '#E8E7DF',
-              containerHighest: '#DED5C2',
-              on: '#1E1E1E',
-              onVariant: '#3A3A3A',
+              DEFAULT: 'var(--bg)',
+              dim: 'var(--paper-3)',
+              bright: 'var(--bg-raised)',
+              container: 'var(--bg-muted)',
+              containerLow: 'var(--bg-raised)',
+              containerLowest: 'var(--bg-raised)',
+              containerHigh: 'var(--paper-3)',
+              containerHighest: 'var(--line-strong)',
+              on: 'var(--fg)',
+              onVariant: 'var(--fg-2)',
             },
             outline: {
-              DEFAULT: '#C9C7BC',
-              variant: '#E2E1D8',
+              DEFAULT: 'var(--line-strong)',
+              variant: 'var(--line)',
             },
-            success: '#2E7D3B',
+            success: 'var(--success)',
           },
           borderRadius: {
             // M3 shape scale
@@ -177,12 +191,20 @@
           <a href="#about" class="nav-link">About</a>
           <a href="#faq" class="nav-link">FAQ</a>
           <a href="#contact" class="nav-link">Contact</a>
-          <a href="#try-now" class="btn-filled ml-2">Get Started</a>
+          <button type="button" class="theme-toggle icon-btn ml-1" data-theme-toggle aria-label="Switch to dark mode">
+            <span class="material-symbols-rounded theme-toggle-icon" aria-hidden="true">dark_mode</span>
+          </button>
+          <a href="#try-now" class="btn-filled ml-1">Get Started</a>
         </nav>
 
-        <button id="mobile-menu-btn" type="button" class="md:hidden icon-btn" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
-          <span class="material-symbols-rounded" aria-hidden="true">menu</span>
-        </button>
+        <div class="md:hidden flex items-center gap-1">
+          <button type="button" class="theme-toggle icon-btn" data-theme-toggle aria-label="Switch to dark mode">
+            <span class="material-symbols-rounded theme-toggle-icon" aria-hidden="true">dark_mode</span>
+          </button>
+          <button id="mobile-menu-btn" type="button" class="icon-btn" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+            <span class="material-symbols-rounded" aria-hidden="true">menu</span>
+          </button>
+        </div>
       </div>
     </div>
 
