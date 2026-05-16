@@ -14,6 +14,45 @@
   const yearEl = $('#year');
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
+  /* --------- Theme toggle (light / dark) ---------
+     The pre-paint script in <head> already applied any saved theme.
+     Here we sync the button label/icon to the current state and wire
+     up clicks. With no saved choice we leave data-theme unset so the
+     tokens file's `prefers-color-scheme` rules take over. */
+  const themeToggles = $$('[data-theme-toggle]');
+  if (themeToggles.length) {
+    const root = document.documentElement;
+    const mq = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : null;
+    const effectiveTheme = () => {
+      const explicit = root.getAttribute('data-theme');
+      if (explicit === 'dark' || explicit === 'light') return explicit;
+      return mq && mq.matches ? 'dark' : 'light';
+    };
+    const themeColorMeta = document.querySelector('meta[name="theme-color"]:not([media])');
+    const syncButtons = () => {
+      const current = effectiveTheme();
+      const next = current === 'dark' ? 'light' : 'dark';
+      themeToggles.forEach((btn) => {
+        btn.setAttribute('aria-label', next === 'dark' ? 'Switch to dark mode' : 'Switch to light mode');
+        const icon = btn.querySelector('.theme-toggle-icon');
+        if (icon) icon.textContent = next === 'dark' ? 'dark_mode' : 'light_mode';
+      });
+      if (themeColorMeta) {
+        themeColorMeta.setAttribute('content', current === 'dark' ? '#17160F' : '#7EA377');
+      }
+    };
+    syncButtons();
+    themeToggles.forEach((btn) => on(btn, 'click', () => {
+      const next = effectiveTheme() === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('mp-theme', next); } catch (e) { /* storage blocked */ }
+      syncButtons();
+    }));
+    if (mq && mq.addEventListener) {
+      on(mq, 'change', () => { if (!root.getAttribute('data-theme')) syncButtons(); });
+    }
+  }
+
   /* --------- Header scroll state --------- */
   const header = $('#header');
   const updateHeader = () => {
