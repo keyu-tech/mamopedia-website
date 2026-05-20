@@ -1,0 +1,319 @@
+{
+  "meta": {
+    "code": "en",
+    "name": "English",
+    "nativeName": "English",
+    "dir": "ltr",
+    "htmlLang": "en"
+  },
+  "pages": {
+    "index": {
+      "title": "Mamopedia - Smarter Learning for Iraqi Students | KeyU.Tech",
+      "description": "Mamopedia is a friendly, chat-based AI learning companion for Iraqi students. Get personalized homework help, problem-solving, and quizzes in Arabic, Kurdish, and English - tailored to the Iraqi school curriculum.",
+      "ogTitle": "Mamopedia - Smarter Learning for Iraqi Students",
+      "ogDescription": "A chat-based AI learning companion for Iraqi students. Personalized homework help, problem-solving, and quizzes in Arabic, Kurdish, and English.",
+      "twitterTitle": "Mamopedia - Smarter Learning for Iraqi Students",
+      "twitterDescription": "A chat-based AI learning companion for Iraqi students. Personalized homework help and quizzes in Arabic, Kurdish, and English."
+    },
+    "privacy": {
+      "title": "Privacy Policy | Mamopedia",
+      "description": "Privacy policy for Mamopedia - how KeyU.Tech collects, uses, and protects student data."
+    },
+    "terms": {
+      "title": "Terms & Conditions | Mamopedia",
+      "description": "Terms and conditions for using Mamopedia - the AI-powered learning companion for Iraqi students by KeyU.Tech."
+    }
+  },
+  "a11y": {
+    "skipToContent": "Skip to content",
+    "brandHome": "Mamopedia home",
+    "primaryNav": "Primary navigation",
+    "mobileNav": "Mobile navigation",
+    "mobileNavLinks": "Mobile navigation links",
+    "themeDark": "Switch to dark mode",
+    "themeLight": "Switch to light mode",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "language": "Language",
+    "selectLanguage": "Select language",
+    "supportedLanguages": "Supported languages",
+    "chatPreview": "Sample Mamopedia conversation",
+    "statsRegion": "Mamopedia at a glance",
+    "appScreenshots": "Mamopedia app screenshots",
+    "appScreen": "Mamopedia app screen",
+    "linkedin": "KeyU.Tech on LinkedIn",
+    "emailAddress": "Email address",
+    "notifyMe": "Notify me when subscriptions open",
+    "backToTop": "Back to top"
+  },
+  "nav": {
+    "features": "Features",
+    "how": "How it works",
+    "about": "About",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "getStarted": "Get Started",
+    "home": "Home"
+  },
+  "hero": {
+    "badge": "AI-powered learning companion",
+    "titleLead": "Unlock Smarter Learning with",
+    "description": "A friendly, chat-based learning companion designed specifically for Iraqi students. Powered by AI and a tailored curriculum, it offers personalized homework support, problem-solving, and quizzes - all in Arabic, Kurdish, and English.",
+    "ctaTry": "Try Mamopedia",
+    "ctaHow": "See how it works",
+    "trust": {
+      "curriculum": "Aligned with Iraqi curriculum",
+      "private": "Private by design",
+      "free": "Free to start"
+    }
+  },
+  "chat": {
+    "subtitle": "Learning companion",
+    "status": "Online"
+  },
+  "features": {
+    "eyebrow": "Key Features",
+    "title": "Everything students need to learn smarter",
+    "description": "Built for the Iraqi school curriculum, with a friendly chat interface and full support for Arabic, Kurdish, and English.",
+    "cards": {
+      "homework": {
+        "title": "AI-Powered Homework Help",
+        "body": "Instant, step-by-step guidance across every subject - from math and science to literature."
+      },
+      "quizzes": {
+        "title": "Personalized Quizzes",
+        "body": "AI-generated quizzes that adapt to each student's level and track learning progress over time."
+      },
+      "languages": {
+        "title": "Multi-Language Support",
+        "body": "Chat and learn naturally in Arabic, Kurdish, or English - whichever feels most comfortable."
+      },
+      "curriculum": {
+        "title": "Iraqi Curriculum",
+        "body": "Every lesson and answer is aligned with the official Iraqi school curriculum."
+      }
+    }
+  },
+  "how": {
+    "eyebrow": "How It Works",
+    "title": "From question to confidence in three steps",
+    "description": "No setup, no jargon. Just ask - Mamopedia walks you through the answer and helps you practice.",
+    "steps": {
+      "ask": {
+        "title": "Ask in your language",
+        "body": "Type or speak your question in Arabic, Kurdish, or English - whichever feels most natural."
+      },
+      "answer": {
+        "title": "Get a step-by-step answer",
+        "body": "Mamopedia explains the reasoning at your level, using examples from your curriculum."
+      },
+      "practice": {
+        "title": "Practice with a quiz",
+        "body": "A short adaptive quiz checks that the concept really clicked - and tracks your progress."
+      }
+    }
+  },
+  "stats": {
+    "subjects": "Subjects covered",
+    "lessons": "Lessons aligned",
+    "languages": "Languages supported",
+    "students": "Students helped",
+    "studentsNote": "(pilot program)",
+    "footnote": "Figures reflect our current pilot program with partner schools in Erbil."
+  },
+  "about": {
+    "eyebrow": "About Mamopedia",
+    "title": "A learning companion made for Iraqi students",
+    "description": "Mamopedia is a friendly, chat-based learning companion designed specifically for Iraqi students. Powered by AI and a tailored curriculum, it offers personalized homework support, problem-solving, and quizzes - all in Arabic, Kurdish, and English.",
+    "bullets": {
+      "chat": "Conversational, chat-based learning",
+      "curriculum": "Aligned with the Iraqi school curriculum",
+      "languages": "Arabic, Kurdish, and English support"
+    },
+    "imgAlt": "Students using the Mamopedia learning app"
+  },
+  "aboutKeyu": {
+    "eyebrow": "About KeyU.Tech",
+    "title": "Empowering students through AI",
+    "description": "At KeyU.Tech, our mission is to empower students through AI-driven educational tools. Founded by a team of experts in machine learning and software development, we believe in making learning personal, accessible, and fun.",
+    "bullets": {
+      "experts": "Founded by machine learning experts",
+      "personal": "Learning that is personal, accessible, and fun",
+      "nextGen": "Built for the next generation of students"
+    },
+    "imgAlt": "KeyU.Tech team building AI-driven educational tools"
+  },
+  "testimonials": {
+    "eyebrow": "What students say",
+    "title": "Real voices from our pilot program",
+    "description": "A handful of early users share how Mamopedia fits into their study routine.",
+    "badge": "Pilot user",
+    "items": {
+      "rania": {
+        "quote": "Mamopedia explained a physics problem in Kurdish when my textbook only had English. It finally clicked.",
+        "name": "Rania A.",
+        "role": "Grade 10 student, Erbil"
+      },
+      "hind": {
+        "quote": "The adaptive quizzes keep my daughter engaged - and she can study without me hovering over every question.",
+        "name": "Hind M.",
+        "role": "Parent, Baghdad"
+      },
+      "sarbast": {
+        "quote": "Finally a tool that follows the Iraqi curriculum. My students stopped asking me to translate homework prompts.",
+        "name": "Sarbast K.",
+        "role": "Teacher, Sulaymaniyah"
+      }
+    }
+  },
+  "try": {
+    "eyebrow": "Try It Now",
+    "title": "Start learning in seconds",
+    "description": "Experience Mamopedia today. Try it right in your browser, or download the app from the App Store or Google Play.",
+    "openBrowser": "Open in Browser",
+    "appStore": "App Store",
+    "googlePlay": "Google Play",
+    "scanTitle": "Scan to install",
+    "scanBody": "Point your phone camera here"
+  },
+  "faq": {
+    "eyebrow": "FAQ",
+    "title": "Frequently asked questions",
+    "description": "Short answers to the things parents and students ask us most.",
+    "items": {
+      "subjects": {
+        "q": "Which subjects and grade levels does Mamopedia cover?",
+        "a": "Mamopedia supports core subjects taught in Iraqi primary and secondary schools, including mathematics, physics, chemistry, biology, Arabic, English, and social studies. Coverage expands continuously based on pilot feedback."
+      },
+      "languages": {
+        "q": "Which languages can my child use to ask questions?",
+        "a": "Students can chat in Arabic, Kurdish (Sorani), or English. Mamopedia automatically detects the language of each question and responds in the same language."
+      },
+      "free": {
+        "q": "Is Mamopedia free to use?",
+        "a": "Yes. During our pilot program the core experience is free. We'll announce any paid plans well in advance and always keep a free tier available for students."
+      },
+      "privacy": {
+        "q": "How do you protect student privacy and data?",
+        "aBefore": "We minimize what we collect and never sell student data. Conversations are used to improve learning recommendations and are protected with modern encryption. See our ",
+        "aLink": "Privacy Policy",
+        "aAfter": " for details."
+      },
+      "ages": {
+        "q": "What ages is Mamopedia designed for?",
+        "a": "The experience is tuned for students roughly ages 10-18 and adapts its tone and difficulty based on the grade level you set. Younger children should use it with adult supervision."
+      },
+      "offline": {
+        "q": "Does it work offline?",
+        "a": "Mamopedia currently needs an internet connection to generate personalized answers and quizzes. We're exploring a lightweight offline study pack for areas with limited connectivity."
+      }
+    }
+  },
+  "contact": {
+    "eyebrow": "Contact Us",
+    "title": "We'd love to hear from you",
+    "description": "Have questions or need support? Reach out to us anytime via the contact form - or use the details below.",
+    "addressLabel": "Address",
+    "addressValue": "Erbil, Iraq",
+    "phoneLabel": "Phone",
+    "emailLabel": "Email",
+    "form": {
+      "name": "Your name",
+      "email": "Your email",
+      "subject": "Subject",
+      "message": "Your message",
+      "send": "Send Message",
+      "sending": "Sending your message...",
+      "ok": "Thanks! Your message has been sent.",
+      "err": "Sorry, something went wrong. Please email info@keyu.tech."
+    }
+  },
+  "footer": {
+    "tagline": "Smarter learning for Iraqi students. Built by KeyU.Tech in Erbil, Iraq.",
+    "moreChannels": "More channels coming soon",
+    "getApp": "Get the App",
+    "appStore": "App Store",
+    "googlePlay": "Google Play",
+    "webApp": "Web App",
+    "company": "Company",
+    "aboutKeyu": "About KeyU.Tech",
+    "terms": "Terms & Conditions",
+    "privacy": "Privacy Policy",
+    "contact": "Contact Us",
+    "stayUpdated": "Stay Updated",
+    "newsletterDesc": "Leave your email and we'll reach out when public subscriptions open.",
+    "newsletterPlaceholder": "Your email",
+    "newsletterDisclaimer": "Subscriptions aren't live yet - we'll email you directly when they are.",
+    "newsletterThanks": "Thanks - we've noted your interest and will email you when subscriptions open.",
+    "rights": "All rights reserved.",
+    "designedBy": "Designed by"
+  },
+  "legal": {
+    "eyebrow": "Legal",
+    "lastUpdated": "Last updated: April 2026"
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "sections": {
+      "collect": {
+        "h": "1. Information We Collect",
+        "p": "We may collect the information you provide directly (such as name, email, and messages), and technical data such as device type, browser, and usage analytics to improve the Service."
+      },
+      "use": {
+        "h": "2. How We Use Information",
+        "p": "We use your information to provide and improve Mamopedia, respond to support requests, personalize learning, and communicate important updates."
+      },
+      "share": {
+        "h": "3. Data Sharing",
+        "p": "We do not sell personal data. We may share information with trusted service providers who help us operate the Service, under strict confidentiality and data protection requirements."
+      },
+      "security": {
+        "h": "4. Data Security",
+        "p": "We use industry-standard safeguards to protect your information. No system is perfectly secure, but we work continuously to keep data safe."
+      },
+      "children": {
+        "h": "5. Children's Privacy",
+        "p": "Mamopedia is designed for students. We collect only the information necessary to provide the Service and encourage parental involvement where appropriate."
+      },
+      "rights": {
+        "h": "6. Your Rights",
+        "p": "You may request access to, correction of, or deletion of your personal data at any time by contacting us."
+      },
+      "contact": {
+        "h": "7. Contact",
+        "pBefore": "For privacy questions, email us at ",
+        "pAfter": "."
+      }
+    }
+  },
+  "terms": {
+    "title": "Terms & Conditions",
+    "sections": {
+      "acceptance": {
+        "h": "1. Acceptance of Terms",
+        "p": "By accessing or using Mamopedia (\"the Service\"), you agree to be bound by these Terms & Conditions. If you do not agree, please do not use the Service."
+      },
+      "use": {
+        "h": "2. Use of the Service",
+        "p": "Mamopedia is provided as an educational companion for Iraqi students. You agree to use it lawfully and respectfully. You are responsible for any content you submit and for maintaining the security of your account."
+      },
+      "ip": {
+        "h": "3. Intellectual Property",
+        "p": "All content, branding, and software associated with Mamopedia are the property of KeyU.Tech and are protected by applicable intellectual property laws."
+      },
+      "disclaimer": {
+        "h": "4. Disclaimer",
+        "p": "Mamopedia is offered on an \"as is\" basis. While we strive for accuracy, AI-generated content may contain errors. Always verify important information with a qualified teacher or trusted source."
+      },
+      "changes": {
+        "h": "5. Changes to These Terms",
+        "p": "We may update these Terms from time to time. Continued use of the Service after changes indicates acceptance of the updated Terms."
+      },
+      "contact": {
+        "h": "6. Contact",
+        "pBefore": "Questions? Email us at ",
+        "pAfter": "."
+      }
+    }
+  }
+}

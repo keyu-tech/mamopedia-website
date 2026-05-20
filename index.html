@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" dir="ltr" data-page="index" data-lang="en" class="scroll-smooth">
 
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Theme boot: apply saved preference before paint to avoid a flash.
-       No saved choice → fall through to `prefers-color-scheme`. -->
+  <!-- Theme + language boot: apply saved preferences before paint to avoid
+       a flash. With no saved language, fall through to browser language. -->
   <script>
     (function () {
       try {
@@ -16,12 +16,27 @@
           document.documentElement.setAttribute('data-theme', t);
         }
       } catch (e) { /* localStorage unavailable — fall back to system pref */ }
+      try {
+        var supported = { en: { dir: 'ltr', html: 'en' }, ar: { dir: 'rtl', html: 'ar' }, ckb: { dir: 'rtl', html: 'ckb' } };
+        var saved = localStorage.getItem('mp-lang');
+        var pick = supported[saved] ? saved : null;
+        if (!pick) {
+          var nav = (navigator.language || '').toLowerCase();
+          if (nav.indexOf('ckb') === 0 || nav.indexOf('ku') === 0) pick = 'ckb';
+          else if (nav.indexOf('ar') === 0) pick = 'ar';
+        }
+        if (pick) {
+          document.documentElement.setAttribute('lang', supported[pick].html);
+          document.documentElement.setAttribute('dir', supported[pick].dir);
+          document.documentElement.setAttribute('data-lang', pick);
+        }
+      } catch (e) { /* localStorage unavailable */ }
     })();
   </script>
 
   <!-- Primary SEO Meta Tags -->
-  <title>Mamopedia - Smarter Learning for Iraqi Students | KeyU.Tech</title>
-  <meta name="description" content="Mamopedia is a friendly, chat-based AI learning companion for Iraqi students. Get personalized homework help, problem-solving, and quizzes in Arabic, Kurdish, and English - tailored to the Iraqi school curriculum.">
+  <title data-i18n="pages.index.title">Mamopedia - Smarter Learning for Iraqi Students | KeyU.Tech</title>
+  <meta name="description" content="Mamopedia is a friendly, chat-based AI learning companion for Iraqi students. Get personalized homework help, problem-solving, and quizzes in Arabic, Kurdish, and English - tailored to the Iraqi school curriculum." data-i18n-attr="content:pages.index.description">
   <meta name="keywords" content="Mamopedia, AI learning Iraq, Iraqi students, homework help, AI tutor, Arabic learning app, Kurdish learning app, Iraqi curriculum, AI quizzes, KeyU.Tech, EdTech Iraq, chat-based learning, educational AI">
   <meta name="author" content="KeyU.Tech">
   <meta name="robots" content="index, follow">
@@ -34,8 +49,8 @@
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://mamopedia.com/">
-  <meta property="og:title" content="Mamopedia - Smarter Learning for Iraqi Students">
-  <meta property="og:description" content="A chat-based AI learning companion for Iraqi students. Personalized homework help, problem-solving, and quizzes in Arabic, Kurdish, and English.">
+  <meta property="og:title" content="Mamopedia - Smarter Learning for Iraqi Students" data-i18n-attr="content:pages.index.ogTitle">
+  <meta property="og:description" content="A chat-based AI learning companion for Iraqi students. Personalized homework help, problem-solving, and quizzes in Arabic, Kurdish, and English." data-i18n-attr="content:pages.index.ogDescription">
   <meta property="og:image" content="https://mamopedia.com/assets/img/mamopedia3.png">
   <meta property="og:site_name" content="Mamopedia">
   <meta property="og:locale" content="en_US">
@@ -45,8 +60,8 @@
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="https://mamopedia.com/">
-  <meta name="twitter:title" content="Mamopedia - Smarter Learning for Iraqi Students">
-  <meta name="twitter:description" content="A chat-based AI learning companion for Iraqi students. Personalized homework help and quizzes in Arabic, Kurdish, and English.">
+  <meta name="twitter:title" content="Mamopedia - Smarter Learning for Iraqi Students" data-i18n-attr="content:pages.index.twitterTitle">
+  <meta name="twitter:description" content="A chat-based AI learning companion for Iraqi students. Personalized homework help and quizzes in Arabic, Kurdish, and English." data-i18n-attr="content:pages.index.twitterDescription">
   <meta name="twitter:image" content="https://mamopedia.com/assets/img/mamopedia3.png">
 
   <!-- Favicons -->
@@ -169,39 +184,57 @@
   <!-- Custom supporting styles -->
   <link href="assets/css/mamopedia-tokens.css" rel="stylesheet">
   <link href="assets/css/style.css" rel="stylesheet">
+
+  <!-- i18n runtime (loads chosen translation JSON and swaps text/attributes). -->
+  <script src="assets/js/i18n.js" defer></script>
 </head>
 
 <body class="bg-surface text-surface-on font-sans antialiased">
 
   <!-- Skip link for accessibility -->
-  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:bg-primary focus:text-primary-on focus:px-4 focus:py-2 focus:rounded-md">Skip to content</a>
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:start-4 focus:z-50 focus:bg-primary focus:text-primary-on focus:px-4 focus:py-2 focus:rounded-md" data-i18n="a11y.skipToContent">Skip to content</a>
 
   <!-- ======= Top App Bar ======= -->
   <header id="header" class="fixed top-0 inset-x-0 z-40 transition-all duration-200">
     <div class="max-w-content mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">
-        <a href="#hero" class="flex items-center gap-2" aria-label="Mamopedia home">
+        <a href="#hero" class="flex items-center gap-2" aria-label="Mamopedia home" data-i18n-attr="aria-label:a11y.brandHome">
           <img src="assets/img/mamo.png" alt="" class="h-8 w-8 rounded-sm" width="32" height="32">
           <span class="font-display font-bold text-lg sm:text-xl text-surface-on">Mamopedia</span>
         </a>
 
-        <nav class="hidden md:flex items-center gap-1" aria-label="Primary navigation">
-          <a href="#features" class="nav-link">Features</a>
-          <a href="#how" class="nav-link">How it works</a>
-          <a href="#about" class="nav-link">About</a>
-          <a href="#faq" class="nav-link">FAQ</a>
-          <a href="#contact" class="nav-link">Contact</a>
-          <button type="button" class="theme-toggle icon-btn ml-1" data-theme-toggle aria-label="Switch to dark mode">
+        <nav class="hidden md:flex items-center gap-1" aria-label="Primary navigation" data-i18n-attr="aria-label:a11y.primaryNav">
+          <a href="#features" class="nav-link" data-i18n="nav.features">Features</a>
+          <a href="#how" class="nav-link" data-i18n="nav.how">How it works</a>
+          <a href="#about" class="nav-link" data-i18n="nav.about">About</a>
+          <a href="#faq" class="nav-link" data-i18n="nav.faq">FAQ</a>
+          <a href="#contact" class="nav-link" data-i18n="nav.contact">Contact</a>
+          <div class="lang-switcher ms-1" data-lang-switcher>
+            <button type="button" class="lang-switcher-btn" aria-haspopup="listbox" aria-expanded="false" data-lang-toggle data-i18n-attr="aria-label:a11y.selectLanguage" aria-label="Select language">
+              <span class="material-symbols-rounded" aria-hidden="true">language</span>
+              <span class="lang-code" data-lang-current>EN</span>
+              <span class="material-symbols-rounded chevron" aria-hidden="true">expand_more</span>
+            </button>
+            <ul class="lang-switcher-menu" role="listbox" data-lang-menu></ul>
+          </div>
+          <button type="button" class="theme-toggle icon-btn ms-1" data-theme-toggle aria-label="Switch to dark mode" data-i18n-attr="aria-label:a11y.themeDark">
             <span class="material-symbols-rounded theme-toggle-icon" aria-hidden="true">dark_mode</span>
           </button>
-          <a href="#try-now" class="btn-filled ml-1">Get Started</a>
+          <a href="#try-now" class="btn-filled ms-1" data-i18n="nav.getStarted">Get Started</a>
         </nav>
 
         <div class="md:hidden flex items-center gap-1">
-          <button type="button" class="theme-toggle icon-btn" data-theme-toggle aria-label="Switch to dark mode">
+          <div class="lang-switcher" data-lang-switcher>
+            <button type="button" class="lang-switcher-btn" aria-haspopup="listbox" aria-expanded="false" data-lang-toggle data-i18n-attr="aria-label:a11y.selectLanguage" aria-label="Select language">
+              <span class="material-symbols-rounded" aria-hidden="true">language</span>
+              <span class="lang-code" data-lang-current>EN</span>
+            </button>
+            <ul class="lang-switcher-menu" role="listbox" data-lang-menu></ul>
+          </div>
+          <button type="button" class="theme-toggle icon-btn" data-theme-toggle aria-label="Switch to dark mode" data-i18n-attr="aria-label:a11y.themeDark">
             <span class="material-symbols-rounded theme-toggle-icon" aria-hidden="true">dark_mode</span>
           </button>
-          <button id="mobile-menu-btn" type="button" class="icon-btn" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+          <button id="mobile-menu-btn" type="button" class="icon-btn" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu" data-i18n-attr="aria-label:a11y.openMenu">
             <span class="material-symbols-rounded" aria-hidden="true">menu</span>
           </button>
         </div>
@@ -209,14 +242,14 @@
     </div>
 
     <!-- Mobile menu -->
-    <div id="mobile-menu" class="md:hidden hidden bg-surface-containerLowest border-t border-outline-variant shadow-m2" role="dialog" aria-modal="true" aria-label="Mobile navigation">
-      <nav class="max-w-content mx-auto px-4 py-3 flex flex-col gap-1" aria-label="Mobile navigation links">
-        <a href="#features" class="nav-link-mobile">Features</a>
-        <a href="#how" class="nav-link-mobile">How it works</a>
-        <a href="#about" class="nav-link-mobile">About</a>
-        <a href="#faq" class="nav-link-mobile">FAQ</a>
-        <a href="#contact" class="nav-link-mobile">Contact</a>
-        <a href="#try-now" class="btn-filled mt-2 justify-center">Get Started</a>
+    <div id="mobile-menu" class="md:hidden hidden bg-surface-containerLowest border-t border-outline-variant shadow-m2" role="dialog" aria-modal="true" aria-label="Mobile navigation" data-i18n-attr="aria-label:a11y.mobileNav">
+      <nav class="max-w-content mx-auto px-4 py-3 flex flex-col gap-1" aria-label="Mobile navigation links" data-i18n-attr="aria-label:a11y.mobileNavLinks">
+        <a href="#features" class="nav-link-mobile" data-i18n="nav.features">Features</a>
+        <a href="#how" class="nav-link-mobile" data-i18n="nav.how">How it works</a>
+        <a href="#about" class="nav-link-mobile" data-i18n="nav.about">About</a>
+        <a href="#faq" class="nav-link-mobile" data-i18n="nav.faq">FAQ</a>
+        <a href="#contact" class="nav-link-mobile" data-i18n="nav.contact">Contact</a>
+        <a href="#try-now" class="btn-filled mt-2 justify-center" data-i18n="nav.getStarted">Get Started</a>
       </nav>
     </div>
   </header>
@@ -234,13 +267,13 @@
           <div class="lg:col-span-7 reveal">
             <span class="inline-flex items-center gap-2 bg-primary-container text-primary-onContainer px-3 py-1.5 rounded-pill text-sm font-medium shadow-inner-soft">
               <span class="material-symbols-rounded text-[18px]" aria-hidden="true">auto_awesome</span>
-              AI-powered learning companion
+              <span data-i18n="hero.badge">AI-powered learning companion</span>
             </span>
             <h1 class="mt-6 font-display text-4xl sm:text-5xl lg:text-6xl leading-tight tracking-tight text-surface-on">
-              Unlock Smarter Learning with
+              <span data-i18n="hero.titleLead">Unlock Smarter Learning with</span>
               <span class="bg-clip-text text-transparent" style="background-image:linear-gradient(135deg,#7EA377 0%,#F88672 100%);-webkit-background-clip:text;">Mamopedia</span>
             </h1>
-            <p class="mt-6 text-lg sm:text-xl text-surface-onVariant max-w-2xl leading-relaxed">
+            <p class="mt-6 text-lg sm:text-xl text-surface-onVariant max-w-2xl leading-relaxed" data-i18n="hero.description">
               A friendly, chat-based learning companion designed specifically for Iraqi students.
               Powered by AI and a tailored curriculum, it offers personalized homework support,
               problem-solving, and quizzes - all in Arabic, Kurdish, and English.
@@ -248,13 +281,13 @@
             <div class="mt-8 flex flex-wrap gap-3">
               <a href="#try-now" class="btn-filled">
                 <span class="material-symbols-rounded" aria-hidden="true">rocket_launch</span>
-                Try Mamopedia
+                <span data-i18n="hero.ctaTry">Try Mamopedia</span>
               </a>
-              <a href="#how" class="btn-outlined">
+              <a href="#how" class="btn-outlined" data-i18n="hero.ctaHow">
                 See how it works
               </a>
             </div>
-            <ul class="mt-8 flex flex-wrap gap-2" aria-label="Supported languages">
+            <ul class="mt-8 flex flex-wrap gap-2" aria-label="Supported languages" data-i18n-attr="aria-label:a11y.supportedLanguages">
               <li><span class="chip" lang="ar">العربية</span></li>
               <li><span class="chip" lang="ckb">کوردی</span></li>
               <li><span class="chip" lang="en">English</span></li>
@@ -262,15 +295,15 @@
             <div class="trust-strip">
               <span class="trust-item">
                 <span class="material-symbols-rounded" aria-hidden="true">verified</span>
-                Aligned with Iraqi curriculum
+                <span data-i18n="hero.trust.curriculum">Aligned with Iraqi curriculum</span>
               </span>
               <span class="trust-item">
                 <span class="material-symbols-rounded" aria-hidden="true">lock</span>
-                Private by design
+                <span data-i18n="hero.trust.private">Private by design</span>
               </span>
               <span class="trust-item">
                 <span class="material-symbols-rounded" aria-hidden="true">paid</span>
-                Free to start
+                <span data-i18n="hero.trust.free">Free to start</span>
               </span>
             </div>
           </div>
@@ -278,14 +311,14 @@
           <div class="lg:col-span-5 reveal">
             <div class="relative mx-auto max-w-md">
               <!-- Chat preview mockup (auto-cycles Arabic / Kurdish / English samples) -->
-              <div id="chat-preview" class="chat-preview" role="region" aria-label="Sample Mamopedia conversation" aria-live="polite">
+              <div id="chat-preview" class="chat-preview" role="region" aria-label="Sample Mamopedia conversation" aria-live="polite" data-i18n-attr="aria-label:a11y.chatPreview">
                 <div class="chat-preview-header">
                   <span class="chat-avatar" aria-hidden="true">M</span>
                   <div>
                     <p class="text-sm font-semibold text-surface-on leading-tight">Mamopedia</p>
-                    <p class="text-xs text-surface-onVariant leading-tight">Learning companion</p>
+                    <p class="text-xs text-surface-onVariant leading-tight" data-i18n="chat.subtitle">Learning companion</p>
                   </div>
-                  <span class="chat-status">Online</span>
+                  <span class="chat-status" data-i18n="chat.status">Online</span>
                 </div>
                 <div class="chat-stream" id="chat-stream">
                   <div class="chat-bubble user" dir="rtl" lang="ar">ما هو قانون نيوتن الثاني؟</div>
@@ -309,9 +342,9 @@
     <section id="features" class="py-20 sm:py-28 bg-surface-containerLow">
       <div class="max-w-content mx-auto px-4 sm:px-6 lg:px-8">
         <div class="max-w-2xl reveal">
-          <p class="section-eyebrow">Key Features</p>
-          <h2 class="mt-3 font-display text-3xl sm:text-4xl text-surface-on">Everything students need to learn smarter</h2>
-          <p class="mt-4 text-lg text-surface-onVariant">Built for the Iraqi school curriculum, with a friendly chat interface and full support for Arabic, Kurdish, and English.</p>
+          <p class="section-eyebrow" data-i18n="features.eyebrow">Key Features</p>
+          <h2 class="mt-3 font-display text-3xl sm:text-4xl text-surface-on" data-i18n="features.title">Everything students need to learn smarter</h2>
+          <p class="mt-4 text-lg text-surface-onVariant" data-i18n="features.description">Built for the Iraqi school curriculum, with a friendly chat interface and full support for Arabic, Kurdish, and English.</p>
         </div>
 
         <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4 reveal reveal-stagger">
@@ -320,8 +353,8 @@
             <div class="feature-icon">
               <span class="material-symbols-rounded" aria-hidden="true">school</span>
             </div>
-            <h3 class="feature-title">AI-Powered Homework Help</h3>
-            <p class="feature-body">Instant, step-by-step guidance across every subject - from math and science to literature.</p>
+            <h3 class="feature-title" data-i18n="features.cards.homework.title">AI-Powered Homework Help</h3>
+            <p class="feature-body" data-i18n="features.cards.homework.body">Instant, step-by-step guidance across every subject - from math and science to literature.</p>
           </article>
 
           <article class="feature-card" style="--i:1">
@@ -329,8 +362,8 @@
             <div class="feature-icon">
               <span class="material-symbols-rounded" aria-hidden="true">quiz</span>
             </div>
-            <h3 class="feature-title">Personalized Quizzes</h3>
-            <p class="feature-body">AI-generated quizzes that adapt to each student's level and track learning progress over time.</p>
+            <h3 class="feature-title" data-i18n="features.cards.quizzes.title">Personalized Quizzes</h3>
+            <p class="feature-body" data-i18n="features.cards.quizzes.body">AI-generated quizzes that adapt to each student's level and track learning progress over time.</p>
           </article>
 
           <article class="feature-card" style="--i:2">
@@ -338,8 +371,8 @@
             <div class="feature-icon">
               <span class="material-symbols-rounded" aria-hidden="true">translate</span>
             </div>
-            <h3 class="feature-title">Multi-Language Support</h3>
-            <p class="feature-body">Chat and learn naturally in Arabic, Kurdish, or English - whichever feels most comfortable.</p>
+            <h3 class="feature-title" data-i18n="features.cards.languages.title">Multi-Language Support</h3>
+            <p class="feature-body" data-i18n="features.cards.languages.body">Chat and learn naturally in Arabic, Kurdish, or English - whichever feels most comfortable.</p>
           </article>
 
           <article class="feature-card" style="--i:3">
@@ -347,8 +380,8 @@
             <div class="feature-icon">
               <span class="material-symbols-rounded" aria-hidden="true">menu_book</span>
             </div>
-            <h3 class="feature-title">Iraqi Curriculum</h3>
-            <p class="feature-body">Every lesson and answer is aligned with the official Iraqi school curriculum.</p>
+            <h3 class="feature-title" data-i18n="features.cards.curriculum.title">Iraqi Curriculum</h3>
+            <p class="feature-body" data-i18n="features.cards.curriculum.body">Every lesson and answer is aligned with the official Iraqi school curriculum.</p>
           </article>
         </div>
       </div>
@@ -358,53 +391,53 @@
     <section id="how" class="py-20 sm:py-28 section-with-dots">
       <div class="max-w-content mx-auto px-4 sm:px-6 lg:px-8">
         <div class="max-w-2xl reveal">
-          <p class="section-eyebrow">How It Works</p>
-          <h2 class="mt-3 font-display text-3xl sm:text-4xl text-surface-on">From question to confidence in three steps</h2>
-          <p class="mt-4 text-lg text-surface-onVariant">No setup, no jargon. Just ask - Mamopedia walks you through the answer and helps you practice.</p>
+          <p class="section-eyebrow" data-i18n="how.eyebrow">How It Works</p>
+          <h2 class="mt-3 font-display text-3xl sm:text-4xl text-surface-on" data-i18n="how.title">From question to confidence in three steps</h2>
+          <p class="mt-4 text-lg text-surface-onVariant" data-i18n="how.description">No setup, no jargon. Just ask - Mamopedia walks you through the answer and helps you practice.</p>
         </div>
 
         <div class="mt-12 stepper reveal reveal-stagger">
           <article class="stepper-card" style="--i:0">
             <span class="stepper-node" aria-hidden="true">1</span>
-            <h3 class="stepper-title">Ask in your language</h3>
-            <p class="stepper-body">Type or speak your question in Arabic, Kurdish, or English - whichever feels most natural.</p>
+            <h3 class="stepper-title" data-i18n="how.steps.ask.title">Ask in your language</h3>
+            <p class="stepper-body" data-i18n="how.steps.ask.body">Type or speak your question in Arabic, Kurdish, or English - whichever feels most natural.</p>
           </article>
           <article class="stepper-card" style="--i:1">
             <span class="stepper-node" aria-hidden="true">2</span>
-            <h3 class="stepper-title">Get a step-by-step answer</h3>
-            <p class="stepper-body">Mamopedia explains the reasoning at your level, using examples from your curriculum.</p>
+            <h3 class="stepper-title" data-i18n="how.steps.answer.title">Get a step-by-step answer</h3>
+            <p class="stepper-body" data-i18n="how.steps.answer.body">Mamopedia explains the reasoning at your level, using examples from your curriculum.</p>
           </article>
           <article class="stepper-card" style="--i:2">
             <span class="stepper-node" aria-hidden="true">3</span>
-            <h3 class="stepper-title">Practice with a quiz</h3>
-            <p class="stepper-body">A short adaptive quiz checks that the concept really clicked - and tracks your progress.</p>
+            <h3 class="stepper-title" data-i18n="how.steps.practice.title">Practice with a quiz</h3>
+            <p class="stepper-body" data-i18n="how.steps.practice.body">A short adaptive quiz checks that the concept really clicked - and tracks your progress.</p>
           </article>
         </div>
       </div>
     </section>
 
     <!-- ======= Stats Strip ======= -->
-    <section id="stats" aria-label="Mamopedia at a glance" class="py-16 sm:py-20 bg-surface">
+    <section id="stats" aria-label="Mamopedia at a glance" class="py-16 sm:py-20 bg-surface" data-i18n-attr="aria-label:a11y.statsRegion">
       <div class="max-w-content mx-auto px-4 sm:px-6 lg:px-8">
         <div class="stats-grid reveal reveal-stagger">
           <div class="stat-cell" style="--i:0">
             <span class="stat-counter" data-target="12" data-suffix="+">0</span>
-            <span class="stat-label">Subjects covered</span>
+            <span class="stat-label" data-i18n="stats.subjects">Subjects covered</span>
           </div>
           <div class="stat-cell" style="--i:1">
             <span class="stat-counter" data-target="500" data-suffix="+">0</span>
-            <span class="stat-label">Lessons aligned</span>
+            <span class="stat-label" data-i18n="stats.lessons">Lessons aligned</span>
           </div>
           <div class="stat-cell" style="--i:2">
             <span class="stat-counter" data-target="3">0</span>
-            <span class="stat-label">Languages supported</span>
+            <span class="stat-label" data-i18n="stats.languages">Languages supported</span>
           </div>
           <div class="stat-cell" style="--i:3">
             <span class="stat-counter" data-target="1000" data-suffix="+">0</span>
-            <span class="stat-label">Students helped <span class="text-xs opacity-70 block">(pilot program)</span></span>
+            <span class="stat-label"><span data-i18n="stats.students">Students helped</span> <span class="text-xs opacity-70 block" data-i18n="stats.studentsNote">(pilot program)</span></span>
           </div>
         </div>
-        <p class="mt-4 text-xs text-surface-onVariant text-center">Figures reflect our current pilot program with partner schools in Erbil.</p>
+        <p class="mt-4 text-xs text-surface-onVariant text-center" data-i18n="stats.footnote">Figures reflect our current pilot program with partner schools in Erbil.</p>
       </div>
     </section>
 
@@ -414,9 +447,9 @@
 
         <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <div class="reveal">
-            <p class="section-eyebrow">About Mamopedia</p>
-            <h2 class="mt-3 font-display text-3xl sm:text-4xl text-surface-on">A learning companion made for Iraqi students</h2>
-            <p class="mt-4 text-lg text-surface-onVariant leading-relaxed">
+            <p class="section-eyebrow" data-i18n="about.eyebrow">About Mamopedia</p>
+            <h2 class="mt-3 font-display text-3xl sm:text-4xl text-surface-on" data-i18n="about.title">A learning companion made for Iraqi students</h2>
+            <p class="mt-4 text-lg text-surface-onVariant leading-relaxed" data-i18n="about.description">
               Mamopedia is a friendly, chat-based learning companion designed specifically
               for Iraqi students. Powered by AI and a tailored curriculum, it offers
               personalized homework support, problem-solving, and quizzes - all in Arabic,
@@ -425,15 +458,15 @@
             <ul class="mt-6 space-y-3">
               <li class="flex gap-3 items-start">
                 <span class="material-symbols-rounded text-primary mt-0.5" aria-hidden="true">check_circle</span>
-                <span class="text-surface-on">Conversational, chat-based learning</span>
+                <span class="text-surface-on" data-i18n="about.bullets.chat">Conversational, chat-based learning</span>
               </li>
               <li class="flex gap-3 items-start">
                 <span class="material-symbols-rounded text-primary mt-0.5" aria-hidden="true">check_circle</span>
-                <span class="text-surface-on">Aligned with the Iraqi school curriculum</span>
+                <span class="text-surface-on" data-i18n="about.bullets.curriculum">Aligned with the Iraqi school curriculum</span>
               </li>
               <li class="flex gap-3 items-start">
                 <span class="material-symbols-rounded text-primary mt-0.5" aria-hidden="true">check_circle</span>
-                <span class="text-surface-on">Arabic, Kurdish, and English support</span>
+                <span class="text-surface-on" data-i18n="about.bullets.languages">Arabic, Kurdish, and English support</span>
               </li>
             </ul>
           </div>
@@ -441,7 +474,7 @@
             <div class="relative">
               <div class="absolute -inset-4 bg-accent-gradient opacity-20 blur-2xl rounded-2xl" aria-hidden="true"></div>
               <div class="relative rounded-2xl overflow-hidden bg-surface-container p-6 shadow-m2 -rotate-1 hover:rotate-0 transition-transform duration-300">
-                <img src="assets/img/details-1.png" alt="Students using the Mamopedia learning app" class="w-full h-auto rounded-lg" loading="lazy" decoding="async">
+                <img src="assets/img/details-1.png" alt="Students using the Mamopedia learning app" class="w-full h-auto rounded-lg" loading="lazy" decoding="async" data-i18n-attr="alt:about.imgAlt">
               </div>
             </div>
           </div>
@@ -452,14 +485,14 @@
             <div class="relative">
               <div class="absolute -inset-4 bg-accent-gradient opacity-20 blur-2xl rounded-2xl" aria-hidden="true"></div>
               <div class="relative rounded-2xl overflow-hidden bg-surface-container p-6 shadow-m2 rotate-1 hover:rotate-0 transition-transform duration-300">
-                <img src="assets/img/details-2.png" alt="KeyU.Tech team building AI-driven educational tools" class="w-full h-auto rounded-lg" loading="lazy" decoding="async">
+                <img src="assets/img/details-2.png" alt="KeyU.Tech team building AI-driven educational tools" class="w-full h-auto rounded-lg" loading="lazy" decoding="async" data-i18n-attr="alt:aboutKeyu.imgAlt">
               </div>
             </div>
           </div>
           <div class="reveal">
-            <p class="section-eyebrow">About KeyU.Tech</p>
-            <h2 class="mt-3 font-display text-3xl sm:text-4xl text-surface-on">Empowering students through AI</h2>
-            <p class="mt-4 text-lg text-surface-onVariant leading-relaxed">
+            <p class="section-eyebrow" data-i18n="aboutKeyu.eyebrow">About KeyU.Tech</p>
+            <h2 class="mt-3 font-display text-3xl sm:text-4xl text-surface-on" data-i18n="aboutKeyu.title">Empowering students through AI</h2>
+            <p class="mt-4 text-lg text-surface-onVariant leading-relaxed" data-i18n="aboutKeyu.description">
               At KeyU.Tech, our mission is to empower students through AI-driven educational
               tools. Founded by a team of experts in machine learning and software
               development, we believe in making learning personal, accessible, and fun.
@@ -467,15 +500,15 @@
             <ul class="mt-6 space-y-3">
               <li class="flex gap-3 items-start">
                 <span class="material-symbols-rounded text-primary mt-0.5" aria-hidden="true">psychology</span>
-                <span class="text-surface-on">Founded by machine learning experts</span>
+                <span class="text-surface-on" data-i18n="aboutKeyu.bullets.experts">Founded by machine learning experts</span>
               </li>
               <li class="flex gap-3 items-start">
                 <span class="material-symbols-rounded text-primary mt-0.5" aria-hidden="true">favorite</span>
-                <span class="text-surface-on">Learning that is personal, accessible, and fun</span>
+                <span class="text-surface-on" data-i18n="aboutKeyu.bullets.personal">Learning that is personal, accessible, and fun</span>
               </li>
               <li class="flex gap-3 items-start">
                 <span class="material-symbols-rounded text-primary mt-0.5" aria-hidden="true">diversity_3</span>
-                <span class="text-surface-on">Built for the next generation of students</span>
+                <span class="text-surface-on" data-i18n="aboutKeyu.bullets.nextGen">Built for the next generation of students</span>
               </li>
             </ul>
           </div>
@@ -489,44 +522,44 @@
     <section id="testimonials" class="py-20 sm:py-28 bg-surface-containerLow">
       <div class="max-w-content mx-auto px-4 sm:px-6 lg:px-8">
         <div class="max-w-2xl reveal">
-          <p class="section-eyebrow">What students say</p>
-          <h2 class="mt-3 font-display text-3xl sm:text-4xl text-surface-on">Real voices from our pilot program</h2>
-          <p class="mt-4 text-lg text-surface-onVariant">A handful of early users share how Mamopedia fits into their study routine.</p>
+          <p class="section-eyebrow" data-i18n="testimonials.eyebrow">What students say</p>
+          <h2 class="mt-3 font-display text-3xl sm:text-4xl text-surface-on" data-i18n="testimonials.title">Real voices from our pilot program</h2>
+          <p class="mt-4 text-lg text-surface-onVariant" data-i18n="testimonials.description">A handful of early users share how Mamopedia fits into their study routine.</p>
         </div>
 
         <div class="mt-12 grid gap-6 md:grid-cols-3 reveal reveal-stagger">
           <figure class="testimonial-card" style="--i:0">
-            <span class="testimonial-badge"><span class="material-symbols-rounded text-[14px]" aria-hidden="true">verified_user</span> Pilot user</span>
-            <blockquote class="testimonial-quote">Mamopedia explained a physics problem in Kurdish when my textbook only had English. It finally clicked.</blockquote>
+            <span class="testimonial-badge"><span class="material-symbols-rounded text-[14px]" aria-hidden="true">verified_user</span> <span data-i18n="testimonials.badge">Pilot user</span></span>
+            <blockquote class="testimonial-quote" data-i18n="testimonials.items.rania.quote">Mamopedia explained a physics problem in Kurdish when my textbook only had English. It finally clicked.</blockquote>
             <figcaption class="testimonial-author">
               <span class="avatar-initials" style="--hue: 30" aria-hidden="true">RA</span>
               <span class="testimonial-author-meta">
-                <span class="name">Rania A.</span>
-                <span class="role">Grade 10 student, Erbil</span>
+                <span class="name" data-i18n="testimonials.items.rania.name">Rania A.</span>
+                <span class="role" data-i18n="testimonials.items.rania.role">Grade 10 student, Erbil</span>
               </span>
             </figcaption>
           </figure>
 
           <figure class="testimonial-card" style="--i:1">
-            <span class="testimonial-badge"><span class="material-symbols-rounded text-[14px]" aria-hidden="true">verified_user</span> Pilot user</span>
-            <blockquote class="testimonial-quote">The adaptive quizzes keep my daughter engaged - and she can study without me hovering over every question.</blockquote>
+            <span class="testimonial-badge"><span class="material-symbols-rounded text-[14px]" aria-hidden="true">verified_user</span> <span data-i18n="testimonials.badge">Pilot user</span></span>
+            <blockquote class="testimonial-quote" data-i18n="testimonials.items.hind.quote">The adaptive quizzes keep my daughter engaged - and she can study without me hovering over every question.</blockquote>
             <figcaption class="testimonial-author">
               <span class="avatar-initials" style="--hue: 200" aria-hidden="true">HM</span>
               <span class="testimonial-author-meta">
-                <span class="name">Hind M.</span>
-                <span class="role">Parent, Baghdad</span>
+                <span class="name" data-i18n="testimonials.items.hind.name">Hind M.</span>
+                <span class="role" data-i18n="testimonials.items.hind.role">Parent, Baghdad</span>
               </span>
             </figcaption>
           </figure>
 
           <figure class="testimonial-card" style="--i:2">
-            <span class="testimonial-badge"><span class="material-symbols-rounded text-[14px]" aria-hidden="true">verified_user</span> Pilot user</span>
-            <blockquote class="testimonial-quote">Finally a tool that follows the Iraqi curriculum. My students stopped asking me to translate homework prompts.</blockquote>
+            <span class="testimonial-badge"><span class="material-symbols-rounded text-[14px]" aria-hidden="true">verified_user</span> <span data-i18n="testimonials.badge">Pilot user</span></span>
+            <blockquote class="testimonial-quote" data-i18n="testimonials.items.sarbast.quote">Finally a tool that follows the Iraqi curriculum. My students stopped asking me to translate homework prompts.</blockquote>
             <figcaption class="testimonial-author">
               <span class="avatar-initials" style="--hue: 140" aria-hidden="true">SK</span>
               <span class="testimonial-author-meta">
-                <span class="name">Sarbast K.</span>
-                <span class="role">Teacher, Sulaymaniyah</span>
+                <span class="name" data-i18n="testimonials.items.sarbast.name">Sarbast K.</span>
+                <span class="role" data-i18n="testimonials.items.sarbast.role">Teacher, Sulaymaniyah</span>
               </span>
             </figcaption>
           </figure>
@@ -541,24 +574,24 @@
           <div class="absolute inset-0 opacity-[0.12] bg-grid-dots bg-dots-24 pointer-events-none" aria-hidden="true"></div>
           <div class="relative grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             <div class="reveal">
-              <p class="text-sm font-semibold uppercase tracking-wider opacity-80">Try It Now</p>
-              <h2 class="mt-2 font-display text-3xl sm:text-4xl">Start learning in seconds</h2>
-              <p class="mt-4 text-lg leading-relaxed opacity-90">
+              <p class="text-sm font-semibold uppercase tracking-wider opacity-80" data-i18n="try.eyebrow">Try It Now</p>
+              <h2 class="mt-2 font-display text-3xl sm:text-4xl" data-i18n="try.title">Start learning in seconds</h2>
+              <p class="mt-4 text-lg leading-relaxed opacity-90" data-i18n="try.description">
                 Experience Mamopedia today. Try it right in your browser, or download the
                 app from the App Store or Google Play.
               </p>
               <div class="mt-8 flex flex-wrap gap-3">
                 <a href="https://app.mamopedia.com/" rel="noopener" class="btn-filled-on-gradient">
                   <span class="material-symbols-rounded" aria-hidden="true">language</span>
-                  Open in Browser
+                  <span data-i18n="try.openBrowser">Open in Browser</span>
                 </a>
                 <a href="https://apps.apple.com/" rel="noopener" class="btn-outlined-on-container">
                   <span class="material-symbols-rounded" aria-hidden="true">apple</span>
-                  App Store
+                  <span data-i18n="try.appStore">App Store</span>
                 </a>
                 <a href="https://play.google.com/" rel="noopener" class="btn-outlined-on-container">
                   <span class="material-symbols-rounded" aria-hidden="true">shop</span>
-                  Google Play
+                  <span data-i18n="try.googlePlay">Google Play</span>
                 </a>
               </div>
               <div class="mt-8 flex items-center gap-4">
@@ -595,16 +628,16 @@
                   </svg>
                 </div>
                 <p class="text-sm opacity-80 leading-tight">
-                  <strong class="block text-base">Scan to install</strong>
-                  Point your phone camera here
+                  <strong class="block text-base" data-i18n="try.scanTitle">Scan to install</strong>
+                  <span data-i18n="try.scanBody">Point your phone camera here</span>
                 </p>
               </div>
             </div>
             <div class="reveal">
-              <div class="app-mockup-gallery" tabindex="0" aria-label="Mamopedia app screenshots">
-                <div class="phone-frame"><div class="phone-screen"><img src="assets/img/mamopedia1.png" alt="Mamopedia app screen 1" loading="lazy" decoding="async"></div></div>
-                <div class="phone-frame"><div class="phone-screen"><img src="assets/img/mamopedia2.png" alt="Mamopedia app screen 2" loading="lazy" decoding="async"></div></div>
-                <div class="phone-frame"><div class="phone-screen"><img src="assets/img/mamopedia3.png" alt="Mamopedia app screen 3" loading="lazy" decoding="async"></div></div>
+              <div class="app-mockup-gallery" tabindex="0" aria-label="Mamopedia app screenshots" data-i18n-attr="aria-label:a11y.appScreenshots">
+                <div class="phone-frame"><div class="phone-screen"><img src="assets/img/mamopedia1.png" alt="Mamopedia app screen 1" loading="lazy" decoding="async" data-i18n-attr="alt:a11y.appScreen"></div></div>
+                <div class="phone-frame"><div class="phone-screen"><img src="assets/img/mamopedia2.png" alt="Mamopedia app screen 2" loading="lazy" decoding="async" data-i18n-attr="alt:a11y.appScreen"></div></div>
+                <div class="phone-frame"><div class="phone-screen"><img src="assets/img/mamopedia3.png" alt="Mamopedia app screen 3" loading="lazy" decoding="async" data-i18n-attr="alt:a11y.appScreen"></div></div>
               </div>
             </div>
           </div>
@@ -616,68 +649,68 @@
     <section id="faq" class="py-20 sm:py-28 bg-surface-containerLow">
       <div class="max-w-content mx-auto px-4 sm:px-6 lg:px-8">
         <div class="max-w-2xl reveal">
-          <p class="section-eyebrow">FAQ</p>
-          <h2 class="mt-3 font-display text-3xl sm:text-4xl text-surface-on">Frequently asked questions</h2>
-          <p class="mt-4 text-lg text-surface-onVariant">Short answers to the things parents and students ask us most.</p>
+          <p class="section-eyebrow" data-i18n="faq.eyebrow">FAQ</p>
+          <h2 class="mt-3 font-display text-3xl sm:text-4xl text-surface-on" data-i18n="faq.title">Frequently asked questions</h2>
+          <p class="mt-4 text-lg text-surface-onVariant" data-i18n="faq.description">Short answers to the things parents and students ask us most.</p>
         </div>
 
         <div class="mt-10 max-w-3xl reveal">
           <details class="faq-item">
             <summary>
-              Which subjects and grade levels does Mamopedia cover?
+              <span data-i18n="faq.items.subjects.q">Which subjects and grade levels does Mamopedia cover?</span>
               <span class="material-symbols-rounded chevron" aria-hidden="true">expand_more</span>
             </summary>
-            <div class="faq-answer">
+            <div class="faq-answer" data-i18n="faq.items.subjects.a">
               Mamopedia supports core subjects taught in Iraqi primary and secondary schools, including mathematics, physics, chemistry, biology, Arabic, English, and social studies. Coverage expands continuously based on pilot feedback.
             </div>
           </details>
 
           <details class="faq-item">
             <summary>
-              Which languages can my child use to ask questions?
+              <span data-i18n="faq.items.languages.q">Which languages can my child use to ask questions?</span>
               <span class="material-symbols-rounded chevron" aria-hidden="true">expand_more</span>
             </summary>
-            <div class="faq-answer">
+            <div class="faq-answer" data-i18n="faq.items.languages.a">
               Students can chat in Arabic, Kurdish (Sorani), or English. Mamopedia automatically detects the language of each question and responds in the same language.
             </div>
           </details>
 
           <details class="faq-item">
             <summary>
-              Is Mamopedia free to use?
+              <span data-i18n="faq.items.free.q">Is Mamopedia free to use?</span>
               <span class="material-symbols-rounded chevron" aria-hidden="true">expand_more</span>
             </summary>
-            <div class="faq-answer">
+            <div class="faq-answer" data-i18n="faq.items.free.a">
               Yes. During our pilot program the core experience is free. We'll announce any paid plans well in advance and always keep a free tier available for students.
             </div>
           </details>
 
           <details class="faq-item">
             <summary>
-              How do you protect student privacy and data?
+              <span data-i18n="faq.items.privacy.q">How do you protect student privacy and data?</span>
               <span class="material-symbols-rounded chevron" aria-hidden="true">expand_more</span>
             </summary>
             <div class="faq-answer">
-              We minimize what we collect and never sell student data. Conversations are used to improve learning recommendations and are protected with modern encryption. See our <a href="privacy.html" class="underline text-primary">Privacy Policy</a> for details.
+              <span data-i18n="faq.items.privacy.aBefore">We minimize what we collect and never sell student data. Conversations are used to improve learning recommendations and are protected with modern encryption. See our </span><a href="privacy.html" class="underline text-primary" data-i18n="faq.items.privacy.aLink">Privacy Policy</a><span data-i18n="faq.items.privacy.aAfter"> for details.</span>
             </div>
           </details>
 
           <details class="faq-item">
             <summary>
-              What ages is Mamopedia designed for?
+              <span data-i18n="faq.items.ages.q">What ages is Mamopedia designed for?</span>
               <span class="material-symbols-rounded chevron" aria-hidden="true">expand_more</span>
             </summary>
-            <div class="faq-answer">
+            <div class="faq-answer" data-i18n="faq.items.ages.a">
               The experience is tuned for students roughly ages 10-18 and adapts its tone and difficulty based on the grade level you set. Younger children should use it with adult supervision.
             </div>
           </details>
 
           <details class="faq-item">
             <summary>
-              Does it work offline?
+              <span data-i18n="faq.items.offline.q">Does it work offline?</span>
               <span class="material-symbols-rounded chevron" aria-hidden="true">expand_more</span>
             </summary>
-            <div class="faq-answer">
+            <div class="faq-answer" data-i18n="faq.items.offline.a">
               Mamopedia currently needs an internet connection to generate personalized answers and quizzes. We're exploring a lightweight offline study pack for areas with limited connectivity.
             </div>
           </details>
@@ -690,9 +723,9 @@
       <div class="max-w-content mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid lg:grid-cols-2 gap-12 lg:gap-16">
           <div class="reveal">
-            <p class="text-sm font-semibold uppercase tracking-wider text-primary">Contact Us</p>
-            <h2 class="mt-2 font-display text-3xl sm:text-4xl text-surface-on">We'd love to hear from you</h2>
-            <p class="mt-4 text-lg text-surface-onVariant leading-relaxed">
+            <p class="text-sm font-semibold uppercase tracking-wider text-primary" data-i18n="contact.eyebrow">Contact Us</p>
+            <h2 class="mt-2 font-display text-3xl sm:text-4xl text-surface-on" data-i18n="contact.title">We'd love to hear from you</h2>
+            <p class="mt-4 text-lg text-surface-onVariant leading-relaxed" data-i18n="contact.description">
               Have questions or need support? Reach out to us anytime via the contact form -
               or use the details below.
             </p>
@@ -701,21 +734,21 @@
               <li class="flex gap-4 items-start">
                 <span class="material-symbols-rounded text-primary mt-1" aria-hidden="true">location_on</span>
                 <div>
-                  <p class="font-semibold text-surface-on">Address</p>
-                  <p class="text-surface-onVariant">Erbil, Iraq</p>
+                  <p class="font-semibold text-surface-on" data-i18n="contact.addressLabel">Address</p>
+                  <p class="text-surface-onVariant" data-i18n="contact.addressValue">Erbil, Iraq</p>
                 </div>
               </li>
               <li class="flex gap-4 items-start">
                 <span class="material-symbols-rounded text-primary mt-1" aria-hidden="true">call</span>
                 <div>
-                  <p class="font-semibold text-surface-on">Phone</p>
+                  <p class="font-semibold text-surface-on" data-i18n="contact.phoneLabel">Phone</p>
                   <a href="tel:+9647507406669" class="text-surface-onVariant hover:text-primary">+964 750 740 6669</a>
                 </div>
               </li>
               <li class="flex gap-4 items-start">
                 <span class="material-symbols-rounded text-primary mt-1" aria-hidden="true">mail</span>
                 <div>
-                  <p class="font-semibold text-surface-on">Email</p>
+                  <p class="font-semibold text-surface-on" data-i18n="contact.emailLabel">Email</p>
                   <a href="mailto:info@keyu.tech" class="text-surface-onVariant hover:text-primary">info@keyu.tech</a>
                 </div>
               </li>
@@ -727,26 +760,26 @@
               <div class="grid sm:grid-cols-2 gap-4">
                 <div class="field">
                   <input type="text" id="name" name="name" class="field-input peer" placeholder=" " required autocomplete="name">
-                  <label for="name" class="field-label">Your name</label>
+                  <label for="name" class="field-label" data-i18n="contact.form.name">Your name</label>
                 </div>
                 <div class="field">
                   <input type="email" id="email" name="email" class="field-input peer" placeholder=" " required autocomplete="email">
-                  <label for="email" class="field-label">Your email</label>
+                  <label for="email" class="field-label" data-i18n="contact.form.email">Your email</label>
                 </div>
               </div>
               <div class="field">
                 <input type="text" id="subject" name="subject" class="field-input peer" placeholder=" " required>
-                <label for="subject" class="field-label">Subject</label>
+                <label for="subject" class="field-label" data-i18n="contact.form.subject">Subject</label>
               </div>
               <div class="field">
                 <textarea id="message" name="message" rows="5" class="field-input peer resize-y" placeholder=" " required maxlength="1000"></textarea>
-                <label for="message" class="field-label">Your message</label>
+                <label for="message" class="field-label" data-i18n="contact.form.message">Your message</label>
                 <span id="message-counter" class="char-counter" aria-live="polite">0 / 1000</span>
               </div>
               <div id="form-status" class="form-status" role="status" aria-live="polite"></div>
               <button type="submit" class="btn-filled w-full justify-center">
                 <span class="material-symbols-rounded" aria-hidden="true">send</span>
-                Send Message
+                <span data-i18n="contact.form.send">Send Message</span>
               </button>
             </form>
           </div>
@@ -765,58 +798,58 @@
             <img src="assets/img/mamo.png" alt="" class="h-8 w-8 rounded-sm">
             <span class="font-display font-bold text-lg">Mamopedia</span>
           </div>
-          <p class="mt-3 text-surface-onVariant">Smarter learning for Iraqi students. Built by KeyU.Tech in Erbil, Iraq.</p>
+          <p class="mt-3 text-surface-onVariant" data-i18n="footer.tagline">Smarter learning for Iraqi students. Built by KeyU.Tech in Erbil, Iraq.</p>
           <div class="mt-4 flex gap-2 items-center">
-            <a href="https://www.linkedin.com/company/keyu-tech" rel="noopener" target="_blank" class="social-btn" aria-label="KeyU.Tech on LinkedIn">
+            <a href="https://www.linkedin.com/company/keyu-tech" rel="noopener" target="_blank" class="social-btn" aria-label="KeyU.Tech on LinkedIn" data-i18n-attr="aria-label:a11y.linkedin">
               <svg viewBox="0 0 24 24" class="w-5 h-5" aria-hidden="true" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5V9h3v10zM6.5 7.7a1.7 1.7 0 110-3.4 1.7 1.7 0 010 3.4zM19 19h-3v-5c0-1.2-.5-1.9-1.5-1.9-1.1 0-1.7.8-1.7 1.9V19h-3V9h3v1.2a3.4 3.4 0 013-1.5c2.1 0 3.2 1.4 3.2 3.9V19z"/></svg>
             </a>
-            <span class="text-xs text-surface-onVariant">More channels coming soon</span>
+            <span class="text-xs text-surface-onVariant" data-i18n="footer.moreChannels">More channels coming soon</span>
           </div>
         </div>
 
         <div>
-          <h3 class="font-semibold text-surface-on">Get the App</h3>
+          <h3 class="font-semibold text-surface-on" data-i18n="footer.getApp">Get the App</h3>
           <ul class="mt-4 space-y-2 text-surface-onVariant">
-            <li><a href="https://apps.apple.com/" rel="noopener" class="footer-link">App Store</a></li>
-            <li><a href="https://play.google.com/" rel="noopener" class="footer-link">Google Play</a></li>
-            <li><a href="https://app.mamopedia.com/" rel="noopener" class="footer-link">Web App</a></li>
+            <li><a href="https://apps.apple.com/" rel="noopener" class="footer-link" data-i18n="footer.appStore">App Store</a></li>
+            <li><a href="https://play.google.com/" rel="noopener" class="footer-link" data-i18n="footer.googlePlay">Google Play</a></li>
+            <li><a href="https://app.mamopedia.com/" rel="noopener" class="footer-link" data-i18n="footer.webApp">Web App</a></li>
           </ul>
         </div>
 
         <div>
-          <h3 class="font-semibold text-surface-on">Company</h3>
+          <h3 class="font-semibold text-surface-on" data-i18n="footer.company">Company</h3>
           <ul class="mt-4 space-y-2 text-surface-onVariant">
-            <li><a href="#about" class="footer-link">About KeyU.Tech</a></li>
-            <li><a href="terms.html" class="footer-link">Terms &amp; Conditions</a></li>
-            <li><a href="privacy.html" class="footer-link">Privacy Policy</a></li>
-            <li><a href="#contact" class="footer-link">Contact Us</a></li>
+            <li><a href="#about" class="footer-link" data-i18n="footer.aboutKeyu">About KeyU.Tech</a></li>
+            <li><a href="terms.html" class="footer-link" data-i18n="footer.terms">Terms &amp; Conditions</a></li>
+            <li><a href="privacy.html" class="footer-link" data-i18n="footer.privacy">Privacy Policy</a></li>
+            <li><a href="#contact" class="footer-link" data-i18n="footer.contact">Contact Us</a></li>
           </ul>
         </div>
 
         <div>
-          <h3 class="font-semibold text-surface-on">Stay Updated</h3>
-          <p class="mt-4 text-surface-onVariant">Leave your email and we'll reach out when public subscriptions open.</p>
+          <h3 class="font-semibold text-surface-on" data-i18n="footer.stayUpdated">Stay Updated</h3>
+          <p class="mt-4 text-surface-onVariant" data-i18n="footer.newsletterDesc">Leave your email and we'll reach out when public subscriptions open.</p>
           <form id="newsletter-form" method="post" class="mt-4 flex gap-2" novalidate>
-            <label for="newsletter-email" class="sr-only">Email address</label>
-            <input type="email" id="newsletter-email" name="email" placeholder="Your email" required class="flex-1 field-input-plain">
-            <button type="submit" class="btn-filled shrink-0" aria-label="Notify me when subscriptions open">
+            <label for="newsletter-email" class="sr-only" data-i18n="a11y.emailAddress">Email address</label>
+            <input type="email" id="newsletter-email" name="email" placeholder="Your email" required class="flex-1 field-input-plain" data-i18n-attr="placeholder:footer.newsletterPlaceholder">
+            <button type="submit" class="btn-filled shrink-0" aria-label="Notify me when subscriptions open" data-i18n-attr="aria-label:a11y.notifyMe">
               <span class="material-symbols-rounded" aria-hidden="true">notifications_active</span>
             </button>
           </form>
           <p id="newsletter-status" class="mt-2 text-sm text-surface-onVariant" role="status" aria-live="polite"></p>
-          <p class="mt-2 text-xs text-surface-onVariant opacity-75">Subscriptions aren't live yet - we'll email you directly when they are.</p>
+          <p class="mt-2 text-xs text-surface-onVariant opacity-75" data-i18n="footer.newsletterDisclaimer">Subscriptions aren't live yet - we'll email you directly when they are.</p>
         </div>
       </div>
 
       <div class="mt-12 pt-6 border-t border-outline-variant flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-surface-onVariant">
-        <p>&copy; <span id="year">2026</span> Mamopedia. All rights reserved.</p>
-        <p>Designed by <a href="https://keyu.tech/" rel="noopener" class="footer-link">KeyU.Tech</a></p>
+        <p>&copy; <span id="year">2026</span> Mamopedia. <span data-i18n="footer.rights">All rights reserved.</span></p>
+        <p><span data-i18n="footer.designedBy">Designed by</span> <a href="https://keyu.tech/" rel="noopener" class="footer-link">KeyU.Tech</a></p>
       </div>
     </div>
   </footer>
 
   <!-- Back to top FAB -->
-  <button id="back-to-top" type="button" class="fixed bottom-6 right-6 z-40 hidden items-center justify-center w-12 h-12 rounded-lg bg-primary text-primary-on shadow-m3 hover:shadow-m2 transition" aria-label="Back to top">
+  <button id="back-to-top" type="button" class="fixed bottom-6 end-6 z-40 hidden items-center justify-center w-12 h-12 rounded-lg bg-primary text-primary-on shadow-m3 hover:shadow-m2 transition" aria-label="Back to top" data-i18n-attr="aria-label:a11y.backToTop">
     <span class="material-symbols-rounded" aria-hidden="true">arrow_upward</span>
   </button>
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" dir="ltr" data-page="terms" data-lang="en" class="scroll-smooth">
 
 <head>
   <meta charset="utf-8">
@@ -14,11 +14,26 @@
           document.documentElement.setAttribute('data-theme', t);
         }
       } catch (e) {}
+      try {
+        var supported = { en: { dir: 'ltr', html: 'en' }, ar: { dir: 'rtl', html: 'ar' }, ckb: { dir: 'rtl', html: 'ckb' } };
+        var saved = localStorage.getItem('mp-lang');
+        var pick = supported[saved] ? saved : null;
+        if (!pick) {
+          var nav = (navigator.language || '').toLowerCase();
+          if (nav.indexOf('ckb') === 0 || nav.indexOf('ku') === 0) pick = 'ckb';
+          else if (nav.indexOf('ar') === 0) pick = 'ar';
+        }
+        if (pick) {
+          document.documentElement.setAttribute('lang', supported[pick].html);
+          document.documentElement.setAttribute('dir', supported[pick].dir);
+          document.documentElement.setAttribute('data-lang', pick);
+        }
+      } catch (e) {}
     })();
   </script>
 
-  <title>Terms &amp; Conditions | Mamopedia</title>
-  <meta name="description" content="Terms and conditions for using Mamopedia - the AI-powered learning companion for Iraqi students by KeyU.Tech.">
+  <title data-i18n="pages.terms.title">Terms &amp; Conditions | Mamopedia</title>
+  <meta name="description" content="Terms and conditions for using Mamopedia - the AI-powered learning companion for Iraqi students by KeyU.Tech." data-i18n-attr="content:pages.terms.description">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#7EA377">
   <meta name="color-scheme" content="light dark">
@@ -55,65 +70,75 @@
 
   <link href="assets/css/mamopedia-tokens.css" rel="stylesheet">
   <link href="assets/css/style.css" rel="stylesheet">
+
+  <script src="assets/js/i18n.js" defer></script>
 </head>
 
 <body class="bg-surface text-surface-on font-sans antialiased">
 
   <header class="border-b border-outline-variant">
     <div class="max-w-content mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-      <a href="index.html" class="flex items-center gap-2" aria-label="Mamopedia home">
+      <a href="index.html" class="flex items-center gap-2" aria-label="Mamopedia home" data-i18n-attr="aria-label:a11y.brandHome">
         <img src="assets/img/mamo.png" alt="" class="h-8 w-8 rounded-sm">
         <span class="font-display font-bold text-lg">Mamopedia</span>
       </a>
       <div class="flex items-center gap-1">
-        <button type="button" class="theme-toggle icon-btn" data-theme-toggle aria-label="Switch to dark mode">
+        <div class="lang-switcher" data-lang-switcher>
+          <button type="button" class="lang-switcher-btn" aria-haspopup="listbox" aria-expanded="false" data-lang-toggle data-i18n-attr="aria-label:a11y.selectLanguage" aria-label="Select language">
+            <span class="material-symbols-rounded" aria-hidden="true">language</span>
+            <span class="lang-code" data-lang-current>EN</span>
+            <span class="material-symbols-rounded chevron" aria-hidden="true">expand_more</span>
+          </button>
+          <ul class="lang-switcher-menu" role="listbox" data-lang-menu></ul>
+        </div>
+        <button type="button" class="theme-toggle icon-btn" data-theme-toggle aria-label="Switch to dark mode" data-i18n-attr="aria-label:a11y.themeDark">
           <span class="material-symbols-rounded theme-toggle-icon" aria-hidden="true">dark_mode</span>
         </button>
         <a href="index.html" class="nav-link">
           <span class="material-symbols-rounded" aria-hidden="true">arrow_back</span>
-          Home
+          <span data-i18n="nav.home">Home</span>
         </a>
       </div>
     </div>
   </header>
 
   <main class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16 prose-custom">
-    <p class="text-sm font-semibold uppercase tracking-wider text-primary">Legal</p>
-    <h1 class="mt-2 font-display text-4xl text-surface-on">Terms &amp; Conditions</h1>
-    <p class="mt-2 text-surface-onVariant">Last updated: April 2026</p>
+    <p class="text-sm font-semibold uppercase tracking-wider text-primary" data-i18n="legal.eyebrow">Legal</p>
+    <h1 class="mt-2 font-display text-4xl text-surface-on" data-i18n="terms.title">Terms &amp; Conditions</h1>
+    <p class="mt-2 text-surface-onVariant" data-i18n="legal.lastUpdated">Last updated: April 2026</p>
 
     <section class="mt-8 space-y-6 text-surface-on leading-relaxed">
       <div>
-        <h2 class="font-display text-2xl">1. Acceptance of Terms</h2>
-        <p class="mt-2 text-surface-onVariant">By accessing or using Mamopedia ("the Service"), you agree to be bound by these Terms &amp; Conditions. If you do not agree, please do not use the Service.</p>
+        <h2 class="font-display text-2xl" data-i18n="terms.sections.acceptance.h">1. Acceptance of Terms</h2>
+        <p class="mt-2 text-surface-onVariant" data-i18n="terms.sections.acceptance.p">By accessing or using Mamopedia ("the Service"), you agree to be bound by these Terms &amp; Conditions. If you do not agree, please do not use the Service.</p>
       </div>
       <div>
-        <h2 class="font-display text-2xl">2. Use of the Service</h2>
-        <p class="mt-2 text-surface-onVariant">Mamopedia is provided as an educational companion for Iraqi students. You agree to use it lawfully and respectfully. You are responsible for any content you submit and for maintaining the security of your account.</p>
+        <h2 class="font-display text-2xl" data-i18n="terms.sections.use.h">2. Use of the Service</h2>
+        <p class="mt-2 text-surface-onVariant" data-i18n="terms.sections.use.p">Mamopedia is provided as an educational companion for Iraqi students. You agree to use it lawfully and respectfully. You are responsible for any content you submit and for maintaining the security of your account.</p>
       </div>
       <div>
-        <h2 class="font-display text-2xl">3. Intellectual Property</h2>
-        <p class="mt-2 text-surface-onVariant">All content, branding, and software associated with Mamopedia are the property of KeyU.Tech and are protected by applicable intellectual property laws.</p>
+        <h2 class="font-display text-2xl" data-i18n="terms.sections.ip.h">3. Intellectual Property</h2>
+        <p class="mt-2 text-surface-onVariant" data-i18n="terms.sections.ip.p">All content, branding, and software associated with Mamopedia are the property of KeyU.Tech and are protected by applicable intellectual property laws.</p>
       </div>
       <div>
-        <h2 class="font-display text-2xl">4. Disclaimer</h2>
-        <p class="mt-2 text-surface-onVariant">Mamopedia is offered on an "as is" basis. While we strive for accuracy, AI-generated content may contain errors. Always verify important information with a qualified teacher or trusted source.</p>
+        <h2 class="font-display text-2xl" data-i18n="terms.sections.disclaimer.h">4. Disclaimer</h2>
+        <p class="mt-2 text-surface-onVariant" data-i18n="terms.sections.disclaimer.p">Mamopedia is offered on an "as is" basis. While we strive for accuracy, AI-generated content may contain errors. Always verify important information with a qualified teacher or trusted source.</p>
       </div>
       <div>
-        <h2 class="font-display text-2xl">5. Changes to These Terms</h2>
-        <p class="mt-2 text-surface-onVariant">We may update these Terms from time to time. Continued use of the Service after changes indicates acceptance of the updated Terms.</p>
+        <h2 class="font-display text-2xl" data-i18n="terms.sections.changes.h">5. Changes to These Terms</h2>
+        <p class="mt-2 text-surface-onVariant" data-i18n="terms.sections.changes.p">We may update these Terms from time to time. Continued use of the Service after changes indicates acceptance of the updated Terms.</p>
       </div>
       <div>
-        <h2 class="font-display text-2xl">6. Contact</h2>
-        <p class="mt-2 text-surface-onVariant">Questions? Email us at <a href="mailto:info@keyu.tech" class="text-primary hover:underline">info@keyu.tech</a>.</p>
+        <h2 class="font-display text-2xl" data-i18n="terms.sections.contact.h">6. Contact</h2>
+        <p class="mt-2 text-surface-onVariant"><span data-i18n="terms.sections.contact.pBefore">Questions? Email us at </span><a href="mailto:info@keyu.tech" class="text-primary hover:underline">info@keyu.tech</a><span data-i18n="terms.sections.contact.pAfter">.</span></p>
       </div>
     </section>
   </main>
 
   <footer class="bg-surface-containerHigh border-t border-outline-variant">
     <div class="max-w-content mx-auto px-4 sm:px-6 lg:px-8 py-8 text-sm text-surface-onVariant flex flex-col sm:flex-row items-center justify-between gap-2">
-      <p>&copy; 2026 Mamopedia. All rights reserved.</p>
-      <p><a href="privacy.html" class="footer-link">Privacy Policy</a> &middot; <a href="index.html" class="footer-link">Home</a></p>
+      <p>&copy; 2026 Mamopedia. <span data-i18n="footer.rights">All rights reserved.</span></p>
+      <p><a href="privacy.html" class="footer-link" data-i18n="footer.privacy">Privacy Policy</a> &middot; <a href="index.html" class="footer-link" data-i18n="nav.home">Home</a></p>
     </div>
   </footer>
 
