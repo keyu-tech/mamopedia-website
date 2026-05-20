@@ -1,4 +1,4 @@
-# Mamopedia AI — Design System
+# Mamopedia — Design System
 
 **ماموپێدیا · ماموبیدیا · Mamopedia** — a friendly, **chat‑based** AI learning companion for Iraqi students. Powered by AI and a tailored curriculum, it offers personalized homework support, step‑by‑step problem‑solving, and adaptive quizzes — all in **Arabic, Kurdish, and English**.
 

@@ -1,5 +1,5 @@
 /* =====================================================================
-   MamoPedia AI - main.js
+   Mamopedia - main.js
    Vanilla JS for navigation, scroll effects, reveal, and form handling.
    ===================================================================== */
 
