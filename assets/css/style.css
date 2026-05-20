@@ -1,5 +1,5 @@
 /* =====================================================================
-   MamoPedia AI - Marketing-site supporting styles
+   Mamopedia - Marketing-site supporting styles
    Works alongside TailwindCSS (see tailwind.config in index.html) and the
    shared design tokens in `mamopedia-tokens.css` (load that file first).
    The aliases below bridge legacy `--md-sys-color-*` selectors used in

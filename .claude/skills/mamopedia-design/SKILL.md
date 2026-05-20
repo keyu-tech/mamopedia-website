@@ -1,12 +1,12 @@
 ---
 name: mamopedia-design
-description: Use this skill to generate well-branded interfaces and assets for Mamopedia AI — a friendly, chat-based, Claude-style AI learning companion for Iraqi K-12 students. Supports Arabic, Kurdish, and English (RTL first-class). Covers AI homework help, AI-generated quizzes, and Iraqi MOE curriculum alignment.
+description: Use this skill to generate well-branded interfaces and assets for Mamopedia — a friendly, chat-based, Claude-style AI learning companion for Iraqi K-12 students. Supports Arabic, Kurdish, and English (RTL first-class). Covers AI homework help, AI-generated quizzes, and Iraqi MOE curriculum alignment.
 user-invocable: true
 ---
 
 Read `README.md` first.
 
-Mamopedia AI is a **chat-first product, like Claude**, for Iraqi students. Four feature pillars:
+Mamopedia is a **chat-first product, like Claude**, for Iraqi students. Four feature pillars:
 1. **AI Homework Help** — step-by-step guidance across every subject
 2. **Personalized Quizzes** — AI-generated, adaptive, progress-tracked
 3. **Multi-Language Support** — Arabic, Kurdish, English, switchable anytime
