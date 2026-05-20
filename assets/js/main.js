@@ -10,9 +10,95 @@
   const $ = (sel, root = document) => root.querySelector(sel);
   const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
 
+  /* --------- i18n helpers ---------
+     Wraps window.MPI18n with a safe `t()` that always returns *something*
+     even if the i18n script is still loading (rare). Subscribers should
+     register via `onI18nChange(fn)` to re-render strings on language switch. */
+  const t = (key, fallback) => (window.MPI18n ? window.MPI18n.t(key, fallback) : (fallback || ''));
+  const onI18nChange = (fn) => {
+    if (window.MPI18n && typeof window.MPI18n.onChange === 'function') {
+      return window.MPI18n.onChange(fn);
+    }
+    // i18n not ready yet — try again on the next microtask.
+    return Promise.resolve().then(() => {
+      if (window.MPI18n) window.MPI18n.onChange(fn);
+    });
+  };
+
   /* --------- Current year in footer --------- */
   const yearEl = $('#year');
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());
+
+  /* --------- Language switcher ---------
+     Builds menu items from MPI18n.supported, wires up open/close + selection,
+     and keeps the visible code label in sync with the current language. */
+  const langSwitchers = $$('[data-lang-switcher]');
+  const closeAllLangMenus = () => {
+    langSwitchers.forEach((sw) => {
+      sw.setAttribute('data-open', 'false');
+      const btn = sw.querySelector('[data-lang-toggle]');
+      if (btn) btn.setAttribute('aria-expanded', 'false');
+    });
+  };
+  const renderLangMenus = () => {
+    if (!window.MPI18n) return;
+    const current = window.MPI18n.code;
+    langSwitchers.forEach((sw) => {
+      const menu = sw.querySelector('[data-lang-menu]');
+      const codeLabel = sw.querySelector('[data-lang-current]');
+      if (codeLabel) codeLabel.textContent = current.toUpperCase();
+      if (!menu) return;
+      menu.innerHTML = '';
+      window.MPI18n.supported.forEach((meta) => {
+        const li = document.createElement('li');
+        li.setAttribute('role', 'option');
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'lang-switcher-option';
+        btn.setAttribute('data-lang-code', meta.code);
+        btn.setAttribute('aria-current', meta.code === current ? 'true' : 'false');
+        btn.setAttribute('dir', meta.dir);
+        btn.setAttribute('lang', meta.htmlLang);
+        btn.innerHTML =
+          `<span class="native">${meta.nativeName}</span>` +
+          `<span class="ascii">${meta.code.toUpperCase()}</span>`;
+        on(btn, 'click', () => {
+          window.MPI18n.setLang(meta.code);
+          closeAllLangMenus();
+        });
+        li.appendChild(btn);
+        menu.appendChild(li);
+      });
+    });
+  };
+  langSwitchers.forEach((sw) => {
+    const btn = sw.querySelector('[data-lang-toggle]');
+    on(btn, 'click', (e) => {
+      e.stopPropagation();
+      const open = sw.getAttribute('data-open') === 'true';
+      closeAllLangMenus();
+      if (!open) {
+        sw.setAttribute('data-open', 'true');
+        if (btn) btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+  if (langSwitchers.length) {
+    on(document, 'click', (e) => {
+      const inside = e.target.closest('[data-lang-switcher]');
+      if (!inside) closeAllLangMenus();
+    });
+    on(document, 'keydown', (e) => {
+      if (e.key === 'Escape') closeAllLangMenus();
+    });
+  }
+  // Initial render + re-render on language change.
+  if (window.MPI18n) renderLangMenus();
+  onI18nChange(() => {
+    renderLangMenus();
+    if (typeof window.__mpSyncTheme === 'function') window.__mpSyncTheme();
+    if (typeof window.__mpSyncMenuLabel === 'function') window.__mpSyncMenuLabel();
+  });
 
   /* --------- Theme toggle (light / dark) ---------
      The pre-paint script in <head> already applied any saved theme.
@@ -32,8 +118,9 @@
     const syncButtons = () => {
       const current = effectiveTheme();
       const next = current === 'dark' ? 'light' : 'dark';
+      const label = next === 'dark' ? t('a11y.themeDark', 'Switch to dark mode') : t('a11y.themeLight', 'Switch to light mode');
       themeToggles.forEach((btn) => {
-        btn.setAttribute('aria-label', next === 'dark' ? 'Switch to dark mode' : 'Switch to light mode');
+        btn.setAttribute('aria-label', label);
         const icon = btn.querySelector('.theme-toggle-icon');
         if (icon) icon.textContent = next === 'dark' ? 'dark_mode' : 'light_mode';
       });
@@ -41,6 +128,8 @@
         themeColorMeta.setAttribute('content', current === 'dark' ? '#17160F' : '#7EA377');
       }
     };
+    // Expose so language-change subscribers can re-run with fresh translations.
+    window.__mpSyncTheme = syncButtons;
     syncButtons();
     themeToggles.forEach((btn) => on(btn, 'click', () => {
       const next = effectiveTheme() === 'dark' ? 'light' : 'dark';
@@ -69,7 +158,7 @@
     if (!menu || !menuBtn) return;
     menu.classList.add('hidden');
     menuBtn.setAttribute('aria-expanded', 'false');
-    menuBtn.setAttribute('aria-label', 'Open menu');
+    menuBtn.setAttribute('aria-label', t('a11y.openMenu', 'Open menu'));
     const icon = menuBtn.querySelector('.material-symbols-rounded');
     if (icon) icon.textContent = 'menu';
   };
@@ -77,10 +166,17 @@
     if (!menu || !menuBtn) return;
     menu.classList.remove('hidden');
     menuBtn.setAttribute('aria-expanded', 'true');
-    menuBtn.setAttribute('aria-label', 'Close menu');
+    menuBtn.setAttribute('aria-label', t('a11y.closeMenu', 'Close menu'));
     const icon = menuBtn.querySelector('.material-symbols-rounded');
     if (icon) icon.textContent = 'close';
   };
+  // Re-apply menu's aria-label after a language switch (current state unchanged).
+  const syncMenuLabel = () => {
+    if (!menuBtn) return;
+    const expanded = menuBtn.getAttribute('aria-expanded') === 'true';
+    menuBtn.setAttribute('aria-label', expanded ? t('a11y.closeMenu', 'Close menu') : t('a11y.openMenu', 'Open menu'));
+  };
+  window.__mpSyncMenuLabel = syncMenuLabel;
 
   on(menuBtn, 'click', () => {
     const expanded = menuBtn.getAttribute('aria-expanded') === 'true';
@@ -331,24 +427,24 @@
         return;
       }
       e.preventDefault();
-      setStatus('Sending your message...', 'pending');
+      setStatus(t('contact.form.sending', 'Sending your message...'), 'pending');
       try {
         const res = await fetch(form.action, {
           method: 'POST',
           body: new FormData(form),
         });
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        const text = await res.text();
-        const ok = text.trim().toUpperCase() === 'OK' || res.ok;
+        const responseText = await res.text();
+        const ok = responseText.trim().toUpperCase() === 'OK' || res.ok;
         if (ok) {
           form.reset();
           $$('#contact-form .field').forEach((f) => f.classList.remove('field-state-ok', 'field-state-err'));
-          setStatus('Thanks! Your message has been sent.', 'ok');
+          setStatus(t('contact.form.ok', 'Thanks! Your message has been sent.'), 'ok');
         } else {
-          throw new Error(text || 'Unknown error');
+          throw new Error(responseText || 'Unknown error');
         }
       } catch (err) {
-        setStatus('Sorry, something went wrong. Please email info@keyu.tech.', 'err');
+        setStatus(t('contact.form.err', 'Sorry, something went wrong. Please email info@keyu.tech.'), 'err');
       }
     });
   }
@@ -378,7 +474,7 @@
     }
     newsletter.reset();
     if (newsletterStatus) {
-      newsletterStatus.textContent = "Thanks - we've noted your interest and will email you when subscriptions open.";
+      newsletterStatus.textContent = t('footer.newsletterThanks', "Thanks - we've noted your interest and will email you when subscriptions open.");
     }
   });
 })();
