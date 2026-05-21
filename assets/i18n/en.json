@@ -44,6 +44,7 @@
     "linkedin": "KeyU.Tech on LinkedIn",
     "emailAddress": "Email address",
     "notifyMe": "Notify me when subscriptions open",
+    "tryTrust": "Why students trust Mamopedia",
     "backToTop": "Back to top"
   },
   "nav": {
@@ -173,8 +174,11 @@
     "openBrowser": "Open in Browser",
     "appStore": "App Store",
     "googlePlay": "Google Play",
-    "scanTitle": "Scan to install",
-    "scanBody": "Point your phone camera here"
+    "trust": {
+      "privacy": "Private by design — no ads, ever",
+      "free": "Free during the pilot program",
+      "curriculum": "Built around the Iraqi curriculum"
+    }
   },
   "faq": {
     "eyebrow": "FAQ",
@@ -245,6 +249,7 @@
     "newsletterPlaceholder": "Your email",
     "newsletterDisclaimer": "Subscriptions aren't live yet - we'll email you directly when they are.",
     "newsletterThanks": "Thanks - we've noted your interest and will email you when subscriptions open.",
+    "notifyMe": "Notify me",
     "rights": "All rights reserved.",
     "designedBy": "Designed by"
   },
