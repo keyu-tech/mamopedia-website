@@ -55,21 +55,6 @@ html, body { overflow-x: clip; }
   .stat-counter { animation: none !important; }
 }
 
-/* ---------------- Scroll progress bar ---------------- */
-.scroll-progress {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  z-index: 60;
-  background: linear-gradient(90deg, #7EA377 0%, #B8946F 55%, #F88672 100%);
-  transform: scaleX(var(--p, 0));
-  transform-origin: left center;
-  transition: transform 0.1s linear;
-  pointer-events: none;
-}
-
 /* ---------------- Section eyebrow label ---------------- */
 .section-eyebrow {
   display: inline-flex;
@@ -1168,11 +1153,6 @@ textarea.field-input { min-height: 7rem; line-height: 1.5; }
 [dir="rtl"] .home-link-arrow { transform: scaleX(-1); }
 
 /* ---------------- RTL adjustments ---------------- */
-[dir="rtl"] .scroll-progress {
-  /* The progress bar uses --p (0..1) as a width fraction from the start edge.
-     With the page direction flipped, the bar naturally fills from the right
-     edge, which matches the reading direction. */
-}
 [dir="rtl"] .lang-switcher-menu {
   inset-inline-end: auto;
   inset-inline-start: 0;
