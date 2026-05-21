@@ -36,14 +36,12 @@
     "closeMenu": "Close menu",
     "language": "Language",
     "selectLanguage": "Select language",
-    "supportedLanguages": "Supported languages",
     "chatPreview": "Sample Mamopedia conversation",
     "statsRegion": "Mamopedia at a glance",
     "appScreen": "Mamopedia app screen",
     "linkedin": "KeyU.Tech on LinkedIn",
     "emailAddress": "Email address",
     "notifyMe": "Notify me when subscriptions open",
-    "tryTrust": "Why students trust Mamopedia",
     "backToTop": "Back to top"
   },
   "nav": {
@@ -174,15 +172,7 @@
     "appStore": "App Store",
     "googlePlay": "Google Play",
     "appStoreAria": "Download on the App Store",
-    "googlePlayAria": "Get it on Google Play",
-    "trust": {
-      "privacy": "Private by design — no ads, ever",
-      "free": "Free during the pilot program",
-      "curriculum": "Built around the Iraqi curriculum",
-      "privacyShort": "No ads",
-      "freeShort": "Free during pilot",
-      "curriculumShort": "Iraqi curriculum"
-    }
+    "googlePlayAria": "Get it on Google Play"
   },
   "faq": {
     "eyebrow": "FAQ",
