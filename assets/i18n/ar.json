@@ -44,6 +44,7 @@
     "linkedin": "KeyU.Tech على لينكدإن",
     "emailAddress": "البريد الإلكتروني",
     "notifyMe": "أبلغني عند فتح الاشتراكات",
+    "tryTrust": "لماذا يثق الطلاب بماموبيديا",
     "backToTop": "العودة إلى الأعلى"
   },
   "nav": {
@@ -173,8 +174,11 @@
     "openBrowser": "افتح في المتصفّح",
     "appStore": "App Store",
     "googlePlay": "Google Play",
-    "scanTitle": "امسح للتثبيت",
-    "scanBody": "وجّه كاميرا هاتفك هنا"
+    "trust": {
+      "privacy": "خصوصية تامّة — بدون إعلانات",
+      "free": "مجاني خلال البرنامج التجريبي",
+      "curriculum": "مبني على المنهج العراقي"
+    }
   },
   "faq": {
     "eyebrow": "الأسئلة الشائعة",
@@ -245,6 +249,7 @@
     "newsletterPlaceholder": "بريدك الإلكتروني",
     "newsletterDisclaimer": "الاشتراكات لم تُفتح بعد - سنُراسلك مباشرة عندما تُفتح.",
     "newsletterThanks": "شكراً - سجّلنا اهتمامك وسنُراسلك عند فتح الاشتراكات.",
+    "notifyMe": "أبلِغني",
     "rights": "جميع الحقوق محفوظة.",
     "designedBy": "تصميم"
   },

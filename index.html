@@ -271,7 +271,7 @@
             </span>
             <h1 class="mt-6 font-display text-4xl sm:text-5xl lg:text-6xl leading-tight tracking-tight text-surface-on">
               <span data-i18n="hero.titleLead">Unlock Smarter Learning with</span>
-              <span class="bg-clip-text text-transparent" style="background-image:linear-gradient(135deg,#7EA377 0%,#F88672 100%);-webkit-background-clip:text;">Mamopedia</span>
+              <span class="hero-title-accent">Mamopedia</span>
             </h1>
             <p class="mt-6 text-lg sm:text-xl text-surface-onVariant max-w-2xl leading-relaxed" data-i18n="hero.description">
               A friendly, chat-based learning companion designed specifically for Iraqi students.
@@ -474,7 +474,7 @@
             <div class="relative">
               <div class="absolute -inset-4 bg-accent-gradient opacity-20 blur-2xl rounded-2xl" aria-hidden="true"></div>
               <div class="relative rounded-2xl overflow-hidden bg-surface-container p-6 shadow-m2 -rotate-1 hover:rotate-0 transition-transform duration-300">
-                <img src="assets/img/details-1.png" alt="Students using the Mamopedia learning app" class="w-full h-auto rounded-lg" loading="lazy" decoding="async" data-i18n-attr="alt:about.imgAlt">
+                <img src="assets/img/details-1.png" alt="Students using the Mamopedia learning app" width="1024" height="768" class="w-full h-auto rounded-lg" loading="lazy" decoding="async" data-i18n-attr="alt:about.imgAlt">
               </div>
             </div>
           </div>
@@ -485,7 +485,7 @@
             <div class="relative">
               <div class="absolute -inset-4 bg-accent-gradient opacity-20 blur-2xl rounded-2xl" aria-hidden="true"></div>
               <div class="relative rounded-2xl overflow-hidden bg-surface-container p-6 shadow-m2 rotate-1 hover:rotate-0 transition-transform duration-300">
-                <img src="assets/img/details-2.png" alt="KeyU.Tech team building AI-driven educational tools" class="w-full h-auto rounded-lg" loading="lazy" decoding="async" data-i18n-attr="alt:aboutKeyu.imgAlt">
+                <img src="assets/img/details-2.png" alt="KeyU.Tech team building AI-driven educational tools" width="1024" height="768" class="w-full h-auto rounded-lg" loading="lazy" decoding="async" data-i18n-attr="alt:aboutKeyu.imgAlt">
               </div>
             </div>
           </div>
@@ -594,50 +594,26 @@
                   <span data-i18n="try.googlePlay">Google Play</span>
                 </a>
               </div>
-              <div class="mt-8 flex items-center gap-4">
-                <div class="bg-white/90 rounded-lg p-2 shadow-m1" aria-hidden="true">
-                  <!-- Decorative QR code (not scannable - stylized) -->
-                  <svg width="72" height="72" viewBox="0 0 72 72" fill="currentColor" class="text-surface-on block">
-                    <rect width="72" height="72" fill="#FFFFFF"/>
-                    <g fill="#1E1E1E">
-                      <rect x="4" y="4" width="20" height="20" fill="none" stroke="#1E1E1E" stroke-width="4"/>
-                      <rect x="12" y="12" width="4" height="4"/>
-                      <rect x="48" y="4" width="20" height="20" fill="none" stroke="#1E1E1E" stroke-width="4"/>
-                      <rect x="56" y="12" width="4" height="4"/>
-                      <rect x="4" y="48" width="20" height="20" fill="none" stroke="#1E1E1E" stroke-width="4"/>
-                      <rect x="12" y="56" width="4" height="4"/>
-                      <rect x="30" y="8" width="4" height="4"/>
-                      <rect x="36" y="14" width="4" height="4"/>
-                      <rect x="30" y="20" width="4" height="4"/>
-                      <rect x="40" y="4" width="4" height="4"/>
-                      <rect x="42" y="24" width="4" height="4"/>
-                      <rect x="30" y="30" width="4" height="4"/>
-                      <rect x="36" y="34" width="4" height="4"/>
-                      <rect x="46" y="30" width="4" height="4"/>
-                      <rect x="52" y="36" width="4" height="4"/>
-                      <rect x="60" y="42" width="4" height="4"/>
-                      <rect x="30" y="42" width="4" height="4"/>
-                      <rect x="42" y="44" width="4" height="4"/>
-                      <rect x="54" y="50" width="4" height="4"/>
-                      <rect x="48" y="58" width="4" height="4"/>
-                      <rect x="30" y="54" width="4" height="4"/>
-                      <rect x="36" y="60" width="4" height="4"/>
-                      <rect x="60" y="62" width="4" height="4"/>
-                      <rect x="40" y="38" width="4" height="4"/>
-                    </g>
-                  </svg>
-                </div>
-                <p class="text-sm opacity-80 leading-tight">
-                  <strong class="block text-base" data-i18n="try.scanTitle">Scan to install</strong>
-                  <span data-i18n="try.scanBody">Point your phone camera here</span>
-                </p>
-              </div>
+              <ul class="try-trust-list" aria-label="Why students trust Mamopedia" data-i18n-attr="aria-label:a11y.tryTrust">
+                <li>
+                  <span class="material-symbols-rounded" aria-hidden="true">lock</span>
+                  <span data-i18n="try.trust.privacy">Private by design — no ads, ever</span>
+                </li>
+                <li>
+                  <span class="material-symbols-rounded" aria-hidden="true">paid</span>
+                  <span data-i18n="try.trust.free">Free during the pilot program</span>
+                </li>
+                <li>
+                  <span class="material-symbols-rounded" aria-hidden="true">verified</span>
+                  <span data-i18n="try.trust.curriculum">Built around the Iraqi curriculum</span>
+                </li>
+              </ul>
             </div>
             <div class="reveal">
               <div class="app-mockup-gallery" tabindex="0" aria-label="Mamopedia app screenshots" data-i18n-attr="aria-label:a11y.appScreenshots">
-                <div class="phone-frame"><div class="phone-screen"><img src="assets/img/mamopedia1.png" alt="Mamopedia app screen 1" loading="lazy" decoding="async" data-i18n-attr="alt:a11y.appScreen"></div></div>
-                <div class="phone-frame"><div class="phone-screen"><img src="assets/img/mamopedia2.png" alt="Mamopedia app screen 2" loading="lazy" decoding="async" data-i18n-attr="alt:a11y.appScreen"></div></div>
-                <div class="phone-frame"><div class="phone-screen"><img src="assets/img/mamopedia3.png" alt="Mamopedia app screen 3" loading="lazy" decoding="async" data-i18n-attr="alt:a11y.appScreen"></div></div>
+                <div class="phone-frame"><div class="phone-screen"><img src="assets/img/mamopedia1.png" alt="Mamopedia app screen 1" width="540" height="1140" loading="lazy" decoding="async" data-i18n-attr="alt:a11y.appScreen"></div></div>
+                <div class="phone-frame"><div class="phone-screen"><img src="assets/img/mamopedia2.png" alt="Mamopedia app screen 2" width="540" height="1140" loading="lazy" decoding="async" data-i18n-attr="alt:a11y.appScreen"></div></div>
+                <div class="phone-frame"><div class="phone-screen"><img src="assets/img/mamopedia3.png" alt="Mamopedia app screen 3" width="540" height="1140" loading="lazy" decoding="async" data-i18n-attr="alt:a11y.appScreen"></div></div>
               </div>
             </div>
           </div>
@@ -829,11 +805,12 @@
         <div>
           <h3 class="font-semibold text-surface-on" data-i18n="footer.stayUpdated">Stay Updated</h3>
           <p class="mt-4 text-surface-onVariant" data-i18n="footer.newsletterDesc">Leave your email and we'll reach out when public subscriptions open.</p>
-          <form id="newsletter-form" method="post" class="mt-4 flex gap-2" novalidate>
+          <form id="newsletter-form" method="post" class="mt-4 flex flex-wrap gap-2" novalidate>
             <label for="newsletter-email" class="sr-only" data-i18n="a11y.emailAddress">Email address</label>
-            <input type="email" id="newsletter-email" name="email" placeholder="Your email" required class="flex-1 field-input-plain" data-i18n-attr="placeholder:footer.newsletterPlaceholder">
-            <button type="submit" class="btn-filled shrink-0" aria-label="Notify me when subscriptions open" data-i18n-attr="aria-label:a11y.notifyMe">
+            <input type="email" id="newsletter-email" name="email" placeholder="Your email" required class="flex-1 min-w-0 field-input-plain" data-i18n-attr="placeholder:footer.newsletterPlaceholder">
+            <button type="submit" class="btn-filled shrink-0" data-i18n-attr="aria-label:a11y.notifyMe" aria-label="Notify me when subscriptions open">
               <span class="material-symbols-rounded" aria-hidden="true">notifications_active</span>
+              <span data-i18n="footer.notifyMe">Notify me</span>
             </button>
           </form>
           <p id="newsletter-status" class="mt-2 text-sm text-surface-onVariant" role="status" aria-live="polite"></p>
