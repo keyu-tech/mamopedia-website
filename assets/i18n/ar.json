@@ -36,14 +36,12 @@
     "closeMenu": "إغلاق القائمة",
     "language": "اللغة",
     "selectLanguage": "اختر اللغة",
-    "supportedLanguages": "اللغات المدعومة",
     "chatPreview": "محادثة عيّنة من ماموبيديا",
     "statsRegion": "ماموبيديا باختصار",
     "appScreen": "شاشة تطبيق ماموبيديا",
     "linkedin": "KeyU.Tech على لينكدإن",
     "emailAddress": "البريد الإلكتروني",
     "notifyMe": "أبلغني عند فتح الاشتراكات",
-    "tryTrust": "لماذا يثق الطلاب بماموبيديا",
     "backToTop": "العودة إلى الأعلى"
   },
   "nav": {
@@ -174,15 +172,7 @@
     "appStore": "App Store",
     "googlePlay": "Google Play",
     "appStoreAria": "تنزيل من App Store",
-    "googlePlayAria": "احصل عليه من Google Play",
-    "trust": {
-      "privacy": "خصوصية تامّة — بدون إعلانات",
-      "free": "مجاني خلال البرنامج التجريبي",
-      "curriculum": "مبني على المنهج العراقي",
-      "privacyShort": "بدون إعلانات",
-      "freeShort": "مجاني خلال التجربة",
-      "curriculumShort": "المنهج العراقي"
-    }
+    "googlePlayAria": "احصل عليه من Google Play"
   },
   "faq": {
     "eyebrow": "الأسئلة الشائعة",
