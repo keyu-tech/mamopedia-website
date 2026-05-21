@@ -1153,10 +1153,6 @@ textarea.field-input { min-height: 7rem; line-height: 1.5; }
 [dir="rtl"] .home-link-arrow { transform: scaleX(-1); }
 
 /* ---------------- RTL adjustments ---------------- */
-[dir="rtl"] .lang-switcher-menu {
-  inset-inline-end: auto;
-  inset-inline-start: 0;
-}
 /* Decorative blob lives at top-left in LTR; mirror it for RTL. */
 [dir="rtl"] .decor-blob { transform: scaleX(-1); }
 /* Back-to-top FAB hugs the trailing corner. */
