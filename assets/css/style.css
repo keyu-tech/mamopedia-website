@@ -33,6 +33,16 @@
 html { -webkit-text-size-adjust: 100%; }
 body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; }
 
+/* Prevent horizontal page scroll on small viewports. Decorative blobs,
+   blurred halos and the hero's negative-inset overlays can otherwise push
+   the layout a few pixels past the viewport edge on narrow phones. `clip`
+   is preferred over `hidden` so we don't create a new scroll container
+   (which would break `position: sticky` and anchor scrolling). */
+html, body { overflow-x: clip; }
+@supports not (overflow-x: clip) {
+  html, body { overflow-x: hidden; }
+}
+
 /* Respect motion preferences */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
@@ -978,6 +988,15 @@ textarea.field-input { min-height: 7rem; line-height: 1.5; }
 .lang-switcher-btn .lang-code {
   font-weight: 600;
   letter-spacing: 0.02em;
+}
+/* On very narrow phones the logo + lang code + theme toggle + menu button
+   add up to more than the viewport width. Hide the language code label
+   below 380 px (the language switcher stays usable via the globe icon and
+   its `aria-label`) and tighten the language-switcher padding. */
+@media (max-width: 380px) {
+  .lang-switcher-btn { padding: 0 8px; gap: 4px; }
+  .lang-switcher-btn .lang-code { display: none; }
+  .lang-switcher-btn .chevron { display: none; }
 }
 .lang-switcher-btn .chevron {
   font-size: 18px;
