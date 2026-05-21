@@ -242,25 +242,6 @@
     revealEls.forEach((el) => el.classList.add('is-visible'));
   }
 
-  /* --------- Scroll progress bar --------- */
-  const progressEl = $('.scroll-progress');
-  if (progressEl) {
-    let ticking = false;
-    const updateProgress = () => {
-      const max = document.documentElement.scrollHeight - window.innerHeight;
-      const p = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
-      progressEl.style.setProperty('--p', p);
-      ticking = false;
-    };
-    on(window, 'scroll', () => {
-      if (!ticking) {
-        requestAnimationFrame(updateProgress);
-        ticking = true;
-      }
-    }, { passive: true });
-    updateProgress();
-  }
-
   /* --------- Stat counter animation --------- */
   const statEls = $$('.stat-counter');
   const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
