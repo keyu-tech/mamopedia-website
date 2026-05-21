@@ -1130,7 +1130,13 @@ textarea.field-input { min-height: 7rem; line-height: 1.5; }
   transform: translateY(-1px);
 }
 .try-store-btn:focus-visible { outline: 2px solid #FFFFFF; outline-offset: 2px; }
-.try-store-icon { font-size: 26px; flex-shrink: 0; }
+.try-store-icon {
+  width: 26px;
+  height: 26px;
+  flex-shrink: 0;
+  /* Apple uses currentColor (white text); Google Play has its own brand fills. */
+  display: block;
+}
 .try-store-meta {
   display: flex;
   flex-direction: column;
@@ -1151,28 +1157,6 @@ textarea.field-input { min-height: 7rem; line-height: 1.5; }
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
-.try-trust-row {
-  margin: 1.75rem 0 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  list-style: none;
-  padding: 0;
-}
-.try-trust-chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  padding: 0.4rem 0.75rem;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.14);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  font-size: 0.8125rem;
-  font-weight: 500;
-  white-space: nowrap;
-}
-.try-trust-chip .material-symbols-rounded { font-size: 16px; }
 
 .try-card-mockup {
   position: relative;

@@ -43,7 +43,6 @@
     "linkedin": "KeyU.Tech لە لینکدئین",
     "emailAddress": "ناونیشانی ئیمەیڵ",
     "notifyMe": "ئاگادارم بکەرەوە کاتێک بەژداربوون دەکرێتەوە",
-    "tryTrust": "بۆچی قوتابیان متمانە بە ماموپێدیا دەکەن",
     "backToTop": "گەڕانەوە بۆ سەرەوە"
   },
   "nav": {
@@ -175,15 +174,7 @@
     "appStore": "App Store",
     "googlePlay": "Google Play",
     "appStoreAria": "دایبگرە لە App Store",
-    "googlePlayAria": "دایبگرە لە Google Play",
-    "trust": {
-      "privacy": "تایبەتمەندی پارێزراو — بێ ڕیکلام",
-      "free": "بەخۆڕایی لە کاتی بەرنامەی تاقیکردنەوەدا",
-      "curriculum": "بنیاتنراوە لەسەر کۆریکیولومی عێراقی",
-      "privacyShort": "بێ ڕیکلام",
-      "freeShort": "بەخۆڕایی لە تاقیکردنەوەدا",
-      "curriculumShort": "کۆریکیولومی عێراقی"
-    }
+    "googlePlayAria": "دایبگرە لە Google Play"
   },
   "faq": {
     "eyebrow": "پرسیارە دووبارەکراوەکان",
