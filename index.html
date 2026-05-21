@@ -568,52 +568,61 @@
     </section>
 
     <!-- ======= Try It Now ======= -->
-    <section id="try-now" class="py-20 sm:py-28 bg-surface">
+    <section id="try-now" class="py-16 sm:py-24 lg:py-28 bg-surface">
       <div class="max-w-content mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="relative overflow-hidden rounded-2xl bg-accent-gradient text-white p-8 sm:p-12 lg:p-16 shadow-glow-primary">
-          <div class="absolute inset-0 opacity-[0.12] bg-grid-dots bg-dots-24 pointer-events-none" aria-hidden="true"></div>
-          <div class="relative grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-            <div class="reveal">
-              <p class="text-sm font-semibold uppercase tracking-wider opacity-80" data-i18n="try.eyebrow">Try It Now</p>
-              <h2 class="mt-2 font-display text-3xl sm:text-4xl" data-i18n="try.title">Start learning in seconds</h2>
-              <p class="mt-4 text-lg leading-relaxed opacity-90" data-i18n="try.description">
-                Experience Mamopedia today. Try it right in your browser, or download the
-                app from the App Store or Google Play.
-              </p>
-              <div class="mt-8 flex flex-wrap gap-3">
-                <a href="https://app.mamopedia.com/" rel="noopener" class="btn-filled-on-gradient">
-                  <span class="material-symbols-rounded" aria-hidden="true">language</span>
-                  <span data-i18n="try.openBrowser">Open in Browser</span>
+        <div class="try-card">
+          <div class="try-card-pattern" aria-hidden="true"></div>
+          <div class="try-card-glow" aria-hidden="true"></div>
+          <div class="try-card-grid">
+            <div class="try-card-text reveal">
+              <p class="try-eyebrow" data-i18n="try.eyebrow">Try It Now</p>
+              <h2 class="try-title" data-i18n="try.title">Start learning in seconds</h2>
+              <p class="try-description" data-i18n="try.description">Experience Mamopedia today. Try it right in your browser, or download the app from the App Store or Google Play.</p>
+
+              <a href="https://app.mamopedia.com/" rel="noopener" class="try-primary-cta">
+                <span class="material-symbols-rounded" aria-hidden="true">rocket_launch</span>
+                <span data-i18n="try.openBrowser">Open in Browser</span>
+                <span class="material-symbols-rounded try-arrow" aria-hidden="true">arrow_forward</span>
+              </a>
+
+              <div class="try-stores">
+                <a href="https://apps.apple.com/" rel="noopener" class="try-store-btn" aria-label="Download on the App Store" data-i18n-attr="aria-label:try.appStoreAria">
+                  <span class="material-symbols-rounded try-store-icon" aria-hidden="true">apple</span>
+                  <span class="try-store-meta">
+                    <span class="try-store-pretitle" data-i18n="try.getItOn">Get it on</span>
+                    <span class="try-store-title" data-i18n="try.appStore">App Store</span>
+                  </span>
                 </a>
-                <a href="https://apps.apple.com/" rel="noopener" class="btn-outlined-on-container">
-                  <span class="material-symbols-rounded" aria-hidden="true">apple</span>
-                  <span data-i18n="try.appStore">App Store</span>
-                </a>
-                <a href="https://play.google.com/" rel="noopener" class="btn-outlined-on-container">
-                  <span class="material-symbols-rounded" aria-hidden="true">shop</span>
-                  <span data-i18n="try.googlePlay">Google Play</span>
+                <a href="https://play.google.com/" rel="noopener" class="try-store-btn" aria-label="Get it on Google Play" data-i18n-attr="aria-label:try.googlePlayAria">
+                  <span class="material-symbols-rounded try-store-icon" aria-hidden="true">shop</span>
+                  <span class="try-store-meta">
+                    <span class="try-store-pretitle" data-i18n="try.getItOn">Get it on</span>
+                    <span class="try-store-title" data-i18n="try.googlePlay">Google Play</span>
+                  </span>
                 </a>
               </div>
-              <ul class="try-trust-list" aria-label="Why students trust Mamopedia" data-i18n-attr="aria-label:a11y.tryTrust">
-                <li>
+
+              <ul class="try-trust-row" aria-label="Why students trust Mamopedia" data-i18n-attr="aria-label:a11y.tryTrust">
+                <li class="try-trust-chip">
                   <span class="material-symbols-rounded" aria-hidden="true">lock</span>
-                  <span data-i18n="try.trust.privacy">Private by design — no ads, ever</span>
+                  <span data-i18n="try.trust.privacyShort">No ads</span>
                 </li>
-                <li>
+                <li class="try-trust-chip">
                   <span class="material-symbols-rounded" aria-hidden="true">paid</span>
-                  <span data-i18n="try.trust.free">Free during the pilot program</span>
+                  <span data-i18n="try.trust.freeShort">Free during pilot</span>
                 </li>
-                <li>
+                <li class="try-trust-chip">
                   <span class="material-symbols-rounded" aria-hidden="true">verified</span>
-                  <span data-i18n="try.trust.curriculum">Built around the Iraqi curriculum</span>
+                  <span data-i18n="try.trust.curriculumShort">Iraqi curriculum</span>
                 </li>
               </ul>
             </div>
-            <div class="reveal">
-              <div class="app-mockup-gallery" tabindex="0" aria-label="Mamopedia app screenshots" data-i18n-attr="aria-label:a11y.appScreenshots">
-                <div class="phone-frame"><div class="phone-screen"><img src="assets/img/mamopedia1.png" alt="Mamopedia app screen 1" width="540" height="1140" loading="lazy" decoding="async" data-i18n-attr="alt:a11y.appScreen"></div></div>
-                <div class="phone-frame"><div class="phone-screen"><img src="assets/img/mamopedia2.png" alt="Mamopedia app screen 2" width="540" height="1140" loading="lazy" decoding="async" data-i18n-attr="alt:a11y.appScreen"></div></div>
-                <div class="phone-frame"><div class="phone-screen"><img src="assets/img/mamopedia3.png" alt="Mamopedia app screen 3" width="540" height="1140" loading="lazy" decoding="async" data-i18n-attr="alt:a11y.appScreen"></div></div>
+
+            <div class="try-card-mockup reveal" aria-hidden="true">
+              <div class="try-phone-stack">
+                <div class="try-phone try-phone-back-left"><img src="assets/img/mamopedia2.png" alt="" width="540" height="1140" loading="lazy" decoding="async"></div>
+                <div class="try-phone try-phone-back-right"><img src="assets/img/mamopedia3.png" alt="" width="540" height="1140" loading="lazy" decoding="async"></div>
+                <div class="try-phone try-phone-front"><img src="assets/img/mamopedia1.png" alt="Mamopedia app preview" width="540" height="1140" loading="lazy" decoding="async" data-i18n-attr="alt:a11y.appScreen"></div>
               </div>
             </div>
           </div>

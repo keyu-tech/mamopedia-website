@@ -39,7 +39,6 @@
     "supportedLanguages": "زمانە پشتیوانیکراوەکان",
     "chatPreview": "نموونەی گفتوگۆ لە ماموپێدیا",
     "statsRegion": "ماموپێدیا بە کورتی",
-    "appScreenshots": "وێنەی شاشەی ئەپڵیکەیشنی ماموپێدیا",
     "appScreen": "شاشەی ئەپڵیکەیشنی ماموپێدیا",
     "linkedin": "KeyU.Tech لە لینکدئین",
     "emailAddress": "ناونیشانی ئیمەیڵ",
@@ -172,12 +171,18 @@
     "title": "دەست بە فێربوون بکە لە چەند چرکەیەکدا",
     "description": "ئەمڕۆ ماموپێدیا تاقی بکە. ڕاستەوخۆ لە وێبگەڕەکەتدا یان ئەپڵیکەیشنەکە لە App Store یان Google Play دابەزێنە.",
     "openBrowser": "لە وێبگەڕدا بکەرەوە",
+    "getItOn": "دایبگرە لە",
     "appStore": "App Store",
     "googlePlay": "Google Play",
+    "appStoreAria": "دایبگرە لە App Store",
+    "googlePlayAria": "دایبگرە لە Google Play",
     "trust": {
       "privacy": "تایبەتمەندی پارێزراو — بێ ڕیکلام",
       "free": "بەخۆڕایی لە کاتی بەرنامەی تاقیکردنەوەدا",
-      "curriculum": "بنیاتنراوە لەسەر کۆریکیولومی عێراقی"
+      "curriculum": "بنیاتنراوە لەسەر کۆریکیولومی عێراقی",
+      "privacyShort": "بێ ڕیکلام",
+      "freeShort": "بەخۆڕایی لە تاقیکردنەوەدا",
+      "curriculumShort": "کۆریکیولومی عێراقی"
     }
   },
   "faq": {

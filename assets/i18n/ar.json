@@ -39,7 +39,6 @@
     "supportedLanguages": "اللغات المدعومة",
     "chatPreview": "محادثة عيّنة من ماموبيديا",
     "statsRegion": "ماموبيديا باختصار",
-    "appScreenshots": "لقطات شاشة تطبيق ماموبيديا",
     "appScreen": "شاشة تطبيق ماموبيديا",
     "linkedin": "KeyU.Tech على لينكدإن",
     "emailAddress": "البريد الإلكتروني",
@@ -172,12 +171,18 @@
     "title": "ابدأ التعلّم في ثوانٍ",
     "description": "جرّب ماموبيديا اليوم. استخدمه مباشرة في المتصفّح، أو نزّل التطبيق من App Store أو Google Play.",
     "openBrowser": "افتح في المتصفّح",
+    "getItOn": "نزّله من",
     "appStore": "App Store",
     "googlePlay": "Google Play",
+    "appStoreAria": "تنزيل من App Store",
+    "googlePlayAria": "احصل عليه من Google Play",
     "trust": {
       "privacy": "خصوصية تامّة — بدون إعلانات",
       "free": "مجاني خلال البرنامج التجريبي",
-      "curriculum": "مبني على المنهج العراقي"
+      "curriculum": "مبني على المنهج العراقي",
+      "privacyShort": "بدون إعلانات",
+      "freeShort": "مجاني خلال التجربة",
+      "curriculumShort": "المنهج العراقي"
     }
   },
   "faq": {

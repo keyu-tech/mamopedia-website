@@ -39,7 +39,6 @@
     "supportedLanguages": "Supported languages",
     "chatPreview": "Sample Mamopedia conversation",
     "statsRegion": "Mamopedia at a glance",
-    "appScreenshots": "Mamopedia app screenshots",
     "appScreen": "Mamopedia app screen",
     "linkedin": "KeyU.Tech on LinkedIn",
     "emailAddress": "Email address",
@@ -172,12 +171,18 @@
     "title": "Start learning in seconds",
     "description": "Experience Mamopedia today. Try it right in your browser, or download the app from the App Store or Google Play.",
     "openBrowser": "Open in Browser",
+    "getItOn": "Get it on",
     "appStore": "App Store",
     "googlePlay": "Google Play",
+    "appStoreAria": "Download on the App Store",
+    "googlePlayAria": "Get it on Google Play",
     "trust": {
       "privacy": "Private by design — no ads, ever",
       "free": "Free during the pilot program",
-      "curriculum": "Built around the Iraqi curriculum"
+      "curriculum": "Built around the Iraqi curriculum",
+      "privacyShort": "No ads",
+      "freeShort": "Free during pilot",
+      "curriculumShort": "Iraqi curriculum"
     }
   },
   "faq": {

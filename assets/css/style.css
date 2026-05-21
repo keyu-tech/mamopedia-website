@@ -145,7 +145,6 @@ html, body { overflow-x: clip; }
 /* ---------------- M3 Buttons ---------------- */
 .btn-filled,
 .btn-outlined,
-.btn-outlined-on-container,
 .btn-tonal,
 .icon-btn {
   display: inline-flex;
@@ -194,47 +193,6 @@ html, body { overflow-x: clip; }
 .btn-outlined:focus-visible {
   outline: 2px solid var(--md-sys-color-primary);
   outline-offset: 2px;
-}
-
-.btn-outlined-on-container {
-  padding: 0.75rem 1.5rem;
-  border-radius: 999px;
-  color: #FFFFFF;
-  background-color: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.55);
-}
-.btn-outlined-on-container:hover { background-color: rgba(255, 255, 255, 0.22); }
-
-/* Filled button on the coloured CTA gradient — inverts to white-on-brand
-   for legibility against the green→coral background. */
-.btn-filled-on-gradient {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 0.75rem 1.5rem;
-  border-radius: 999px;
-  background-color: #FFFFFF;
-  color: var(--md-sys-color-primary);
-  border: none;
-  font-weight: 600;
-  font-size: 0.9375rem;
-  line-height: 1.2;
-  min-height: 2.75rem;
-  cursor: pointer;
-  white-space: normal;
-  text-align: center;
-  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05), 0 6px 14px -4px rgba(0, 0, 0, 0.15);
-  transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease;
-}
-.btn-filled-on-gradient:hover {
-  background-color: #F1F5EF;
-  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.06), 0 10px 22px -6px rgba(0, 0, 0, 0.2);
-}
-.btn-filled-on-gradient:active { transform: translateY(1px); }
-.btn-filled-on-gradient:focus-visible {
-  outline: 2px solid #FFFFFF;
-  outline-offset: 3px;
 }
 
 .icon-btn {
@@ -721,63 +679,6 @@ html, body { overflow-x: clip; }
   line-height: 1.6;
 }
 
-/* ---------------- App mockup gallery ---------------- */
-.app-mockup-gallery {
-  display: flex;
-  gap: 1rem;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  padding: 0.5rem 0.25rem 1rem;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(255,255,255,0.5) transparent;
-  /* Edge fade hints that the gallery scrolls horizontally on touch devices. */
-  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 24px, #000 calc(100% - 24px), transparent 100%);
-          mask-image: linear-gradient(90deg, transparent 0, #000 24px, #000 calc(100% - 24px), transparent 100%);
-}
-.app-mockup-gallery::-webkit-scrollbar { height: 6px; }
-.app-mockup-gallery::-webkit-scrollbar-thumb {
-  background: rgba(255,255,255,0.45);
-  border-radius: 999px;
-}
-.app-mockup-gallery:focus-visible {
-  outline: 2px solid #FFFFFF;
-  outline-offset: 4px;
-  border-radius: 12px;
-}
-.phone-frame {
-  flex: 0 0 auto;
-  width: 180px;
-  aspect-ratio: 9 / 19;
-  border-radius: 28px;
-  /* Bezel inverts with the theme so the phone silhouette stays visible
-     against the surrounding surface in both light and dark mode. */
-  background: var(--ink);
-  padding: 8px;
-  scroll-snap-align: center;
-  box-shadow: 0 14px 40px -14px rgba(0,0,0,0.35);
-  transition: transform 0.3s ease;
-}
-.phone-frame:nth-child(odd) { transform: translateY(4px) rotate(-1.5deg); }
-.phone-frame:nth-child(even) { transform: translateY(-4px) rotate(1.5deg); }
-.phone-frame:hover { transform: translateY(-6px) rotate(0deg); }
-.phone-screen {
-  width: 100%;
-  height: 100%;
-  border-radius: 22px;
-  overflow: hidden;
-  background: var(--md-sys-color-surface);
-}
-.phone-screen img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-@media (min-width: 768px) {
-  .app-mockup-gallery { justify-content: center; }
-  .phone-frame { width: 210px; }
-}
 
 /* ---------------- Form states ---------------- */
 .field-state-ok .field-input {
@@ -932,8 +833,7 @@ textarea.field-input { min-height: 7rem; line-height: 1.5; }
 
 /* ---------------- Focus rings unified ---------------- */
 .faq-item > summary:focus-visible,
-.stepper-card:focus-within,
-.phone-frame:focus-visible {
+.stepper-card:focus-within {
   outline: 2px solid var(--md-sys-color-primary);
   outline-offset: 2px;
 }
@@ -1080,40 +980,249 @@ textarea.field-input { min-height: 7rem; line-height: 1.5; }
   }
 }
 
-/* ---------------- "Try It Now" trust list (replaces decorative QR) ---------------- */
-.try-trust-list {
-  margin-top: 2rem;
+/* ============================================================
+   "Try It Now" card — redesigned
+   Mobile-first. The grid uses `minmax(0, 1fr)` tracks so a future
+   wide child (image, gallery) can never push the layout past the
+   viewport. Padding and headline both scale with `clamp()`.
+   ============================================================ */
+.try-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 24px;
+  padding: clamp(1.5rem, 4vw + 0.5rem, 4rem);
+  color: #FFFFFF;
+  background: linear-gradient(135deg, #7EA377 0%, #B8946F 55%, #F88672 100%);
+  box-shadow: 0 18px 48px -12px rgba(126, 163, 119, 0.45);
+  isolation: isolate;
+}
+.try-card-pattern {
+  position: absolute;
+  inset: 0;
+  opacity: 0.12;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.45) 1px, transparent 1px);
+  background-size: 22px 22px;
+  pointer-events: none;
+  z-index: 0;
+}
+.try-card-glow {
+  position: absolute;
+  width: 60%;
+  aspect-ratio: 1;
+  top: -15%;
+  inset-inline-end: -20%;
+  background: radial-gradient(closest-side, rgba(255,255,255,0.35), transparent 70%);
+  filter: blur(40px);
+  pointer-events: none;
+  z-index: 0;
+}
+.try-card-grid {
+  position: relative;
+  z-index: 1;
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 2.5rem;
+  align-items: center;
+}
+@media (min-width: 1024px) {
+  .try-card-grid {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    gap: 3.5rem;
+  }
+}
+
+.try-card-text { min-width: 0; }
+
+.try-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+.try-eyebrow::before {
+  content: "";
+  display: inline-block;
+  width: 22px;
+  height: 2px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.try-title {
+  margin: 0.75rem 0 0;
+  font-family: 'Noto Kufi Arabic', 'Tajawal', system-ui, sans-serif;
+  font-size: clamp(1.65rem, 3vw + 1rem, 2.75rem);
+  line-height: 1.15;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.try-description {
+  margin: 1rem 0 0;
+  font-size: clamp(0.95rem, 0.6vw + 0.85rem, 1.0625rem);
+  line-height: 1.6;
+  opacity: 0.92;
+  max-width: 42ch;
+}
+
+.try-primary-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   gap: 0.625rem;
+  margin-top: 1.5rem;
+  padding: 0.95rem 1.5rem;
+  width: 100%;
+  max-width: 360px;
+  border-radius: 999px;
+  background: #FFFFFF;
+  color: var(--md-sys-color-primary);
+  font-weight: 700;
+  font-size: 1rem;
+  box-shadow: 0 10px 24px -10px rgba(0, 0, 0, 0.35), 0 2px 6px -2px rgba(0, 0, 0, 0.18);
+  transition: transform 0.18s ease, box-shadow 0.2s ease;
+  text-decoration: none;
+}
+.try-primary-cta:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 32px -10px rgba(0, 0, 0, 0.4), 0 4px 10px -2px rgba(0, 0, 0, 0.2);
+}
+.try-primary-cta:active { transform: translateY(0); }
+.try-primary-cta:focus-visible { outline: 2px solid #FFFFFF; outline-offset: 3px; }
+.try-primary-cta .try-arrow {
+  font-size: 18px;
+  margin-inline-start: auto;
+  transition: transform 0.2s ease;
+}
+.try-primary-cta:hover .try-arrow { transform: translateX(3px); }
+[dir="rtl"] .try-primary-cta .try-arrow { transform: scaleX(-1); }
+[dir="rtl"] .try-primary-cta:hover .try-arrow { transform: scaleX(-1) translateX(3px); }
+
+.try-stores {
+  margin-top: 0.875rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 0.625rem;
+  max-width: 420px;
+}
+.try-store-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  min-width: 0;
+  padding: 0.625rem 0.875rem;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #FFFFFF;
+  text-decoration: none;
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+  min-height: 56px;
+}
+.try-store-btn:hover {
+  background: rgba(255, 255, 255, 0.22);
+  border-color: rgba(255, 255, 255, 0.6);
+  transform: translateY(-1px);
+}
+.try-store-btn:focus-visible { outline: 2px solid #FFFFFF; outline-offset: 2px; }
+.try-store-icon { font-size: 26px; flex-shrink: 0; }
+.try-store-meta {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+  min-width: 0;
+}
+.try-store-pretitle {
+  font-size: 0.6875rem;
+  opacity: 0.85;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-weight: 500;
+}
+.try-store-title {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.try-trust-row {
+  margin: 1.75rem 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
   list-style: none;
   padding: 0;
 }
-.try-trust-list li {
-  display: flex;
+.try-trust-chip {
+  display: inline-flex;
   align-items: center;
-  gap: 0.625rem;
-  font-size: 0.9375rem;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.95);
-}
-.try-trust-list .material-symbols-rounded {
-  font-size: 20px;
-  flex-shrink: 0;
-  padding: 0.375rem;
+  gap: 0.4rem;
+  padding: 0.4rem 0.75rem;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.18);
-  color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.try-trust-chip .material-symbols-rounded { font-size: 16px; }
+
+.try-card-mockup {
+  position: relative;
+  min-width: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.try-phone-stack {
+  position: relative;
+  width: 100%;
+  max-width: 360px;
+  aspect-ratio: 5 / 6;
+}
+.try-phone {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 52%;
+  aspect-ratio: 9 / 19;
+  border-radius: 28px;
+  background: var(--ink);
+  padding: 6px;
+  box-shadow: 0 18px 42px -16px rgba(0, 0, 0, 0.55);
+  transition: transform 0.4s ease;
+}
+.try-phone img {
+  width: 100%;
+  height: 100%;
+  border-radius: 22px;
+  object-fit: cover;
+  background: var(--md-sys-color-surface);
+  display: block;
+}
+.try-phone-back-left  { transform: translate(-95%, -50%) rotate(-9deg) scale(0.88); opacity: 0.85; z-index: 1; }
+.try-phone-back-right { transform: translate(-5%, -50%)  rotate(9deg)  scale(0.88); opacity: 0.85; z-index: 1; }
+.try-phone-front      { transform: translate(-50%, -46%) rotate(0deg); z-index: 2; }
+.try-phone-stack:hover .try-phone-back-left  { transform: translate(-105%, -50%) rotate(-12deg) scale(0.9); }
+.try-phone-stack:hover .try-phone-back-right { transform: translate(5%, -50%)   rotate(12deg)  scale(0.9); }
+.try-phone-stack:hover .try-phone-front      { transform: translate(-50%, -50%) rotate(0deg)   scale(1.03); }
+@media (min-width: 1024px) {
+  .try-phone-stack { max-width: 440px; aspect-ratio: 9 / 10; }
+  .try-phone { width: 48%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .try-phone-stack:hover .try-phone { transform: var(--reduced, none); }
+  .try-primary-cta:hover { transform: none; }
+  .try-store-btn:hover { transform: none; }
 }
 
-/* ---------------- Dark-mode tuning for phone-frame shadow ---------------- */
-:root[data-theme="dark"] .phone-frame {
-  box-shadow: 0 14px 40px -14px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255,255,255,0.04);
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme]) .phone-frame {
-    box-shadow: 0 14px 40px -14px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255,255,255,0.04);
-  }
-}
 
 /* ---------------- Direction-aware "back to home" arrow ---------------- */
 [dir="rtl"] .home-link-arrow { transform: scaleX(-1); }
