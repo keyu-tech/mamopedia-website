@@ -103,10 +103,17 @@
     document.documentElement.setAttribute('data-lang', meta.code);
   };
 
+  /* --- Resolve assets/i18n/ relative to this script, so pages that live in a
+         subdirectory (e.g. /delete-account/) load the dictionaries too. --- */
+  const scriptSrc = (document.currentScript && document.currentScript.src) || '';
+  const dictBase = scriptSrc
+    ? new URL('../i18n/', scriptSrc).href
+    : 'assets/i18n/';
+
   /* --- Fetch a dictionary file once --- */
   const loadDict = async (code) => {
     if (dicts[code]) return dicts[code];
-    const res = await fetch(`assets/i18n/${code}.json`, { credentials: 'same-origin' });
+    const res = await fetch(`${dictBase}${code}.json`, { credentials: 'same-origin' });
     if (!res.ok) throw new Error(`Failed to load ${code}.json (${res.status})`);
     const data = await res.json();
     dicts[code] = data;

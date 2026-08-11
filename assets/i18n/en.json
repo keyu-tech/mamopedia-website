@@ -22,6 +22,14 @@
     "terms": {
       "title": "Terms & Conditions | Mamopedia",
       "description": "Terms and conditions for using Mamopedia - the AI-powered learning companion for Iraqi students by KeyU.Tech."
+    },
+    "deleteAccount": {
+      "title": "Delete Your Account | Mamopedia",
+      "description": "How to delete your Mamopedia account from the app, step by step."
+    },
+    "deleteData": {
+      "title": "Delete Your Data | Mamopedia",
+      "description": "How to delete your Mamopedia data from the app, step by step."
     }
   },
   "a11y": {
@@ -43,6 +51,13 @@
     "emailAddress": "Email address",
     "notifyMe": "Notify me when subscriptions open",
     "backToTop": "Back to top"
+  },
+  "digits": {
+    "1": "1",
+    "2": "2",
+    "3": "3",
+    "4": "4",
+    "5": "5"
   },
   "nav": {
     "features": "Features",
@@ -247,7 +262,9 @@
     "newsletterThanks": "Thanks - we've noted your interest and will email you when subscriptions open.",
     "notifyMe": "Notify me",
     "rights": "All rights reserved.",
-    "designedBy": "Designed by"
+    "designedBy": "Designed by",
+    "deleteAccount": "Delete Account",
+    "deleteData": "Delete Data"
   },
   "legal": {
     "eyebrow": "Legal",
@@ -315,6 +332,80 @@
         "pBefore": "Questions? Email us at ",
         "pAfter": "."
       }
+    }
+  },
+  "deleteAccount": {
+    "eyebrow": "Account",
+    "title": "Delete Your Account",
+    "intro": "You can delete your Mamopedia account at any time from inside the app. Here is how it works, step by step.",
+    "steps": {
+      "login": {
+        "title": "Log in to your account",
+        "body": "Open the Mamopedia app and sign in with the account you want to delete."
+      },
+      "settings": {
+        "title": "Go to the app settings",
+        "body": "Open the settings screen from the app menu."
+      },
+      "tap": {
+        "title": "Click on “Delete account”",
+        "body": "Find the “Delete account” option in settings and select it."
+      },
+      "confirm": {
+        "title": "Confirm the deletion",
+        "body": "Confirm your choice when the app asks you to. This starts the deletion."
+      },
+      "wait": {
+        "title": "Your account is deleted after 15 days",
+        "body": "Your account will be deleted after 15 days if you don't log in again."
+      }
+    },
+    "note": {
+      "title": "Changed your mind?",
+      "body": "Logging back in during those 15 days cancels the deletion and keeps your account active."
+    },
+    "help": {
+      "before": "If you can't access the app or need help, email us at ",
+      "middle": ". To delete only your data and keep your account, see ",
+      "link": "Delete Your Data",
+      "after": "."
+    }
+  },
+  "deleteData": {
+    "eyebrow": "Your Data",
+    "title": "Delete Your Data",
+    "intro": "You can delete the data Mamopedia has stored for you at any time from inside the app. Here is how it works, step by step.",
+    "steps": {
+      "login": {
+        "title": "Log in to your account",
+        "body": "Open the Mamopedia app and sign in with the account whose data you want to delete."
+      },
+      "settings": {
+        "title": "Go to the app settings",
+        "body": "Open the settings screen from the app menu."
+      },
+      "tap": {
+        "title": "Click on “Delete data”",
+        "body": "Find the “Delete data” option in settings and select it."
+      },
+      "confirm": {
+        "title": "Confirm the deletion",
+        "body": "Confirm your choice when the app asks you to. This starts the deletion."
+      },
+      "notify": {
+        "title": "We notify you when it's done",
+        "body": "The deletion process starts in the background and you will be notified once it is done."
+      }
+    },
+    "note": {
+      "title": "Your account stays active",
+      "body": "Deleting your data clears what Mamopedia has stored for you - you can keep using the app and start fresh."
+    },
+    "help": {
+      "before": "If you can't access the app or need help, email us at ",
+      "middle": ". To remove your account entirely, see ",
+      "link": "Delete Your Account",
+      "after": "."
     }
   }
 }
