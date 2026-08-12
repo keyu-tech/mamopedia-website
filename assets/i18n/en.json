@@ -17,7 +17,7 @@
     },
     "privacy": {
       "title": "Privacy Policy | Mamopedia",
-      "description": "Privacy policy for Mamopedia - how KeyU.Tech collects, uses, and protects student data."
+      "description": "Privacy policy for Mamopedia - how KeyU.Tech collects, uses, shares, and protects student data, and the rights students and parents have over it."
     },
     "terms": {
       "title": "Terms & Conditions | Mamopedia",
@@ -251,39 +251,186 @@
   },
   "legal": {
     "eyebrow": "Legal",
-    "lastUpdated": "Last updated: April 2026"
+    "lastUpdated": "Last updated: April 2026",
+    "effective": "Effective: April 2026",
+    "seeAlsoBefore": "You may also want to read our ",
+    "seeAlsoAfter": "."
   },
   "privacy": {
     "title": "Privacy Policy",
+    "intro": "Mamopedia is built for students, and most of the people who use it are children. That shapes every decision on this page: we collect as little as we can, we use it only to help students learn, and we never sell it. This policy explains what we collect, why we collect it, who we share it with, and the choices you and your family have.",
+    "toc": "On this page",
+    "summary": {
+      "h": "The short version",
+      "items": {
+        "sell": "We never sell student data, and we never use it for targeted advertising.",
+        "minimal": "We collect only what the Service needs to work - we do not ask students for information we have no use for.",
+        "purpose": "Learning conversations are used to answer questions, track progress, and improve Mamopedia - not to profile students.",
+        "control": "You can ask us to show, correct, export, or delete your data at any time by emailing info@keyu.tech."
+      },
+      "note": "This summary is here for convenience. The full sections below are what actually govern our practices."
+    },
     "sections": {
+      "who": {
+        "h": "1. Who We Are",
+        "p": "Mamopedia is an AI learning companion built and operated by KeyU.Tech, a technology company based in Erbil, Iraq. In this policy, \"Mamopedia\", \"we\", \"us\", and \"our\" mean KeyU.Tech. When this policy talks about data protection law, KeyU.Tech is the party responsible for deciding how and why your personal data is processed - the role that laws such as the GDPR call the \"data controller\".",
+        "pContactBefore": "For anything related to privacy, you can reach our privacy team at ",
+        "pContactAfter": "."
+      },
+      "scope": {
+        "h": "2. Scope of This Policy",
+        "p": "This policy covers the Mamopedia website, mobile apps, and web app, together with any related support, feedback, and communication channels we run (together, \"the Service\"). It applies to students, parents and guardians, teachers, school staff, and anyone else who visits our site or contacts us.",
+        "pSchools": "Where a school or ministry deploys Mamopedia for its students, that institution may decide what data is provided to us and for what purpose. In those cases the institution acts as the controller of the student records it supplies, and we process that data on its instructions under our agreement with it."
+      },
       "collect": {
-        "h": "1. Information We Collect",
-        "p": "We may collect the information you provide directly (such as name, email, and messages), and technical data such as device type, browser, and usage analytics to improve the Service."
+        "h": "3. Information We Collect",
+        "p": "We collect three kinds of information: what you give us, what is generated automatically as you use the Service, and what a school or partner shares with us.",
+        "given": {
+          "h": "3.1 Information you give us",
+          "items": {
+            "account": "Account details such as your name or nickname, email address, grade level, preferred language, and (where the Service requires it) a password stored only in hashed form.",
+            "chat": "Learning content you submit: your questions and messages, quiz answers, and any homework photos, documents, or files you choose to upload.",
+            "support": "Messages you send us through contact forms, email, or the newsletter signup, including anything you choose to include in them.",
+            "feedback": "Feedback you volunteer, such as ratings on an answer, bug reports, or survey responses."
+          }
+        },
+        "auto": {
+          "h": "3.2 Information collected automatically",
+          "items": {
+            "device": "Device and technical data: device type, operating system, browser, app version, language settings, and general region derived from your IP address.",
+            "usage": "Usage data: pages and screens viewed, features used, subjects and topics studied, session length, and progress through lessons and quizzes.",
+            "logs": "Server logs and diagnostics: timestamps, request details, crash reports, and error traces we use to keep the Service running and secure."
+          },
+          "note": "We do not collect precise location data, and we do not track students across other companies' websites or apps."
+        },
+        "third": {
+          "h": "3.3 Information from schools and third parties",
+          "items": {
+            "school": "Class or roster information a school provides so it can set up accounts, such as a student's name, grade, and class group.",
+            "parent": "Details a parent or guardian gives us when they set up or manage a child's account, or when they exercise a privacy right on the child's behalf.",
+            "providers": "Limited technical information from the infrastructure, analytics, and app store providers we rely on to deliver the Service."
+          }
+        }
       },
       "use": {
-        "h": "2. How We Use Information",
-        "p": "We use your information to provide and improve Mamopedia, respond to support requests, personalize learning, and communicate important updates."
+        "h": "4. How We Use Information",
+        "p": "We use personal data only for the purposes below:",
+        "items": {
+          "provide": "To provide the Service: answering questions, generating quizzes and explanations, saving progress, and syncing across devices.",
+          "personalize": "To personalize learning: matching answers to a student's grade level, language, and the Iraqi MOE curriculum, and suggesting what to practice next.",
+          "improve": "To improve and debug Mamopedia: understanding which features help students learn, measuring answer quality, and fixing problems.",
+          "safety": "To keep the Service safe: preventing abuse, fraud, and unauthorized access, and enforcing our Terms & Conditions.",
+          "support": "To communicate with you: replying to support requests, and sending service notices such as security or policy updates.",
+          "marketing": "To send occasional product updates, but only to people who asked for them - and every message includes a one-click way to stop.",
+          "legal": "To meet legal obligations and to establish, exercise, or defend legal claims."
+        },
+        "never": "We do not use student data for behavioural advertising, we do not build advertising profiles, and we do not make decisions producing legal or similarly significant effects about a student by automated means alone."
       },
-      "share": {
-        "h": "3. Data Sharing",
-        "p": "We do not sell personal data. We may share information with trusted service providers who help us operate the Service, under strict confidentiality and data protection requirements."
+      "bases": {
+        "h": "5. Our Legal Bases for Processing",
+        "p": "Where data protection law such as the GDPR applies to you, we rely on one of these legal bases each time we process personal data:",
+        "items": {
+          "contract": "Performance of a contract - to deliver the Service you or your school signed up for.",
+          "consent": "Consent - for optional things such as newsletters, non-essential analytics, or processing a child's data where consent from a parent or guardian is required. You can withdraw consent at any time.",
+          "legitimate": "Legitimate interests - to secure the Service, prevent abuse, and improve how well Mamopedia teaches, balanced against your rights and expectations.",
+          "legal": "Legal obligation - when a law, regulator, or valid legal order requires us to process or retain information."
+        }
       },
-      "security": {
-        "h": "4. Data Security",
-        "p": "We use industry-standard safeguards to protect your information. No system is perfectly secure, but we work continuously to keep data safe."
+      "ai": {
+        "h": "6. Learning Conversations and AI",
+        "p": "Mamopedia answers questions using AI models, some of which are operated by third-party providers. To produce an answer, the content of your question - and any file you attach to it - is sent to the model that generates the response.",
+        "items": {
+          "purpose": "Conversations are used to answer the question in front of the student, to track progress, and to improve the quality of Mamopedia's teaching.",
+          "providers": "We choose AI providers that are contractually bound to process our data only on our instructions, and not to use it to train their own general-purpose models.",
+          "review": "A small, access-controlled number of staff may review conversations to investigate a bug, a safety report, or a quality problem. We minimize identifying details wherever we can.",
+          "accuracy": "AI can be wrong. Mamopedia's answers are a study aid, not a substitute for a teacher or an official textbook - please verify anything important.",
+          "sensitive": "Please don't paste sensitive personal information - national ID numbers, health details, or financial data - into a chat. Mamopedia never needs it to help with schoolwork."
+        }
       },
       "children": {
-        "h": "5. Children's Privacy",
-        "p": "Mamopedia is designed for students. We collect only the information necessary to provide the Service and encourage parental involvement where appropriate."
+        "h": "7. Children's and Student Privacy",
+        "p": "Mamopedia is designed for school-age students, so protecting children's data is central to how we operate rather than an afterthought. We follow the principle of data minimization: a student is never required to provide more information than the Service genuinely needs.",
+        "items": {
+          "consent": "Where the law requires consent from a parent, guardian, or school before a child's data can be processed, we obtain it before creating the account, and we honour a withdrawal of that consent.",
+          "ads": "We show no advertising to students, and we never sell, rent, or trade student data.",
+          "public": "Students have no public profile on Mamopedia, and their conversations are not visible to other students.",
+          "parents": "Parents and guardians may ask to see, correct, export, or delete their child's data, and may ask us to stop further collection, by writing to us from an address we can verify.",
+          "supervision": "We encourage families to use Mamopedia together, especially with younger children, and to talk about what is and isn't safe to share online."
+        },
+        "pDiscover": "If we learn that we have collected personal data from a child in a way that did not meet the applicable consent requirements, we will delete it promptly."
+      },
+      "sharing": {
+        "h": "8. How We Share Information",
+        "p": "We do not sell personal data, and we do not share it for cross-context behavioural advertising. We disclose information only in these situations:",
+        "items": {
+          "providers": "Service providers who operate the Service on our behalf - hosting and cloud infrastructure, AI model providers, analytics, email delivery, and error monitoring. Each is bound by contract to protect the data, use it only for the service they provide us, and delete it when the relationship ends.",
+          "school": "Schools and ministries, where a student's account was created through an institution - limited to that institution's own students and to what it needs for teaching and administration.",
+          "parents": "Parents and guardians exercising rights over a child's account, once we have verified who they are.",
+          "legal": "Authorities, when we are required to respond to a valid legal request, or where disclosure is necessary to protect someone's safety or our legal rights. We review each request and push back on ones that overreach.",
+          "business": "A successor entity, if KeyU.Tech is involved in a merger, acquisition, or transfer of assets - in which case this policy continues to apply and we will notify you before your data becomes subject to a different one.",
+          "aggregate": "Aggregated or de-identified statistics that cannot reasonably be used to identify anyone, such as how many students studied a subject in a term."
+        }
+      },
+      "transfers": {
+        "h": "9. International Data Transfers",
+        "p": "We are based in Iraq, but some of the providers who help us run the Service store or process data in other countries. That means your information may be transferred outside the country where you live.",
+        "pSafeguards": "When we transfer personal data across borders, we put appropriate safeguards in place - such as standard contractual clauses or a transfer to a country recognized as providing adequate protection - so that your data keeps an equivalent level of protection wherever it is processed. You can ask us for details of the safeguards that apply to your data."
+      },
+      "retention": {
+        "h": "10. How Long We Keep Information",
+        "p": "We keep personal data only as long as we need it for the purpose we collected it for, and then delete or anonymize it. In practice that means:",
+        "items": {
+          "account": "Account data is kept while the account is active, and deleted within 90 days of the account being closed.",
+          "chat": "Learning conversations and progress records are kept while they remain useful to the student's learning history, and can be deleted sooner on request.",
+          "logs": "Technical logs are kept for a short operational period - normally no more than 12 months - and then discarded.",
+          "legal": "Some records are kept longer where a law, a tax or accounting rule, or an unresolved legal claim requires it."
+        }
+      },
+      "security": {
+        "h": "11. How We Protect Information",
+        "p": "We use technical and organizational measures appropriate to the sensitivity of student data, including:",
+        "items": {
+          "encryption": "Encryption of data in transit (HTTPS/TLS) and encryption of stored data at rest.",
+          "access": "Access controls, so that staff can reach personal data only where their role genuinely requires it.",
+          "practices": "Secure development practices, dependency updates, and monitoring for unusual activity.",
+          "vendors": "Reviewing the security posture of the providers we rely on before we entrust them with data."
+        },
+        "pBreach": "No system is perfectly secure. If a breach affects your personal data and creates a risk to you, we will notify you and the relevant authority without undue delay, as the law requires."
       },
       "rights": {
-        "h": "6. Your Rights",
-        "p": "You may request access to, correction of, or deletion of your personal data at any time by contacting us."
+        "h": "12. Your Rights and Choices",
+        "p": "Depending on where you live, you have some or all of the following rights over your personal data. We extend the core of these rights to every Mamopedia user, wherever they are:",
+        "items": {
+          "access": "Access - ask what personal data we hold about you and get a copy of it.",
+          "rectify": "Correction - have inaccurate or incomplete data fixed.",
+          "erase": "Deletion - ask us to erase your data where we have no overriding reason to keep it.",
+          "restrict": "Restriction - ask us to pause processing while a dispute about your data is resolved.",
+          "portability": "Portability - receive your data in a structured, machine-readable format, or have it sent to another provider.",
+          "object": "Objection - object to processing based on our legitimate interests, and opt out of marketing at any time.",
+          "withdraw": "Withdrawal of consent - withdraw a consent you previously gave, without affecting processing already carried out.",
+          "complain": "Complaint - lodge a complaint with your local data protection authority if you believe we have handled your data wrongly."
+        },
+        "pHowBefore": "To exercise any of these, email ",
+        "pHowAfter": " from the address on the account, or ask a parent, guardian, or school to contact us on the student's behalf. We may need to verify your identity before we act, and we will respond within 30 days. Exercising a right is free, and we will never treat you differently for using one."
+      },
+      "cookies": {
+        "h": "13. Cookies and Similar Technologies",
+        "p": "Our website uses a small number of cookies and similar storage technologies. Strictly necessary ones keep you signed in and keep the site secure. Preference storage remembers your language and light or dark theme choice - on this site those are held in your browser's local storage and never leave your device. Analytics storage, where used, helps us understand which pages and features are useful, in aggregate.",
+        "pControl": "You can clear or block cookies and local storage in your browser settings, and where consent is required for non-essential cookies we ask for it first. Blocking strictly necessary storage may stop parts of the Service from working."
+      },
+      "links": {
+        "h": "14. Third-Party Links and Services",
+        "p": "Mamopedia links to other places - app stores, social media, and educational resources - and those sites have their own privacy policies. We do not control them and are not responsible for their practices, so please read their policies before sharing information with them."
+      },
+      "changes": {
+        "h": "15. Changes to This Policy",
+        "p": "We update this policy as Mamopedia grows and as the law changes. When we do, we revise the \"last updated\" date at the top of the page. If a change materially affects how we use personal data, we will give clear notice - by email or in the app - before it takes effect, and where the law requires it we will ask for consent again."
       },
       "contact": {
-        "h": "7. Contact",
-        "pBefore": "For privacy questions, email us at ",
-        "pAfter": "."
+        "h": "16. How to Contact Us",
+        "pBefore": "For any privacy question, request, or complaint, email us at ",
+        "pAfter": " and write \"Privacy\" in the subject line. We read every message and aim to reply within 30 days.",
+        "pAddress": "KeyU.Tech - Erbil, Kurdistan Region, Iraq."
       }
     }
   },

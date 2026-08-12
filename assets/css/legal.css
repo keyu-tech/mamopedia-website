@@ -1,0 +1,161 @@
+/* =====================================================================
+   Mamopedia - legal.css
+   Layout for long-form legal pages (privacy policy, terms). Uses logical
+   properties throughout so Arabic and Kurdish RTL need no overrides.
+   ===================================================================== */
+
+/* --------- Meta line separator --------- */
+.legal-dot {
+  margin-inline: 0.5rem;
+  color: var(--fg-3);
+}
+
+/* --------- "The short version" summary card --------- */
+.legal-summary {
+  margin-block-start: 2.5rem;
+  padding: 1.5rem;
+  border: 1px solid var(--line);
+  border-inline-start: 4px solid var(--primary);
+  border-radius: 1rem;
+  background-color: var(--bg-muted);
+}
+
+.legal-summary-list {
+  margin-block-start: 1rem;
+  display: grid;
+  gap: 0.625rem;
+  list-style: none;
+  padding: 0;
+  color: var(--fg-2);
+}
+
+.legal-summary-list li {
+  position: relative;
+  padding-inline-start: 1.75rem;
+  line-height: 1.7;
+}
+
+/* Checkmark bullet drawn in CSS. Its position is logical so it sits on the
+   correct side in RTL, but the strokes are deliberately physical: a checkmark
+   is a symbol, not a directional element, so it must not mirror. */
+.legal-summary-list li::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0.25rem;
+  inset-block-start: 0.55rem;
+  width: 0.5rem;
+  height: 0.85rem;
+  border-right: 2px solid var(--primary);
+  border-bottom: 2px solid var(--primary);
+  transform: rotate(45deg);
+}
+
+.legal-summary-note {
+  margin-block-start: 1rem;
+  font-size: 0.8125rem;
+  color: var(--fg-3);
+}
+
+/* --------- Table of contents --------- */
+.legal-toc {
+  margin-block-start: 2rem;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  background-color: var(--bg-raised);
+}
+
+.legal-toc-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--fg-3);
+}
+
+.legal-toc-list {
+  margin-block-start: 0.75rem;
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 0.375rem 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .legal-toc-list { grid-template-columns: 1fr 1fr; }
+}
+
+.legal-toc-list a {
+  display: block;
+  padding-block: 0.125rem;
+  font-size: 0.9375rem;
+  color: var(--fg-2);
+  text-decoration: none;
+  transition: color 0.15s var(--ease);
+}
+
+.legal-toc-list a:hover { color: var(--primary-ink); }
+
+.legal-toc-list a:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  border-radius: 0.25rem;
+}
+
+/* --------- Policy body --------- */
+.legal-body {
+  margin-block-start: 3rem;
+  color: var(--fg-2);
+  line-height: 1.8;
+}
+
+.legal-body > section + section {
+  margin-block-start: 2.5rem;
+  padding-block-start: 2.5rem;
+  border-block-start: 1px solid var(--line);
+}
+
+.legal-body h2 {
+  font-family: var(--font-display, inherit);
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--fg);
+  /* Offset for the sticky-free header so anchor jumps don't clip headings. */
+  scroll-margin-block-start: 5rem;
+}
+
+.legal-body h3 {
+  margin-block-start: 1.5rem;
+  font-size: 1.0625rem;
+  font-weight: 600;
+  color: var(--fg);
+}
+
+.legal-body p { margin-block-start: 0.75rem; }
+
+.legal-body ul {
+  margin-block-start: 0.75rem;
+  display: grid;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+}
+
+.legal-body ul li {
+  position: relative;
+  padding-inline-start: 1.25rem;
+}
+
+.legal-body ul li::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0.125rem;
+  inset-block-start: 0.8em;
+  width: 0.375rem;
+  height: 0.375rem;
+  border-radius: 50%;
+  background-color: var(--primary);
+}
+
+.legal-body section { scroll-margin-block-start: 1.5rem; }
