@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-page="privacy-policy" data-lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('mp-theme');
+        if (t === 'dark' || t === 'light') {
+          document.documentElement.setAttribute('data-theme', t);
+        }
+      } catch (e) {}
+      try {
+        var supported = { en: { dir: 'ltr', html: 'en' }, ar: { dir: 'rtl', html: 'ar' }, ckb: { dir: 'rtl', html: 'ckb' } };
+        var saved = localStorage.getItem('mp-lang');
+        var pick = supported[saved] ? saved : null;
+        if (!pick) {
+          var nav = (navigator.language || '').toLowerCase();
+          if (nav.indexOf('ckb') === 0 || nav.indexOf('ku') === 0) pick = 'ckb';
+          else if (nav.indexOf('ar') === 0) pick = 'ar';
+        }
+        if (pick) {
+          document.documentElement.setAttribute('lang', supported[pick].html);
+          document.documentElement.setAttribute('dir', supported[pick].dir);
+          document.documentElement.setAttribute('data-lang', pick);
+        }
+      } catch (e) {}
+    })();
+  </script>
+
+  <title data-i18n="pages.privacy.title">Privacy Policy | Mamopedia</title>
+  <meta name="description" content="Privacy policy for Mamopedia - how KeyU.Tech collects, uses, shares, and protects student data, and the rights students and parents have over it." data-i18n-attr="content:pages.privacy.description">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#7EA377">
+  <meta name="color-scheme" content="light dark">
+  <link rel="canonical" href="https://mamopedia.com/privacy-policy/">
+
+  <link href="../assets/img/mamo.png" rel="icon">
+  <link href="../assets/img/mamo.png" rel="apple-touch-icon">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Noto Kufi Arabic"', 'Tajawal', 'system-ui', 'sans-serif'],
+            display: ['"Noto Kufi Arabic"', 'Tajawal', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            primary: { DEFAULT: 'var(--primary)', on: '#FFFFFF', container: 'var(--primary-soft)', onContainer: 'var(--primary-ink)' },
+            coral: { DEFAULT: 'var(--accent-warm)', on: '#FFFFFF', container: 'var(--accent-warm-soft)', onContainer: 'var(--accent-warm-ink)' },
+            surface: { DEFAULT: 'var(--bg)', container: 'var(--bg-muted)', containerLow: 'var(--bg-raised)', containerHigh: 'var(--paper-3)', on: 'var(--fg)', onVariant: 'var(--fg-2)' },
+            outline: { DEFAULT: 'var(--line-strong)', variant: 'var(--line)' },
+          },
+          maxWidth: { 'content': '1200px' },
+        },
+      },
+    };
+  </script>
+
+  <link href="../assets/css/mamopedia-tokens.css" rel="stylesheet">
+  <link href="../assets/css/style.css" rel="stylesheet">
+  <link href="../assets/css/legal.css" rel="stylesheet">
+
+  <script src="../assets/js/i18n.js" defer></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Privacy Policy",
+    "url": "https://mamopedia.com/privacy-policy/",
+    "inLanguage": ["en", "ar", "ckb"],
+    "isPartOf": { "@type": "WebSite", "name": "Mamopedia", "url": "https://mamopedia.com/" },
+    "publisher": { "@type": "Organization", "name": "KeyU.Tech", "email": "info@keyu.tech" }
+  }
+  </script>
+</head>
+
+<body class="bg-surface text-surface-on font-sans antialiased">
+
+  <!-- Skip link for accessibility -->
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:start-4 focus:z-50 focus:bg-primary focus:text-primary-on focus:px-4 focus:py-2 focus:rounded-md" data-i18n="a11y.skipToContent">Skip to content</a>
+
+  <header class="border-b border-outline-variant">
+    <div class="max-w-content mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <a href="../index.html" class="flex items-center gap-2" aria-label="Mamopedia home" data-i18n-attr="aria-label:a11y.brandHome">
+        <img src="../assets/img/mamo.png" alt="" class="h-8 w-8 rounded-sm">
+        <span class="font-display font-bold text-lg">Mamopedia</span>
+      </a>
+      <div class="flex items-center gap-1">
+        <div class="lang-switcher" data-lang-switcher>
+          <button type="button" class="lang-switcher-btn" aria-haspopup="listbox" aria-expanded="false" data-lang-toggle data-i18n-attr="aria-label:a11y.selectLanguage" aria-label="Select language">
+            <span class="material-symbols-rounded" aria-hidden="true">language</span>
+            <span class="lang-code" data-lang-current>EN</span>
+            <span class="material-symbols-rounded chevron" aria-hidden="true">expand_more</span>
+          </button>
+          <ul class="lang-switcher-menu" role="listbox" data-lang-menu></ul>
+        </div>
+        <button type="button" class="theme-toggle icon-btn" data-theme-toggle aria-label="Switch to dark mode" data-i18n-attr="aria-label:a11y.themeDark">
+          <span class="material-symbols-rounded theme-toggle-icon" aria-hidden="true">dark_mode</span>
+        </button>
+        <a href="../index.html" class="nav-link">
+          <span class="material-symbols-rounded home-link-arrow" aria-hidden="true">arrow_back</span>
+          <span data-i18n="nav.home">Home</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <p class="text-sm font-semibold uppercase tracking-wider text-primary" data-i18n="legal.eyebrow">Legal</p>
+    <h1 class="mt-2 font-display text-4xl text-surface-on" data-i18n="privacy.title">Privacy Policy</h1>
+    <p class="mt-2 text-surface-onVariant">
+      <span data-i18n="legal.lastUpdated">Last updated: April 2026</span>
+      <span class="legal-dot" aria-hidden="true">&middot;</span>
+      <span data-i18n="legal.effective">Effective: April 2026</span>
+    </p>
+
+    <p class="mt-6 text-lg text-surface-onVariant leading-relaxed" data-i18n="privacy.intro">
+      Mamopedia is built for students, and most of the people who use it are children. That shapes every decision on this page: we collect as little as we can, we use it only to help students learn, and we never sell it. This policy explains what we collect, why we collect it, who we share it with, and the choices you and your family have.
+    </p>
+
+    <!-- Summary at a glance -->
+    <section class="legal-summary" aria-labelledby="summary-heading">
+      <h2 id="summary-heading" class="font-display text-xl text-surface-on" data-i18n="privacy.summary.h">The short version</h2>
+      <ul class="legal-summary-list">
+        <li data-i18n="privacy.summary.items.sell">We never sell student data, and we never use it for targeted advertising.</li>
+        <li data-i18n="privacy.summary.items.minimal">We collect only what the Service needs to work - we do not ask students for information we have no use for.</li>
+        <li data-i18n="privacy.summary.items.purpose">Learning conversations are used to answer questions, track progress, and improve Mamopedia - not to profile students.</li>
+        <li data-i18n="privacy.summary.items.control">You can ask us to show, correct, export, or delete your data at any time by emailing info@keyu.tech.</li>
+      </ul>
+      <p class="legal-summary-note" data-i18n="privacy.summary.note">This summary is here for convenience. The full sections below are what actually govern our practices.</p>
+    </section>
+
+    <!-- Table of contents -->
+    <nav class="legal-toc" aria-labelledby="toc-heading">
+      <h2 id="toc-heading" class="legal-toc-title" data-i18n="privacy.toc">On this page</h2>
+      <ol class="legal-toc-list">
+        <li><a href="#who" data-i18n="privacy.sections.who.h">1. Who We Are</a></li>
+        <li><a href="#scope" data-i18n="privacy.sections.scope.h">2. Scope of This Policy</a></li>
+        <li><a href="#collect" data-i18n="privacy.sections.collect.h">3. Information We Collect</a></li>
+        <li><a href="#use" data-i18n="privacy.sections.use.h">4. How We Use Information</a></li>
+        <li><a href="#bases" data-i18n="privacy.sections.bases.h">5. Our Legal Bases for Processing</a></li>
+        <li><a href="#ai" data-i18n="privacy.sections.ai.h">6. Learning Conversations and AI</a></li>
+        <li><a href="#children" data-i18n="privacy.sections.children.h">7. Children's and Student Privacy</a></li>
+        <li><a href="#sharing" data-i18n="privacy.sections.sharing.h">8. How We Share Information</a></li>
+        <li><a href="#transfers" data-i18n="privacy.sections.transfers.h">9. International Data Transfers</a></li>
+        <li><a href="#retention" data-i18n="privacy.sections.retention.h">10. How Long We Keep Information</a></li>
+        <li><a href="#security" data-i18n="privacy.sections.security.h">11. How We Protect Information</a></li>
+        <li><a href="#rights" data-i18n="privacy.sections.rights.h">12. Your Rights and Choices</a></li>
+        <li><a href="#cookies" data-i18n="privacy.sections.cookies.h">13. Cookies and Similar Technologies</a></li>
+        <li><a href="#links" data-i18n="privacy.sections.links.h">14. Third-Party Links and Services</a></li>
+        <li><a href="#changes" data-i18n="privacy.sections.changes.h">15. Changes to This Policy</a></li>
+        <li><a href="#contact" data-i18n="privacy.sections.contact.h">16. How to Contact Us</a></li>
+      </ol>
+    </nav>
+
+    <div class="legal-body">
+
+      <section id="who">
+        <h2 data-i18n="privacy.sections.who.h">1. Who We Are</h2>
+        <p data-i18n="privacy.sections.who.p">Mamopedia is an AI learning companion built and operated by KeyU.Tech, a technology company based in Erbil, Iraq. In this policy, "Mamopedia", "we", "us", and "our" mean KeyU.Tech. When this policy talks about data protection law, KeyU.Tech is the party responsible for deciding how and why your personal data is processed - the role that laws such as the GDPR call the "data controller".</p>
+        <p><span data-i18n="privacy.sections.who.pContactBefore">For anything related to privacy, you can reach our privacy team at </span><a href="mailto:info@keyu.tech" class="text-primary hover:underline">info@keyu.tech</a><span data-i18n="privacy.sections.who.pContactAfter">.</span></p>
+      </section>
+
+      <section id="scope">
+        <h2 data-i18n="privacy.sections.scope.h">2. Scope of This Policy</h2>
+        <p data-i18n="privacy.sections.scope.p">This policy covers the Mamopedia website, mobile apps, and web app, together with any related support, feedback, and communication channels we run (together, "the Service"). It applies to students, parents and guardians, teachers, school staff, and anyone else who visits our site or contacts us.</p>
+        <p data-i18n="privacy.sections.scope.pSchools">Where a school or ministry deploys Mamopedia for its students, that institution may decide what data is provided to us and for what purpose. In those cases the institution acts as the controller of the student records it supplies, and we process that data on its instructions under our agreement with it.</p>
+      </section>
+
+      <section id="collect">
+        <h2 data-i18n="privacy.sections.collect.h">3. Information We Collect</h2>
+        <p data-i18n="privacy.sections.collect.p">We collect three kinds of information: what you give us, what is generated automatically as you use the Service, and what a school or partner shares with us.</p>
+
+        <h3 data-i18n="privacy.sections.collect.given.h">3.1 Information you give us</h3>
+        <ul>
+          <li data-i18n="privacy.sections.collect.given.items.account">Account details such as your name or nickname, email address, grade level, preferred language, and (where the Service requires it) a password stored only in hashed form.</li>
+          <li data-i18n="privacy.sections.collect.given.items.chat">Learning content you submit: your questions and messages, quiz answers, and any homework photos, documents, or files you choose to upload.</li>
+          <li data-i18n="privacy.sections.collect.given.items.support">Messages you send us through contact forms, email, or the newsletter signup, including anything you choose to include in them.</li>
+          <li data-i18n="privacy.sections.collect.given.items.feedback">Feedback you volunteer, such as ratings on an answer, bug reports, or survey responses.</li>
+        </ul>
+
+        <h3 data-i18n="privacy.sections.collect.auto.h">3.2 Information collected automatically</h3>
+        <ul>
+          <li data-i18n="privacy.sections.collect.auto.items.device">Device and technical data: device type, operating system, browser, app version, language settings, and general region derived from your IP address.</li>
+          <li data-i18n="privacy.sections.collect.auto.items.usage">Usage data: pages and screens viewed, features used, subjects and topics studied, session length, and progress through lessons and quizzes.</li>
+          <li data-i18n="privacy.sections.collect.auto.items.logs">Server logs and diagnostics: timestamps, request details, crash reports, and error traces we use to keep the Service running and secure.</li>
+        </ul>
+        <p data-i18n="privacy.sections.collect.auto.note">We do not collect precise location data, and we do not track students across other companies' websites or apps.</p>
+
+        <h3 data-i18n="privacy.sections.collect.third.h">3.3 Information from schools and third parties</h3>
+        <ul>
+          <li data-i18n="privacy.sections.collect.third.items.school">Class or roster information a school provides so it can set up accounts, such as a student's name, grade, and class group.</li>
+          <li data-i18n="privacy.sections.collect.third.items.parent">Details a parent or guardian gives us when they set up or manage a child's account, or when they exercise a privacy right on the child's behalf.</li>
+          <li data-i18n="privacy.sections.collect.third.items.providers">Limited technical information from the infrastructure, analytics, and app store providers we rely on to deliver the Service.</li>
+        </ul>
+      </section>
+
+      <section id="use">
+        <h2 data-i18n="privacy.sections.use.h">4. How We Use Information</h2>
+        <p data-i18n="privacy.sections.use.p">We use personal data only for the purposes below:</p>
+        <ul>
+          <li data-i18n="privacy.sections.use.items.provide">To provide the Service: answering questions, generating quizzes and explanations, saving progress, and syncing across devices.</li>
+          <li data-i18n="privacy.sections.use.items.personalize">To personalize learning: matching answers to a student's grade level, language, and the Iraqi MOE curriculum, and suggesting what to practice next.</li>
+          <li data-i18n="privacy.sections.use.items.improve">To improve and debug Mamopedia: understanding which features help students learn, measuring answer quality, and fixing problems.</li>
+          <li data-i18n="privacy.sections.use.items.safety">To keep the Service safe: preventing abuse, fraud, and unauthorized access, and enforcing our Terms &amp; Conditions.</li>
+          <li data-i18n="privacy.sections.use.items.support">To communicate with you: replying to support requests, and sending service notices such as security or policy updates.</li>
+          <li data-i18n="privacy.sections.use.items.marketing">To send occasional product updates, but only to people who asked for them - and every message includes a one-click way to stop.</li>
+          <li data-i18n="privacy.sections.use.items.legal">To meet legal obligations and to establish, exercise, or defend legal claims.</li>
+        </ul>
+        <p data-i18n="privacy.sections.use.never">We do not use student data for behavioural advertising, we do not build advertising profiles, and we do not make decisions producing legal or similarly significant effects about a student by automated means alone.</p>
+      </section>
+
+      <section id="bases">
+        <h2 data-i18n="privacy.sections.bases.h">5. Our Legal Bases for Processing</h2>
+        <p data-i18n="privacy.sections.bases.p">Where data protection law such as the GDPR applies to you, we rely on one of these legal bases each time we process personal data:</p>
+        <ul>
+          <li data-i18n="privacy.sections.bases.items.contract">Performance of a contract - to deliver the Service you or your school signed up for.</li>
+          <li data-i18n="privacy.sections.bases.items.consent">Consent - for optional things such as newsletters, non-essential analytics, or processing a child's data where consent from a parent or guardian is required. You can withdraw consent at any time.</li>
+          <li data-i18n="privacy.sections.bases.items.legitimate">Legitimate interests - to secure the Service, prevent abuse, and improve how well Mamopedia teaches, balanced against your rights and expectations.</li>
+          <li data-i18n="privacy.sections.bases.items.legal">Legal obligation - when a law, regulator, or valid legal order requires us to process or retain information.</li>
+        </ul>
+      </section>
+
+      <section id="ai">
+        <h2 data-i18n="privacy.sections.ai.h">6. Learning Conversations and AI</h2>
+        <p data-i18n="privacy.sections.ai.p">Mamopedia answers questions using AI models, some of which are operated by third-party providers. To produce an answer, the content of your question - and any file you attach to it - is sent to the model that generates the response.</p>
+        <ul>
+          <li data-i18n="privacy.sections.ai.items.purpose">Conversations are used to answer the question in front of the student, to track progress, and to improve the quality of Mamopedia's teaching.</li>
+          <li data-i18n="privacy.sections.ai.items.providers">We choose AI providers that are contractually bound to process our data only on our instructions, and not to use it to train their own general-purpose models.</li>
+          <li data-i18n="privacy.sections.ai.items.review">A small, access-controlled number of staff may review conversations to investigate a bug, a safety report, or a quality problem. We minimize identifying details wherever we can.</li>
+          <li data-i18n="privacy.sections.ai.items.accuracy">AI can be wrong. Mamopedia's answers are a study aid, not a substitute for a teacher or an official textbook - please verify anything important.</li>
+          <li data-i18n="privacy.sections.ai.items.sensitive">Please don't paste sensitive personal information - national ID numbers, health details, or financial data - into a chat. Mamopedia never needs it to help with schoolwork.</li>
+        </ul>
+      </section>
+
+      <section id="children">
+        <h2 data-i18n="privacy.sections.children.h">7. Children's and Student Privacy</h2>
+        <p data-i18n="privacy.sections.children.p">Mamopedia is designed for school-age students, so protecting children's data is central to how we operate rather than an afterthought. We follow the principle of data minimization: a student is never required to provide more information than the Service genuinely needs.</p>
+        <ul>
+          <li data-i18n="privacy.sections.children.items.consent">Where the law requires consent from a parent, guardian, or school before a child's data can be processed, we obtain it before creating the account, and we honour a withdrawal of that consent.</li>
+          <li data-i18n="privacy.sections.children.items.ads">We show no advertising to students, and we never sell, rent, or trade student data.</li>
+          <li data-i18n="privacy.sections.children.items.public">Students have no public profile on Mamopedia, and their conversations are not visible to other students.</li>
+          <li data-i18n="privacy.sections.children.items.parents">Parents and guardians may ask to see, correct, export, or delete their child's data, and may ask us to stop further collection, by writing to us from an address we can verify.</li>
+          <li data-i18n="privacy.sections.children.items.supervision">We encourage families to use Mamopedia together, especially with younger children, and to talk about what is and isn't safe to share online.</li>
+        </ul>
+        <p data-i18n="privacy.sections.children.pDiscover">If we learn that we have collected personal data from a child in a way that did not meet the applicable consent requirements, we will delete it promptly.</p>
+      </section>
+
+      <section id="sharing">
+        <h2 data-i18n="privacy.sections.sharing.h">8. How We Share Information</h2>
+        <p data-i18n="privacy.sections.sharing.p">We do not sell personal data, and we do not share it for cross-context behavioural advertising. We disclose information only in these situations:</p>
+        <ul>
+          <li data-i18n="privacy.sections.sharing.items.providers">Service providers who operate the Service on our behalf - hosting and cloud infrastructure, AI model providers, analytics, email delivery, and error monitoring. Each is bound by contract to protect the data, use it only for the service they provide us, and delete it when the relationship ends.</li>
+          <li data-i18n="privacy.sections.sharing.items.school">Schools and ministries, where a student's account was created through an institution - limited to that institution's own students and to what it needs for teaching and administration.</li>
+          <li data-i18n="privacy.sections.sharing.items.parents">Parents and guardians exercising rights over a child's account, once we have verified who they are.</li>
+          <li data-i18n="privacy.sections.sharing.items.legal">Authorities, when we are required to respond to a valid legal request, or where disclosure is necessary to protect someone's safety or our legal rights. We review each request and push back on ones that overreach.</li>
+          <li data-i18n="privacy.sections.sharing.items.business">A successor entity, if KeyU.Tech is involved in a merger, acquisition, or transfer of assets - in which case this policy continues to apply and we will notify you before your data becomes subject to a different one.</li>
+          <li data-i18n="privacy.sections.sharing.items.aggregate">Aggregated or de-identified statistics that cannot reasonably be used to identify anyone, such as how many students studied a subject in a term.</li>
+        </ul>
+      </section>
+
+      <section id="transfers">
+        <h2 data-i18n="privacy.sections.transfers.h">9. International Data Transfers</h2>
+        <p data-i18n="privacy.sections.transfers.p">We are based in Iraq, but some of the providers who help us run the Service store or process data in other countries. That means your information may be transferred outside the country where you live.</p>
+        <p data-i18n="privacy.sections.transfers.pSafeguards">When we transfer personal data across borders, we put appropriate safeguards in place - such as standard contractual clauses or a transfer to a country recognized as providing adequate protection - so that your data keeps an equivalent level of protection wherever it is processed. You can ask us for details of the safeguards that apply to your data.</p>
+      </section>
+
+      <section id="retention">
+        <h2 data-i18n="privacy.sections.retention.h">10. How Long We Keep Information</h2>
+        <p data-i18n="privacy.sections.retention.p">We keep personal data only as long as we need it for the purpose we collected it for, and then delete or anonymize it. In practice that means:</p>
+        <ul>
+          <li data-i18n="privacy.sections.retention.items.account">Account data is kept while the account is active, and deleted within 90 days of the account being closed.</li>
+          <li data-i18n="privacy.sections.retention.items.chat">Learning conversations and progress records are kept while they remain useful to the student's learning history, and can be deleted sooner on request.</li>
+          <li data-i18n="privacy.sections.retention.items.logs">Technical logs are kept for a short operational period - normally no more than 12 months - and then discarded.</li>
+          <li data-i18n="privacy.sections.retention.items.legal">Some records are kept longer where a law, a tax or accounting rule, or an unresolved legal claim requires it.</li>
+        </ul>
+      </section>
+
+      <section id="security">
+        <h2 data-i18n="privacy.sections.security.h">11. How We Protect Information</h2>
+        <p data-i18n="privacy.sections.security.p">We use technical and organizational measures appropriate to the sensitivity of student data, including:</p>
+        <ul>
+          <li data-i18n="privacy.sections.security.items.encryption">Encryption of data in transit (HTTPS/TLS) and encryption of stored data at rest.</li>
+          <li data-i18n="privacy.sections.security.items.access">Access controls, so that staff can reach personal data only where their role genuinely requires it.</li>
+          <li data-i18n="privacy.sections.security.items.practices">Secure development practices, dependency updates, and monitoring for unusual activity.</li>
+          <li data-i18n="privacy.sections.security.items.vendors">Reviewing the security posture of the providers we rely on before we entrust them with data.</li>
+        </ul>
+        <p data-i18n="privacy.sections.security.pBreach">No system is perfectly secure. If a breach affects your personal data and creates a risk to you, we will notify you and the relevant authority without undue delay, as the law requires.</p>
+      </section>
+
+      <section id="rights">
+        <h2 data-i18n="privacy.sections.rights.h">12. Your Rights and Choices</h2>
+        <p data-i18n="privacy.sections.rights.p">Depending on where you live, you have some or all of the following rights over your personal data. We extend the core of these rights to every Mamopedia user, wherever they are:</p>
+        <ul>
+          <li data-i18n="privacy.sections.rights.items.access">Access - ask what personal data we hold about you and get a copy of it.</li>
+          <li data-i18n="privacy.sections.rights.items.rectify">Correction - have inaccurate or incomplete data fixed.</li>
+          <li data-i18n="privacy.sections.rights.items.erase">Deletion - ask us to erase your data where we have no overriding reason to keep it.</li>
+          <li data-i18n="privacy.sections.rights.items.restrict">Restriction - ask us to pause processing while a dispute about your data is resolved.</li>
+          <li data-i18n="privacy.sections.rights.items.portability">Portability - receive your data in a structured, machine-readable format, or have it sent to another provider.</li>
+          <li data-i18n="privacy.sections.rights.items.object">Objection - object to processing based on our legitimate interests, and opt out of marketing at any time.</li>
+          <li data-i18n="privacy.sections.rights.items.withdraw">Withdrawal of consent - withdraw a consent you previously gave, without affecting processing already carried out.</li>
+          <li data-i18n="privacy.sections.rights.items.complain">Complaint - lodge a complaint with your local data protection authority if you believe we have handled your data wrongly.</li>
+        </ul>
+        <p><span data-i18n="privacy.sections.rights.pHowBefore">To exercise any of these, email </span><a href="mailto:info@keyu.tech" class="text-primary hover:underline">info@keyu.tech</a><span data-i18n="privacy.sections.rights.pHowAfter"> from the address on the account, or ask a parent, guardian, or school to contact us on the student's behalf. We may need to verify your identity before we act, and we will respond within 30 days. Exercising a right is free, and we will never treat you differently for using one.</span></p>
+      </section>
+
+      <section id="cookies">
+        <h2 data-i18n="privacy.sections.cookies.h">13. Cookies and Similar Technologies</h2>
+        <p data-i18n="privacy.sections.cookies.p">Our website uses a small number of cookies and similar storage technologies. Strictly necessary ones keep you signed in and keep the site secure. Preference storage remembers your language and light or dark theme choice - on this site those are held in your browser's local storage and never leave your device. Analytics storage, where used, helps us understand which pages and features are useful, in aggregate.</p>
+        <p data-i18n="privacy.sections.cookies.pControl">You can clear or block cookies and local storage in your browser settings, and where consent is required for non-essential cookies we ask for it first. Blocking strictly necessary storage may stop parts of the Service from working.</p>
+      </section>
+
+      <section id="links">
+        <h2 data-i18n="privacy.sections.links.h">14. Third-Party Links and Services</h2>
+        <p data-i18n="privacy.sections.links.p">Mamopedia links to other places - app stores, social media, and educational resources - and those sites have their own privacy policies. We do not control them and are not responsible for their practices, so please read their policies before sharing information with them.</p>
+      </section>
+
+      <section id="changes">
+        <h2 data-i18n="privacy.sections.changes.h">15. Changes to This Policy</h2>
+        <p data-i18n="privacy.sections.changes.p">We update this policy as Mamopedia grows and as the law changes. When we do, we revise the "last updated" date at the top of the page. If a change materially affects how we use personal data, we will give clear notice - by email or in the app - before it takes effect, and where the law requires it we will ask for consent again.</p>
+      </section>
+
+      <section id="contact">
+        <h2 data-i18n="privacy.sections.contact.h">16. How to Contact Us</h2>
+        <p><span data-i18n="privacy.sections.contact.pBefore">For any privacy question, request, or complaint, email us at </span><a href="mailto:info@keyu.tech" class="text-primary hover:underline">info@keyu.tech</a><span data-i18n="privacy.sections.contact.pAfter"> and write "Privacy" in the subject line. We read every message and aim to reply within 30 days.</span></p>
+        <p data-i18n="privacy.sections.contact.pAddress">KeyU.Tech - Erbil, Kurdistan Region, Iraq.</p>
+      </section>
+
+    </div>
+
+    <p class="mt-12 text-sm text-surface-onVariant">
+      <span data-i18n="legal.seeAlsoBefore">You may also want to read our </span><a href="../terms.html" class="text-primary hover:underline" data-i18n="footer.terms">Terms &amp; Conditions</a><span data-i18n="legal.seeAlsoAfter">.</span>
+    </p>
+  </main>
+
+  <footer class="bg-surface-containerHigh border-t border-outline-variant">
+    <div class="max-w-content mx-auto px-4 sm:px-6 lg:px-8 py-8 text-sm text-surface-onVariant flex flex-col sm:flex-row items-center justify-between gap-2">
+      <p>&copy; <span id="year">2026</span> Mamopedia. <span data-i18n="footer.rights">All rights reserved.</span></p>
+      <p><a href="../terms.html" class="footer-link" data-i18n="footer.terms">Terms &amp; Conditions</a> &middot; <a href="../delete-account/" class="footer-link" data-i18n="footer.deleteAccount">Delete Account</a> &middot; <a href="../delete-data/" class="footer-link" data-i18n="footer.deleteData">Delete Data</a> &middot; <a href="../index.html" class="footer-link" data-i18n="nav.home">Home</a></p>
+    </div>
+  </footer>
+
+  <script src="../assets/js/main.js" defer></script>
+</body>
+</html>
