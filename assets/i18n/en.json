@@ -229,7 +229,7 @@
     "title": "We'd love to hear from you",
     "description": "Have questions or need support? Reach out to us anytime via the contact form - or use the details below.",
     "addressLabel": "Address",
-    "addressValue": "Erbil, Iraq",
+    "addressValue": "Lõõtsa tn 5, Lasnamäe linnaosa, 11415 Tallinn, Estonia",
     "phoneLabel": "Phone",
     "emailLabel": "Email",
     "form": {
@@ -262,6 +262,7 @@
     "newsletterThanks": "Thanks - we've noted your interest and will email you when subscriptions open.",
     "notifyMe": "Notify me",
     "rights": "All rights reserved.",
+    "operatedBy": "Operated by",
     "designedBy": "Designed by",
     "deleteAccount": "Delete Account",
     "deleteData": "Delete Data"

@@ -229,7 +229,7 @@
     "title": "يسعدنا أن نسمع منك",
     "description": "لديك سؤال أو تحتاج للدعم؟ تواصل معنا في أي وقت عبر نموذج الاتّصال - أو استخدم البيانات أدناه.",
     "addressLabel": "العنوان",
-    "addressValue": "أربيل، العراق",
+    "addressValue": "Lõõtsa tn 5, Lasnamäe linnaosa, 11415 Tallinn, Estonia",
     "phoneLabel": "الهاتف",
     "emailLabel": "البريد الإلكتروني",
     "form": {
@@ -262,6 +262,7 @@
     "newsletterThanks": "شكراً - سجّلنا اهتمامك وسنُراسلك عند فتح الاشتراكات.",
     "notifyMe": "أبلِغني",
     "rights": "جميع الحقوق محفوظة.",
+    "operatedBy": "تشغيل",
     "designedBy": "تصميم",
     "deleteAccount": "حذف الحساب",
     "deleteData": "حذف البيانات"
