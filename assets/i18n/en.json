@@ -17,7 +17,7 @@
     },
     "privacy": {
       "title": "Privacy Policy | Mamopedia",
-      "description": "Privacy policy for Mamopedia - how KeyU.Tech collects, uses, shares, and protects student data, and the rights students and parents have over it."
+      "description": "Privacy policy for Mamopedia - what KeyU Tech OÜ collects, why, who it's shared with, and the rights you have over your data."
     },
     "terms": {
       "title": "Terms & Conditions | Mamopedia",
@@ -275,179 +275,247 @@
   },
   "privacy": {
     "title": "Privacy Policy",
-    "intro": "Mamopedia is built for students, and most of the people who use it are children. That shapes every decision on this page: we collect as little as we can, we use it only to help students learn, and we never sell it. This policy explains what we collect, why we collect it, who we share it with, and the choices you and your family have.",
+    "effective": "Effective date: 24 August 2026",
+    "lastUpdated": "Last updated: 24 August 2026",
+    "introP1": "This policy explains what Mamopedia collects, why, who it is shared with, and what you can do about it. It applies to the Mamopedia mobile apps (iOS and Android) and the Mamopedia website.",
+    "introP2Before": "Mamopedia is operated by ",
+    "introP2Company": "KeyU Tech OÜ",
+    "introP2Mid": " (registry code 17525103), Lõõtsa tn 5, Lasnamäe linnaosa, 11415 Tallinn, Estonia (“we”, “us”). We are the data controller for the personal data described here. For anything in this policy, contact ",
+    "introP2After": ".",
     "toc": "On this page",
-    "summary": {
-      "h": "The short version",
-      "items": {
-        "sell": "We never sell student data, and we never use it for targeted advertising.",
-        "minimal": "We collect only what the Service needs to work - we do not ask students for information we have no use for.",
-        "purpose": "Learning conversations are used to answer questions, track progress, and improve Mamopedia - not to profile students.",
-        "control": "You can ask us to show, correct, export, or delete your data at any time by emailing info@keyu.tech."
-      },
-      "note": "This summary is here for convenience. The full sections below are what actually govern our practices."
-    },
     "sections": {
-      "who": {
-        "h": "1. Who We Are",
-        "p": "Mamopedia is an AI learning companion built and operated by KeyU.Tech, a technology company based in Erbil, Iraq. In this policy, \"Mamopedia\", \"we\", \"us\", and \"our\" mean KeyU.Tech. When this policy talks about data protection law, KeyU.Tech is the party responsible for deciding how and why your personal data is processed - the role that laws such as the GDPR call the \"data controller\".",
-        "pContactBefore": "For anything related to privacy, you can reach our privacy team at ",
-        "pContactAfter": "."
-      },
-      "scope": {
-        "h": "2. Scope of This Policy",
-        "p": "This policy covers the Mamopedia website, mobile apps, and web app, together with any related support, feedback, and communication channels we run (together, \"the Service\"). It applies to students, parents and guardians, teachers, school staff, and anyone else who visits our site or contacts us.",
-        "pSchools": "Where a school or ministry deploys Mamopedia for its students, that institution may decide what data is provided to us and for what purpose. In those cases the institution acts as the controller of the student records it supplies, and we process that data on its instructions under our agreement with it."
+      "short": {
+        "h": "1. In short",
+        "items": {
+          "run": "We collect what is needed to run a study tool: your account, the questions you ask, the quizzes you take, and the pages of any book you photograph.",
+          "noSell": "We do not sell your data, we do not advertise, and we do not track you",
+          "ai": "Your questions and the passages retrieved from a textbook are sent to an AI provider in order to produce an answer. This is the single most important thing to understand about how the app works — see section 4.",
+          "erase": "You can erase your conversations, quizzes and books from inside the app, and you can delete your account entirely."
+        }
       },
       "collect": {
-        "h": "3. Information We Collect",
-        "p": "We collect three kinds of information: what you give us, what is generated automatically as you use the Service, and what a school or partner shares with us.",
+        "h": "2. What we collect",
         "given": {
-          "h": "3.1 Information you give us",
-          "items": {
-            "account": "Account details such as your name or nickname, email address, grade level, preferred language, and (where the Service requires it) a password stored only in hashed form.",
-            "chat": "Learning content you submit: your questions and messages, quiz answers, and any homework photos, documents, or files you choose to upload.",
-            "support": "Messages you send us through contact forms, email, or the newsletter signup, including anything you choose to include in them.",
-            "feedback": "Feedback you volunteer, such as ratings on an answer, bug reports, or survey responses."
+          "h": "You give us",
+          "colData": "Data",
+          "colWhy": "Why",
+          "rows": {
+            "email": {
+              "label": "Email address",
+              "why": "Identifies your account. Every record we hold about you is keyed to it."
+            },
+            "name": {
+              "label": "Display name",
+              "why": "Shown back to you in the app. Nothing else."
+            },
+            "password": {
+              "label": "Password",
+              "why": "Handled by Google Firebase Authentication. We never see or store it."
+            },
+            "questions": {
+              "label": "Questions you ask, and the answers returned",
+              "why": "Your conversation history, so you can return to it."
+            },
+            "photos": {
+              "label": "Photographs of book pages you upload",
+              "why": "To build a personal book you can ask questions about."
+            },
+            "quiz": {
+              "label": "Quiz answers and results",
+              "why": "To mark a quiz and show you how you did."
+            },
+            "support": {
+              "label": "Support messages, reports and any attachments",
+              "why": "To answer you, and to review reported content."
+            }
           }
         },
-        "auto": {
-          "h": "3.2 Information collected automatically",
+        "created": {
+          "h": "Created as you use the app",
+          "rows": {
+            "text": {
+              "label": "Text extracted from your photographed pages",
+              "why": "The searchable form of your book."
+            },
+            "usage": {
+              "label": "Usage counters (how much you have asked and generated, per day and per month)",
+              "why": "To enforce the allowances of your plan."
+            },
+            "subscription": {
+              "label": "Subscription status and store identifiers",
+              "why": "To grant and maintain what you paid for."
+            },
+            "push": {
+              "label": "Push notification token",
+              "why": "To notify you when a support reply or a long-running task completes."
+            },
+            "timestamps": {
+              "label": "Timestamps of account and content activity",
+              "why": "To order your history and run the deletion process."
+            }
+          }
+        },
+        "notCollect": {
+          "h": "We do not collect",
           "items": {
-            "device": "Device and technical data: device type, operating system, browser, app version, language settings, and general region derived from your IP address.",
-            "usage": "Usage data: pages and screens viewed, features used, subjects and topics studied, session length, and progress through lessons and quizzes.",
-            "logs": "Server logs and diagnostics: timestamps, request details, crash reports, and error traces we use to keep the Service running and secure."
+            "tracking": "Advertising or tracking identifiers. The apps contain no advertising or third-party analytics tracking of any kind.",
+            "location": "Your location. We never request it, and photographs you upload have the camera and location information embedded by your phone removed before they are stored (see section 7).",
+            "payment": "Your payment card details. See section 6.",
+            "other": "Contacts, calendar, microphone or health data."
           },
-          "note": "We do not collect precise location data, and we do not track students across other companies' websites or apps."
-        },
-        "third": {
-          "h": "3.3 Information from schools and third parties",
-          "items": {
-            "school": "Class or roster information a school provides so it can set up accounts, such as a student's name, grade, and class group.",
-            "parent": "Details a parent or guardian gives us when they set up or manage a child's account, or when they exercise a privacy right on the child's behalf.",
-            "providers": "Limited technical information from the infrastructure, analytics, and app store providers we rely on to deliver the Service."
+          "note": "Camera and photo library access are requested only when you choose to photograph or select a page, and only for that purpose."
+        }
+      },
+      "why": {
+        "h": "3. Why we use it, and our legal basis",
+        "p": "Where the GDPR or comparable law applies, our legal bases are:",
+        "colPurpose": "Purpose",
+        "colBasis": "Basis",
+        "rows": {
+          "account": {
+            "purpose": "Creating and running your account; answering your questions; building your books; marking your quizzes",
+            "basis": "Performance of a contract with you"
+          },
+          "allowances": {
+            "purpose": "Enforcing plan allowances; preventing abuse; keeping the service secure",
+            "basis": "Legitimate interests"
+          },
+          "payments": {
+            "purpose": "Processing payments and keeping records of them",
+            "basis": "Contract and legal obligation"
+          },
+          "support": {
+            "purpose": "Responding to support requests and moderating reported content",
+            "basis": "Legitimate interests"
+          },
+          "push": {
+            "purpose": "Sending push notifications",
+            "basis": "Consent, which you give at the system prompt and can withdraw in device settings"
           }
-        }
-      },
-      "use": {
-        "h": "4. How We Use Information",
-        "p": "We use personal data only for the purposes below:",
-        "items": {
-          "provide": "To provide the Service: answering questions, generating quizzes and explanations, saving progress, and syncing across devices.",
-          "personalize": "To personalize learning: matching answers to a student's grade level, language, and the Iraqi MOE curriculum, and suggesting what to practice next.",
-          "improve": "To improve and debug Mamopedia: understanding which features help students learn, measuring answer quality, and fixing problems.",
-          "safety": "To keep the Service safe: preventing abuse, fraud, and unauthorized access, and enforcing our Terms & Conditions.",
-          "support": "To communicate with you: replying to support requests, and sending service notices such as security or policy updates.",
-          "marketing": "To send occasional product updates, but only to people who asked for them - and every message includes a one-click way to stop.",
-          "legal": "To meet legal obligations and to establish, exercise, or defend legal claims."
         },
-        "never": "We do not use student data for behavioural advertising, we do not build advertising profiles, and we do not make decisions producing legal or similarly significant effects about a student by automated means alone."
-      },
-      "bases": {
-        "h": "5. Our Legal Bases for Processing",
-        "p": "Where data protection law such as the GDPR applies to you, we rely on one of these legal bases each time we process personal data:",
-        "items": {
-          "contract": "Performance of a contract - to deliver the Service you or your school signed up for.",
-          "consent": "Consent - for optional things such as newsletters, non-essential analytics, or processing a child's data where consent from a parent or guardian is required. You can withdraw consent at any time.",
-          "legitimate": "Legitimate interests - to secure the Service, prevent abuse, and improve how well Mamopedia teaches, balanced against your rights and expectations.",
-          "legal": "Legal obligation - when a law, regulator, or valid legal order requires us to process or retain information."
-        }
+        "note": "We do not use your content to train AI models, and we do not permit our providers to do so on our behalf. See section 4."
       },
       "ai": {
-        "h": "6. Learning Conversations and AI",
-        "p": "Mamopedia answers questions using AI models, some of which are operated by third-party providers. To produce an answer, the content of your question - and any file you attach to it - is sent to the model that generates the response.",
+        "h": "4. AI processing",
+        "p": "Answering a question requires sending data to a third-party AI provider. Specifically, we send:",
         "items": {
-          "purpose": "Conversations are used to answer the question in front of the student, to track progress, and to improve the quality of Mamopedia's teaching.",
-          "providers": "We choose AI providers that are contractually bound to process our data only on our instructions, and not to use it to train their own general-purpose models.",
-          "review": "A small, access-controlled number of staff may review conversations to investigate a bug, a safety report, or a quality problem. We minimize identifying details wherever we can.",
-          "accuracy": "AI can be wrong. Mamopedia's answers are a study aid, not a substitute for a teacher or an official textbook - please verify anything important.",
-          "sensitive": "Please don't paste sensitive personal information - national ID numbers, health details, or financial data - into a chat. Mamopedia never needs it to help with schoolwork."
-        }
-      },
-      "children": {
-        "h": "7. Children's and Student Privacy",
-        "p": "Mamopedia is designed for school-age students, so protecting children's data is central to how we operate rather than an afterthought. We follow the principle of data minimization: a student is never required to provide more information than the Service genuinely needs.",
-        "items": {
-          "consent": "Where the law requires consent from a parent, guardian, or school before a child's data can be processed, we obtain it before creating the account, and we honour a withdrawal of that consent.",
-          "ads": "We show no advertising to students, and we never sell, rent, or trade student data.",
-          "public": "Students have no public profile on Mamopedia, and their conversations are not visible to other students.",
-          "parents": "Parents and guardians may ask to see, correct, export, or delete their child's data, and may ask us to stop further collection, by writing to us from an address we can verify.",
-          "supervision": "We encourage families to use Mamopedia together, especially with younger children, and to talk about what is and isn't safe to share online."
+          "question": "the question you typed;",
+          "passages": "the passages retrieved from the textbook you selected;",
+          "conversation": "the recent part of that conversation, so the answer follows on;",
+          "images": "for a book you photograph, the page images themselves, so their text can be read back."
         },
-        "pDiscover": "If we learn that we have collected personal data from a child in a way that did not meet the applicable consent requirements, we will delete it promptly."
+        "providers": "Our AI providers are Alibaba Cloud and Google. They process this data as our sub-processors, under contract and on our instructions, solely in order to return a result. They are not permitted to use it for their own purposes or to train their models.",
+        "warning": "Please do not photograph or type anything you would not want processed by a third party, including pages containing personal information about you or anyone else."
       },
       "sharing": {
-        "h": "8. How We Share Information",
-        "p": "We do not sell personal data, and we do not share it for cross-context behavioural advertising. We disclose information only in these situations:",
-        "items": {
-          "providers": "Service providers who operate the Service on our behalf - hosting and cloud infrastructure, AI model providers, analytics, email delivery, and error monitoring. Each is bound by contract to protect the data, use it only for the service they provide us, and delete it when the relationship ends.",
-          "school": "Schools and ministries, where a student's account was created through an institution - limited to that institution's own students and to what it needs for teaching and administration.",
-          "parents": "Parents and guardians exercising rights over a child's account, once we have verified who they are.",
-          "legal": "Authorities, when we are required to respond to a valid legal request, or where disclosure is necessary to protect someone's safety or our legal rights. We review each request and push back on ones that overreach.",
-          "business": "A successor entity, if KeyU.Tech is involved in a merger, acquisition, or transfer of assets - in which case this policy continues to apply and we will notify you before your data becomes subject to a different one.",
-          "aggregate": "Aggregated or de-identified statistics that cannot reasonably be used to identify anyone, such as how many students studied a subject in a term."
-        }
+        "h": "5. Who else we share with",
+        "p": "We share personal data only with service providers acting on our instructions:",
+        "colProvider": "Provider",
+        "colRole": "Role",
+        "colWhere": "Where",
+        "rows": {
+          "google": {
+            "provider": "Google",
+            "role": "Hosting, accounts, data and file storage, push notifications",
+            "where": "United States"
+          },
+          "ai": {
+            "provider": "Alibaba Cloud and Google",
+            "role": "AI processing (section 4)",
+            "where": "Outside the EEA"
+          },
+          "payment": {
+            "provider": "Apple, Google Play and Stripe",
+            "role": "Payment processing (section 6)",
+            "where": "United States and EU"
+          }
+        },
+        "legal": "We also disclose data where we are legally required to, or where it is necessary to establish or defend legal claims, or to protect someone's safety.",
+        "noSell": "We do not sell personal data, and we do not share it for cross-context behavioural advertising"
       },
-      "transfers": {
-        "h": "9. International Data Transfers",
-        "p": "We are based in Iraq, but some of the providers who help us run the Service store or process data in other countries. That means your information may be transferred outside the country where you live.",
-        "pSafeguards": "When we transfer personal data across borders, we put appropriate safeguards in place - such as standard contractual clauses or a transfer to a country recognized as providing adequate protection - so that your data keeps an equivalent level of protection wherever it is processed. You can ask us for details of the safeguards that apply to your data."
+      "payments": {
+        "h": "6. Payments",
+        "p1": "Subscriptions are sold through the Apple App Store, Google Play, or Stripe, depending on the platform you use.",
+        "p2": "Your card details never reach us.",
+        "p3b": "Deleting your Mamopedia account does not cancel a store subscription"
+      },
+      "protect": {
+        "h": "7. How we protect it",
+        "items": {
+          "https": "All traffic is encrypted with HTTPS/TLS.",
+          "password": "Passwords are handled by Firebase Authentication and are never visible to us.",
+          "access": "Your conversations, quizzes and books are readable only by your account. This is enforced on the server, not merely hidden in the app.",
+          "photos": "Photographs of your pages are stored privately, keyed to your account identifier, and are not reachable by a public URL.",
+          "metadata": "removes the metadata your phone embedded in it",
+          "support": "Support conversations and reported content are readable only by the operator accounts that must act on them."
+        },
+        "note": "No system is perfectly secure, and we cannot guarantee absolute security."
       },
       "retention": {
-        "h": "10. How Long We Keep Information",
-        "p": "We keep personal data only as long as we need it for the purpose we collected it for, and then delete or anonymize it. In practice that means:",
-        "items": {
-          "account": "Account data is kept while the account is active, and deleted within 90 days of the account being closed.",
-          "chat": "Learning conversations and progress records are kept while they remain useful to the student's learning history, and can be deleted sooner on request.",
-          "logs": "Technical logs are kept for a short operational period - normally no more than 12 months - and then discarded.",
-          "legal": "Some records are kept longer where a law, a tax or accounting rule, or an unresolved legal claim requires it."
+        "h": "8. How long we keep it",
+        "colData": "Data",
+        "colRetention": "Retention",
+        "rows": {
+          "account": {
+            "label": "Account, conversations, quizzes, books",
+            "retention": "Until you erase them or delete your account"
+          },
+          "usage": {
+            "label": "Usage counters",
+            "retention": "Monthly counters for the current and recent periods; lifetime counters where a plan is a one-off allowance"
+          },
+          "support": {
+            "label": "Support and moderation records",
+            "retention": "Kept after the conversation ends, so that a decision can be reviewed"
+          },
+          "payment": {
+            "label": "Payment and subscription records",
+            "retention": "As long as required by tax and accounting law"
+          },
+          "backups": {
+            "label": "Backups",
+            "retention": "Cleared on the ordinary backup rotation after deletion"
+          }
         }
       },
-      "security": {
-        "h": "11. How We Protect Information",
-        "p": "We use technical and organizational measures appropriate to the sensitivity of student data, including:",
-        "items": {
-          "encryption": "Encryption of data in transit (HTTPS/TLS) and encryption of stored data at rest.",
-          "access": "Access controls, so that staff can reach personal data only where their role genuinely requires it.",
-          "practices": "Secure development practices, dependency updates, and monitoring for unusual activity.",
-          "vendors": "Reviewing the security posture of the providers we rely on before we entrust them with data."
-        },
-        "pBreach": "No system is perfectly secure. If a breach affects your personal data and creates a risk to you, we will notify you and the relevant authority without undue delay, as the law requires."
-      },
       "rights": {
-        "h": "12. Your Rights and Choices",
-        "p": "Depending on where you live, you have some or all of the following rights over your personal data. We extend the core of these rights to every Mamopedia user, wherever they are:",
-        "items": {
-          "access": "Access - ask what personal data we hold about you and get a copy of it.",
-          "rectify": "Correction - have inaccurate or incomplete data fixed.",
-          "erase": "Deletion - ask us to erase your data where we have no overriding reason to keep it.",
-          "restrict": "Restriction - ask us to pause processing while a dispute about your data is resolved.",
-          "portability": "Portability - receive your data in a structured, machine-readable format, or have it sent to another provider.",
-          "object": "Objection - object to processing based on our legitimate interests, and opt out of marketing at any time.",
-          "withdraw": "Withdrawal of consent - withdraw a consent you previously gave, without affecting processing already carried out.",
-          "complain": "Complaint - lodge a complaint with your local data protection authority if you believe we have handled your data wrongly."
-        },
-        "pHowBefore": "To exercise any of these, email ",
-        "pHowAfter": " from the address on the account, or ask a parent, guardian, or school to contact us on the student's behalf. We may need to verify your identity before we act, and we will respond within 30 days. Exercising a right is free, and we will never treat you differently for using one."
+        "h": "9. Your rights and how to use them",
+        "p": "Depending on where you live, you may have the right to access, correct, delete, export, restrict or object to our processing of your data, and to withdraw consent. Two of these are built into the app:",
+        "eraseLabel": "Erase your content.",
+        "eraseText": "Settings → Your data lets you erase your conversations, quizzes and books — separately or together. This is immediate and irreversible.",
+        "deleteLabel": "Delete your account.",
+        "deleteText": "Settings → Your data → Delete account. Your account is scheduled for deletion after a 15-day grace period, and you are signed out of every device. Signing in again during those 15 days cancels the deletion — there is nothing else to click. After that, your account and its content are permanently removed.",
+        "otherBefore": "For anything else — access, correction, export, or a complaint — contact ",
+        "otherAfter": ". We will respond within the period the applicable law requires (one month under the GDPR).",
+        "complaintBefore": "You also have the right to complain to a supervisory authority. Ours is the Estonian Data Protection Inspectorate (Andmekaitse Inspektsioon), Tatari 39, 10134 Tallinn, Estonia — ",
+        "complaintLinkText": "www.aki.ee",
+        "complaintAfter": ". If you live in another EU or EEA country, you may complain to your local authority instead."
       },
-      "cookies": {
-        "h": "13. Cookies and Similar Technologies",
-        "p": "Our website uses a small number of cookies and similar storage technologies. Strictly necessary ones keep you signed in and keep the site secure. Preference storage remembers your language and light or dark theme choice - on this site those are held in your browser's local storage and never leave your device. Analytics storage, where used, helps us understand which pages and features are useful, in aggregate.",
-        "pControl": "You can clear or block cookies and local storage in your browser settings, and where consent is required for non-essential cookies we ask for it first. Blocking strictly necessary storage may stop parts of the Service from working."
+      "children": {
+        "h": "10. Children and students",
+        "p1": "Mamopedia is a study tool built for school students, so we expect many of our users to be minors.",
+        "p2": "You must be at least 13 years old to create an account.",
+        "p3Before": "We do not knowingly collect personal data from a child below the applicable age without the consent that the law requires. If you believe a child has provided us with personal data without that consent, contact ",
+        "p3After": " and we will delete the account and its content.",
+        "p4": "Children have the same rights as everyone else under section 9, and a parent or guardian may exercise them on the child's behalf."
       },
-      "links": {
-        "h": "14. Third-Party Links and Services",
-        "p": "Mamopedia links to other places - app stores, social media, and educational resources - and those sites have their own privacy policies. We do not control them and are not responsible for their practices, so please read their policies before sharing information with them."
+      "transfers": {
+        "h": "11. International transfers",
+        "p1": "We are established in Estonia, in the European Union, so the GDPR governs our processing — including for users outside the EU.",
+        "p2": "Our infrastructure sits in the United States, and AI processing may take place outside the EEA as well (section 4). Your data is therefore transferred out of the European Economic Area to countries whose data protection laws differ from the EU's.",
+        "p3Before": "For those transfers we rely on the European Commission's Standard Contractual Clauses, incorporated into our agreements with the providers named in section 5, together with any additional safeguards those agreements require. Where a provider is certified under the EU–US Data Privacy Framework, we rely on that adequacy decision instead. You may request a copy of the relevant safeguards by writing to ",
+        "p3After": "."
       },
       "changes": {
-        "h": "15. Changes to This Policy",
-        "p": "We update this policy as Mamopedia grows and as the law changes. When we do, we revise the \"last updated\" date at the top of the page. If a change materially affects how we use personal data, we will give clear notice - by email or in the app - before it takes effect, and where the law requires it we will ask for consent again."
+        "h": "12. Changes to this policy",
+        "p": "We will update this page when our practices change, and revise the “Last updated” date above. If a change materially affects your rights, we will give notice in the app before it takes effect."
       },
       "contact": {
-        "h": "16. How to Contact Us",
-        "pBefore": "For any privacy question, request, or complaint, email us at ",
-        "pAfter": " and write \"Privacy\" in the subject line. We read every message and aim to reply within 30 days.",
-        "pAddress": "KeyU.Tech - Erbil, Kurdistan Region, Iraq."
+        "h": "13. Contact",
+        "company": "KeyU Tech OÜ",
+        "registry": "Registry code 17525103",
+        "address1": "Lõõtsa tn 5, Lasnamäe linnaosa",
+        "address2": "11415 Tallinn, Estonia"
       }
     }
   },

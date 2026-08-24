@@ -159,3 +159,41 @@
 }
 
 .legal-body section { scroll-margin-block-start: 1.5rem; }
+
+/* --------- Data tables --------- */
+.legal-table-wrap {
+  margin-block-start: 1rem;
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 0.75rem;
+}
+
+.legal-table-wrap table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9375rem;
+}
+
+.legal-table-wrap th,
+.legal-table-wrap td {
+  padding: 0.75rem 1rem;
+  text-align: start;
+  vertical-align: top;
+}
+
+.legal-table-wrap th {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--fg-3);
+  background-color: var(--bg-raised);
+  white-space: nowrap;
+}
+
+.legal-table-wrap td {
+  color: var(--fg-2);
+  border-block-start: 1px solid var(--line);
+}
+
+.legal-table-wrap tr:first-child td { border-block-start: none; }
