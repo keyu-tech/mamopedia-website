@@ -1126,12 +1126,26 @@ textarea.field-input { min-height: 7rem; line-height: 1.5; }
   transition: transform 0.4s ease;
 }
 .try-phone img {
-  width: 100%;
-  height: 100%;
+  position: absolute;
+  inset: 6px;
+  width: calc(100% - 12px);
+  height: calc(100% - 12px);
   border-radius: 22px;
   object-fit: cover;
+  object-position: top;
   background: var(--md-sys-color-surface);
   display: block;
+  transition: opacity 0.4s ease;
+}
+/* Each phone carries a light and a dark screenshot of the real app; the one
+   matching the active theme (manual toggle first, then OS preference)
+   cross-fades in. */
+.try-phone .shot-dark { opacity: 0; }
+:root[data-theme="dark"] .try-phone .shot-light { opacity: 0; }
+:root[data-theme="dark"] .try-phone .shot-dark  { opacity: 1; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) .try-phone .shot-light { opacity: 0; }
+  :root:not([data-theme]) .try-phone .shot-dark  { opacity: 1; }
 }
 .try-phone-back-left  { transform: translate(-95%, -50%) rotate(-9deg) scale(0.88); opacity: 0.85; z-index: 1; }
 .try-phone-back-right { transform: translate(-5%, -50%)  rotate(9deg)  scale(0.88); opacity: 0.85; z-index: 1; }
